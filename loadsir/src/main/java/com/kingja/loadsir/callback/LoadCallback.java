@@ -11,12 +11,18 @@ import android.view.View;
  * Email:kingjavip@gmail.com
  */
 public abstract class LoadCallback {
-    protected View rootView;
+    private View rootView;
     private Context context;
     private OnReloadListener onReloadListener;
 
 
     public LoadCallback() {
+    }
+
+    LoadCallback(View view, Context context, OnReloadListener onReloadListener) {
+        this.rootView = view;
+        this.context = context;
+        this.onReloadListener = onReloadListener;
     }
     public LoadCallback setCallback(View view, Context context, OnReloadListener onReloadListener) {
         this.rootView = view;
@@ -31,7 +37,6 @@ public abstract class LoadCallback {
             return rootView;
         }
         rootView = View.inflate(context,onCreateView(),null);
-
         rootView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

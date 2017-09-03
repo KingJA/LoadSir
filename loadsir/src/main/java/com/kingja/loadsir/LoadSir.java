@@ -19,17 +19,15 @@ import java.util.List;
  * Email:kingjavip@gmail.com
  */
 public class LoadSir {
-    private LoadCallback.OnReloadListener onReloadListener;
     private LoadLayout loadLayout;
     private static Builder builder = new Builder();
-
 
     public LoadSir(Builder builder) {
         LoadSir.builder = builder;
     }
 
     private LoadSir(Object target, LoadCallback.OnReloadListener onReloadListener) {
-        ViewGroup contentParent = null;
+        ViewGroup contentParent;
         Context context;
         if (target instanceof Activity) {
             Activity activity = (Activity) target;
@@ -67,14 +65,14 @@ public class LoadSir {
 
         ViewGroup.LayoutParams lp = oldContent.getLayoutParams();
         contentParent.addView(loadLayout, index, lp);
-        loadLayout.addDefaultLoadCallback(DefaultCallback.createContentCallback(oldContent, context, onReloadListener));
+        loadLayout.addLoadCallback(DefaultCallback.createContentCallback(oldContent, context, onReloadListener));
         addLoadCallbacks(builder);
 
     }
 
     private void addLoadCallbacks(Builder builder) {
         for (LoadCallback loadCallback : builder.loadCallbacks) {
-            loadLayout.addLoadCallback(loadCallback);
+            loadLayout.addCustomLoadCallback(loadCallback);
         }
     }
 
@@ -86,7 +84,6 @@ public class LoadSir {
         loadLayout.showStatus(status);
     }
 
-
     public static class Builder {
         private List<LoadCallback> loadCallbacks = new ArrayList<>();
 
@@ -96,6 +93,11 @@ public class LoadSir {
 
         public Builder add(LoadCallback callback) {
             loadCallbacks.add(callback);
+            return this;
+        }
+
+        public Builder add(List<LoadCallback> callbacks) {
+            loadCallbacks.addAll(callbacks);
             return this;
         }
 

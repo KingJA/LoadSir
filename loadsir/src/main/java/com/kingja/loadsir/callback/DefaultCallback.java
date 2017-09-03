@@ -10,13 +10,13 @@ import com.kingja.loadsir.R;
  */
 
 public class DefaultCallback {
-    public static final int CONTENT_CALLBACK=0x00;
-    public static final int LOADING_CALLBACK=0x01;
-    public static final int ERROR_CALLBACK=0x02;
+    public static final int CONTENT_CALLBACK = 0x00;
+    public static final int LOADING_CALLBACK = 0x01;
+    public static final int ERROR_CALLBACK = 0x02;
 
     public static LoadCallback createErrorCallback(View view, Context context, LoadCallback.OnReloadListener onReloadListener) {
 
-        return new LoadCallback(){
+        return new LoadCallback(view, context, onReloadListener) {
 
             @Override
             protected int onCreateView() {
@@ -27,11 +27,11 @@ public class DefaultCallback {
             public int getStatus() {
                 return ERROR_CALLBACK;
             }
-        }.setCallback(view,context,onReloadListener);
+        };
     }
 
     public static LoadCallback createLoadingCallback(View view, Context context, LoadCallback.OnReloadListener onReloadListener) {
-        return new LoadCallback() {
+        return new LoadCallback(view, context, onReloadListener) {
 
             @Override
             protected int onCreateView() {
@@ -42,11 +42,11 @@ public class DefaultCallback {
             public int getStatus() {
                 return LOADING_CALLBACK;
             }
-        }.setCallback(view,context,onReloadListener);
+        };
     }
 
     public static LoadCallback createContentCallback(View view, Context context, LoadCallback.OnReloadListener onReloadListener) {
-        return new LoadCallback() {
+        return new LoadCallback(view, context, onReloadListener) {
 
             @Override
             protected int onCreateView() {
@@ -57,6 +57,6 @@ public class DefaultCallback {
             public int getStatus() {
                 return CONTENT_CALLBACK;
             }
-        }.setCallback(view,context,onReloadListener);
+        };
     }
 }
