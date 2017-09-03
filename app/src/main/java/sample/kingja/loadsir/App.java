@@ -12,6 +12,9 @@ public class App extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
-        new LoadSir.Builder().add(new CustomCallback()).build();
+        new LoadSir.Builder()
+                .add(new CustomCallback())
+                .setErrorLayout(R.layout.layout_custom_error)
+                .build();
     }
 }

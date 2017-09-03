@@ -70,6 +70,10 @@ public class LoadSir {
 
     }
 
+    public static Builder getBuilder() {
+        return builder;
+    }
+
     private void addLoadCallbacks(Builder builder) {
         for (LoadCallback loadCallback : builder.loadCallbacks) {
             loadLayout.addCustomLoadCallback(loadCallback);
@@ -86,9 +90,27 @@ public class LoadSir {
 
     public static class Builder {
         private List<LoadCallback> loadCallbacks = new ArrayList<>();
+        private int errorLayout = R.layout.layout_error;
+        private int loadingLayout = R.layout.layout_loading;
+        private int emptyLayout = R.layout.layout_empty;
 
         public LoadSir build() {
             return new LoadSir(this);
+        }
+
+        public Builder setErrorLayout(int errorLayout) {
+            this.errorLayout = errorLayout;
+            return this;
+        }
+
+        public Builder setLoadingLayout(int loadingLayout) {
+            this.loadingLayout = loadingLayout;
+            return this;
+        }
+
+        public Builder setEmptyLayout(int emptyLayout) {
+            this.emptyLayout = emptyLayout;
+            return this;
         }
 
         public Builder add(LoadCallback callback) {
@@ -101,6 +123,17 @@ public class LoadSir {
             return this;
         }
 
+        public int getErrorLayout() {
+            return errorLayout;
+        }
+
+        public int getLoadingLayout() {
+            return loadingLayout;
+        }
+
+        public int getEmptyLayout() {
+            return emptyLayout;
+        }
     }
 
 }

@@ -25,7 +25,7 @@ public class LoadSirActivity extends AppCompatActivity {
         loadSir = LoadSir.callLoadSir(this, new LoadCallback.OnReloadListener() {
             @Override
             public void onReload(View v) {
-                showSuccess();
+                showEmpty();
             }
         });
         loadSir.showLoadCallback(DefaultCallback.LOADING_CALLBACK);
@@ -34,10 +34,18 @@ public class LoadSirActivity extends AppCompatActivity {
             public void run() {
                 loadSir.showLoadCallback(CustomCallback.CUSTOM_CALLBACK);
             }
-        },2000);
+        }, 2000);
     }
 
     private void showSuccess() {
         loadSir.showLoadCallback(DefaultCallback.CONTENT_CALLBACK);
+    }
+
+    private void showError() {
+        loadSir.showLoadCallback(DefaultCallback.ERROR_CALLBACK);
+    }
+
+    private void showEmpty() {
+        loadSir.showLoadCallback(DefaultCallback.EMPTY_CALLBACK);
     }
 }

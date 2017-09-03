@@ -10,7 +10,7 @@ import com.kingja.loadsir.callback.LoadCallback;
  */
 
 public class CustomCallback extends LoadCallback {
-    public static final int CUSTOM_CALLBACK=0x03;
+    public static final int CUSTOM_CALLBACK=4;
 
     @Override
     protected int onCreateView() {
