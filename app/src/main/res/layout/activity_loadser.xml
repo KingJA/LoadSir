@@ -4,12 +4,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="sample.kingja.loadsir.MainActivity">
+    tools:context="sample.kingja.loadsir.MainActivity"
+    android:gravity="center">
 
-    <Button
-        android:onClick="inActivity"
-        android:layout_width="match_parent"
+    <TextView
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="in Activity"/>
+        android:text="Content in Activity"/>
 
 </LinearLayout>
