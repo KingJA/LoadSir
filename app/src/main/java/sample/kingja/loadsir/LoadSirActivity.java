@@ -4,7 +4,6 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.View;
 
 import com.kingja.loadsir.LoadSir;
@@ -33,7 +32,7 @@ public class LoadSirActivity extends AppCompatActivity {
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                loadSir.showLoadCallback(DefaultCallback.ERROR_CALLBACK);
+                loadSir.showLoadCallback(CustomCallback.CUSTOM_CALLBACK);
             }
         },2000);
     }

@@ -16,17 +16,27 @@ import java.util.Map;
 
 public class LoadLayout extends FrameLayout {
     private Map<Integer, LoadCallback> callbacks = new HashMap<>();
+    private Context context;
+    private LoadCallback.OnReloadListener onReloadListener;
 
     public LoadLayout(@NonNull Context context, LoadCallback.OnReloadListener onReloadListener) {
         super(context);
-        addLoadCallback(DefaultCallback.createErrorCallback(null,context,onReloadListener));
-        addLoadCallback(DefaultCallback.createLoadingCallback(null,context,onReloadListener));
+        this.context = context;
+        this.onReloadListener = onReloadListener;
+        addDefaultLoadCallback(DefaultCallback.createErrorCallback(null, context, onReloadListener));
+        addDefaultLoadCallback(DefaultCallback.createLoadingCallback(null, context, onReloadListener));
     }
 
 
-    public void addLoadCallback(LoadCallback loadCallback) {
+    public void addDefaultLoadCallback(LoadCallback loadCallback) {
         addView(loadCallback.getRootView());
-        callbacks.put(loadCallback.getStatus(),loadCallback);
+        callbacks.put(loadCallback.getStatus(), loadCallback);
+    }
+
+    public void addLoadCallback(LoadCallback loadCallback) {
+        loadCallback.setCallback(null, context, onReloadListener);
+        addView(loadCallback.getRootView());
+        callbacks.put(loadCallback.getStatus(), loadCallback);
     }
 
     public void showStatus(int status) {
@@ -34,7 +44,7 @@ public class LoadLayout extends FrameLayout {
             LoadCallback loadCallback = callbacks.get(key);
             if (key == status) {
                 loadCallback.show();
-            }else{
+            } else {
                 loadCallback.hide();
             }
         }

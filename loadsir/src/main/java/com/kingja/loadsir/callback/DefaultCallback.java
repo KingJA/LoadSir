@@ -15,44 +15,48 @@ public class DefaultCallback {
     public static final int ERROR_CALLBACK=0x02;
 
     public static LoadCallback createErrorCallback(View view, Context context, LoadCallback.OnReloadListener onReloadListener) {
-        return new LoadCallback(view, context,onReloadListener){
+
+        return new LoadCallback(){
+
             @Override
-            protected View onCreateView(Context context) {
-                return View.inflate(context, R.layout.layout_error,null);
+            protected int onCreateView() {
+                return R.layout.layout_error;
             }
 
             @Override
             public int getStatus() {
                 return ERROR_CALLBACK;
             }
-        };
+        }.setCallback(view,context,onReloadListener);
     }
 
     public static LoadCallback createLoadingCallback(View view, Context context, LoadCallback.OnReloadListener onReloadListener) {
-        return new LoadCallback(view, context,onReloadListener) {
+        return new LoadCallback() {
+
             @Override
-            protected View onCreateView(Context context) {
-                return View.inflate(context, R.layout.layout_loading, null);
+            protected int onCreateView() {
+                return R.layout.layout_loading;
             }
 
             @Override
             public int getStatus() {
                 return LOADING_CALLBACK;
             }
-        };
+        }.setCallback(view,context,onReloadListener);
     }
 
     public static LoadCallback createContentCallback(View view, Context context, LoadCallback.OnReloadListener onReloadListener) {
-        return new LoadCallback(view, context,onReloadListener) {
+        return new LoadCallback() {
+
             @Override
-            protected View onCreateView(Context context) {
-                return null;
+            protected int onCreateView() {
+                return 0;
             }
 
             @Override
             public int getStatus() {
                 return CONTENT_CALLBACK;
             }
-        };
+        }.setCallback(view,context,onReloadListener);
     }
 }

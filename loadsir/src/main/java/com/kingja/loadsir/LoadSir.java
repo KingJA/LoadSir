@@ -9,6 +9,9 @@ import android.view.ViewGroup;
 import com.kingja.loadsir.callback.DefaultCallback;
 import com.kingja.loadsir.callback.LoadCallback;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * Description:TODO
  * Create Time:2017/9/2 16:36
@@ -18,11 +21,11 @@ import com.kingja.loadsir.callback.LoadCallback;
 public class LoadSir {
     private LoadCallback.OnReloadListener onReloadListener;
     private LoadLayout loadLayout;
-    private Builder builder = new Builder();
+    private static Builder builder = new Builder();
 
 
     public LoadSir(Builder builder) {
-
+        LoadSir.builder = builder;
     }
 
     private LoadSir(Object target, LoadCallback.OnReloadListener onReloadListener) {
@@ -60,11 +63,19 @@ public class LoadSir {
         }
         contentParent.removeView(oldContent);
         //setup content layout
-        loadLayout = new LoadLayout(context,onReloadListener);
+        loadLayout = new LoadLayout(context, onReloadListener);
 
         ViewGroup.LayoutParams lp = oldContent.getLayoutParams();
         contentParent.addView(loadLayout, index, lp);
-        loadLayout.addLoadCallback(DefaultCallback.createContentCallback(oldContent, context,onReloadListener));
+        loadLayout.addDefaultLoadCallback(DefaultCallback.createContentCallback(oldContent, context, onReloadListener));
+        addLoadCallbacks(builder);
+
+    }
+
+    private void addLoadCallbacks(Builder builder) {
+        for (LoadCallback loadCallback : builder.loadCallbacks) {
+            loadLayout.addLoadCallback(loadCallback);
+        }
     }
 
     public static LoadSir callLoadSir(Object target, LoadCallback.OnReloadListener onReloadListener) {
@@ -76,11 +87,16 @@ public class LoadSir {
     }
 
 
-
     public static class Builder {
+        private List<LoadCallback> loadCallbacks = new ArrayList<>();
 
         public LoadSir build() {
             return new LoadSir(this);
+        }
+
+        public Builder add(LoadCallback callback) {
+            loadCallbacks.add(callback);
+            return this;
         }
 
     }

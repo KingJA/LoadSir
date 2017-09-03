@@ -16,18 +16,22 @@ public abstract class LoadCallback {
     private OnReloadListener onReloadListener;
 
 
-    public LoadCallback(View view, Context context, OnReloadListener onReloadListener) {
+    public LoadCallback() {
+    }
+    public LoadCallback setCallback(View view, Context context, OnReloadListener onReloadListener) {
         this.rootView = view;
         this.context = context;
         this.onReloadListener = onReloadListener;
+        return this;
     }
 
-
     public View getRootView() {
-        View view = onCreateView(context);
-        if (view != null) {
-            this.rootView = view;
+        int resId=onCreateView();
+        if (resId == 0) {
+            return rootView;
         }
+        rootView = View.inflate(context,onCreateView(),null);
+
         rootView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -39,8 +43,7 @@ public abstract class LoadCallback {
         return rootView;
     }
 
-    protected abstract View onCreateView(Context context);
-
+    protected abstract int onCreateView();
 
     public abstract int getStatus();
 
