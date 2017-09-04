@@ -5,6 +5,18 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
+import sample.kingja.loadsir.target.FragmentTargetActivity;
+import sample.kingja.loadsir.target.ActivityTargetActivity;
+import sample.kingja.loadsir.target.ConvertorActivity;
+import sample.kingja.loadsir.target.ViewTargetActivity;
+
+/**
+ * Description:TODO
+ * Create Time:2017/9/2 16:02
+ * Author:KingJA
+ * Email:kingjavip@gmail.com
+ */
+
 public class MainActivity extends AppCompatActivity {
 
     @Override
@@ -14,6 +26,18 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void inActivity(View view) {
-        startActivity(new Intent(this, LoadSirActivity.class));
+        startActivity(new Intent(this, ActivityTargetActivity.class));
+    }
+
+    public void inActivityWithConvertor(View view) {
+        startActivity(new Intent(this, ConvertorActivity.class));
+    }
+
+    public void inFragment(View view) {
+        startActivity(new Intent(this, FragmentTargetActivity.class));
+    }
+
+    public void inView(View view) {
+        startActivity(new Intent(this,ViewTargetActivity.class));
     }
 }

@@ -4,12 +4,34 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context="sample.kingja.loadsir.MainActivity">
 
     <Button
-        android:onClick="inActivity"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="in Activity"/>
+        android:onClick="inActivity"
+        android:text="in Activity(empty)"
+        android:textAllCaps="false"/>
 
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="inActivityWithConvertor"
+        android:text="in Activity with Convertor(error)"
+        android:textAllCaps="false"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="inFragment"
+        android:text="in Fragment(custom)"
+        android:textAllCaps="false"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="inView"
+        android:text="in View"
+        android:textAllCaps="false"/>
 </LinearLayout>

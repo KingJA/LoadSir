@@ -4,15 +4,16 @@
     android:layout_height="match_parent"
     android:gravity="center"
     android:orientation="vertical">
+    <TextView
+        android:textSize="30sp"
+        android:textColor="#333333"
+        android:text="Success"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
 
     <TextView
-        android:textSize="18sp"
-        android:textColor="#333333"
+        android:text="fragment content"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="OMG! What's wrong?!"/>
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="click me to retry!"/>
+        android:layout_height="wrap_content"/>
+
 </LinearLayout>

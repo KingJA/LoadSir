@@ -19,7 +19,10 @@
 
 
         </activity>
-        <activity android:name=".LoadSirActivity"/>
+        <activity android:name=".target.ActivityTargetActivity"/>
+        <activity android:name=".target.ConvertorActivity"/>
+        <activity android:name=".target.FragmentTargetActivity"/>
+        <activity android:name=".target.ViewTargetActivity"/>
     </application>
 
 </manifest>

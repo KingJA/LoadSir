@@ -5,7 +5,15 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="sample.kingja.loadsir.MainActivity"
-    android:gravity="center">
+    android:gravity="center"
+    android:orientation="vertical">
+
+    <TextView
+        android:textSize="30sp"
+        android:textColor="#333333"
+        android:text="Success"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
 
     <TextView
         android:layout_width="wrap_content"

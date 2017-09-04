@@ -10,21 +10,21 @@ import android.view.View;
  * Author:KingJA
  * Email:kingjavip@gmail.com
  */
-public abstract class LoadCallback {
+public abstract class Callback {
     private View rootView;
     private Context context;
     private OnReloadListener onReloadListener;
 
-
-    public LoadCallback() {
+    public Callback() {
     }
 
-    LoadCallback(View view, Context context, OnReloadListener onReloadListener) {
+    Callback(View view, Context context, OnReloadListener onReloadListener) {
         this.rootView = view;
         this.context = context;
         this.onReloadListener = onReloadListener;
     }
-    public LoadCallback setCallback(View view, Context context, OnReloadListener onReloadListener) {
+
+    public Callback setCallback(View view, Context context, OnReloadListener onReloadListener) {
         this.rootView = view;
         this.context = context;
         this.onReloadListener = onReloadListener;
@@ -32,14 +32,17 @@ public abstract class LoadCallback {
     }
 
     public View getRootView() {
-        int resId=onCreateView();
+        int resId = onCreateView();
         if (resId == 0) {
             return rootView;
         }
-        rootView = View.inflate(context,onCreateView(),null);
+        rootView = View.inflate(context, onCreateView(), null);
         rootView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if (onSingleRetry(context, rootView)) {
+                    return;
+                }
                 if (onReloadListener != null) {
                     onReloadListener.onReload(v);
                 }
@@ -47,10 +50,6 @@ public abstract class LoadCallback {
         });
         return rootView;
     }
-
-    protected abstract int onCreateView();
-
-    public abstract int getStatus();
 
     public void hide() {
         rootView.setVisibility(View.GONE);
@@ -62,6 +61,12 @@ public abstract class LoadCallback {
 
     public interface OnReloadListener {
         void onReload(View v);
+    }
+
+    protected abstract int onCreateView();
+
+    protected boolean onSingleRetry(Context context, View view) {
+        return false;
     }
 
 }
