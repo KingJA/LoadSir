@@ -1,14 +1,11 @@
 package com.kingja.loadsir.core;
 
 import android.content.Context;
-import android.os.Looper;
 import android.support.annotation.NonNull;
 import android.widget.FrameLayout;
 
+import com.kingja.loadsir.Util;
 import com.kingja.loadsir.callback.Callback;
-import com.kingja.loadsir.callback.EmptyCallback;
-import com.kingja.loadsir.callback.ErrorCallback;
-import com.kingja.loadsir.callback.LoadingCallback;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -33,17 +30,14 @@ class LoadLayout extends FrameLayout {
         this(context);
         this.context = context;
         this.onReloadListener = onReloadListener;
-        addCustomLoadCallback(new ErrorCallback());
-        addCustomLoadCallback(new EmptyCallback());
-        addCustomLoadCallback(new LoadingCallback());
     }
 
-    public void addCustomLoadCallback(Callback callback) {
+    public void setupCallback(Callback callback) {
         callback.setCallback(null, context, onReloadListener);
-        addLoadCallback(callback);
+        addCallback(callback);
     }
 
-    public void addLoadCallback(Callback callback) {
+    public void addCallback(Callback callback) {
         addView(callback.getRootView());
         callbacks.put(callback.getClass(), callback);
     }
@@ -53,7 +47,7 @@ class LoadLayout extends FrameLayout {
             throw new IllegalArgumentException(String.format("The Callback (%s) is nonexistent.", status
                     .getSimpleName()));
         }
-        if (isMainThread()) {
+        if (Util.isMainThread()) {
             setCallbackVisibility(status);
         } else {
             post(new Runnable() {
@@ -75,7 +69,4 @@ class LoadLayout extends FrameLayout {
         }
     }
 
-    private boolean isMainThread() {
-        return Looper.myLooper() == Looper.getMainLooper();
-    }
 }

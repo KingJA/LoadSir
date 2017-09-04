@@ -6,19 +6,19 @@
               android:orientation="vertical">
 
     <ImageView
+     android:layout_marginBottom="4dp"
         android:layout_width="80dp"
         android:layout_height="80dp"
-        android:layout_marginBottom="4dp"
-        android:background="@drawable/custom"/>
+        android:background="@drawable/timeout"/>
 
     <TextView
         android:textSize="18sp"
         android:textColor="#333333"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="custom page(Callback)"/>
+        android:text="Oh no,timeout."/>
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="You can declare your own retry logic!"/>
+        android:text="click me to retry!"/>
 </LinearLayout>

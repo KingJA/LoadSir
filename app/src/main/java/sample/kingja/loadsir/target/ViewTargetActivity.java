@@ -8,6 +8,7 @@ import android.widget.ImageView;
 
 import com.kingja.loadsir.callback.Callback;
 import com.kingja.loadsir.callback.ErrorCallback;
+import com.kingja.loadsir.callback.LoadingCallback;
 import com.kingja.loadsir.callback.SuccessCallback;
 import com.kingja.loadsir.core.LoadSir;
 

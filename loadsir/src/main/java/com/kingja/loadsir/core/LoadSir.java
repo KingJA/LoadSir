@@ -1,12 +1,12 @@
 package com.kingja.loadsir.core;
 
-import android.app.Activity;
-import android.content.Context;
-import android.view.View;
 import android.view.ViewGroup;
 
 import com.kingja.loadsir.R;
+import com.kingja.loadsir.Util;
 import com.kingja.loadsir.callback.Callback;
+import com.kingja.loadsir.callback.EmptyCallback;
+import com.kingja.loadsir.callback.ErrorCallback;
 import com.kingja.loadsir.callback.LoadingCallback;
 import com.kingja.loadsir.callback.SuccessCallback;
 import com.kingja.loadsir.convertor.Convertor;
@@ -21,7 +21,7 @@ import java.util.List;
  * Email:kingjavip@gmail.com
  */
 public class LoadSir {
-    private LoadLayout loadLayout;
+    private LoadLayout mLoadLayout;
     private static Builder builder = new Builder();
     private Convertor convertor;
 
@@ -31,60 +31,32 @@ public class LoadSir {
 
     private <T> LoadSir(Object target, Callback.OnReloadListener onReloadListener, Convertor<T> convertor) {
         this.convertor = convertor;
-        ViewGroup contentParent;
-        Context context;
-        if (target instanceof Activity) {
-            Activity activity = (Activity) target;
-            context = activity;
-            contentParent = (ViewGroup) activity.findViewById(android.R.id.content);
-        } else if (target instanceof android.support.v4.app.Fragment) {
-            android.support.v4.app.Fragment fragment = (android.support.v4.app.Fragment) target;
-            context = fragment.getActivity();
-            contentParent = (ViewGroup) (fragment.getView().getParent());
-        } else if (target instanceof android.app.Fragment) {
-            android.app.Fragment fragment = (android.app.Fragment) target;
-            context = fragment.getActivity();
-            contentParent = (ViewGroup) (fragment.getView().getParent());
-        } else if (target instanceof View) {
-            View view = (View) target;
-            contentParent = (ViewGroup) (view.getParent());
-            context = view.getContext();
-        } else {
-            throw new IllegalArgumentException("The target must be within Activity, Fragment, View.");
-        }
-        int childCount = contentParent.getChildCount();
-        //get contentParent
-        int index = 0;
-        View oldContent;
-        if (target instanceof View) {
-            oldContent = (View) target;
-            for (int i = 0; i < childCount; i++) {
-                if (contentParent.getChildAt(i) == oldContent) {
-                    index = i;
-                    break;
-                }
-            }
-        } else {
-            oldContent = contentParent.getChildAt(0);
-        }
-        contentParent.removeView(oldContent);
-        //setup content layout
-        loadLayout = new LoadLayout(context, onReloadListener);
-        ViewGroup.LayoutParams lp = oldContent.getLayoutParams();
-        contentParent.addView(loadLayout, index, lp);
-        loadLayout.addLoadCallback(new SuccessCallback(oldContent, context, onReloadListener));
-        addLoadCallbacks(builder);
-        showWithStatus(LoadingCallback.class);
+        TargetContext targetContext = Util.getTargetContext(target);
+        mLoadLayout = new LoadLayout(targetContext.getContext(), onReloadListener);
+        ViewGroup.LayoutParams lp = targetContext.getOldContent().getLayoutParams();
+        targetContext.getParentView().addView(mLoadLayout, targetContext.getChildIndex(), lp);
+        mLoadLayout.addCallback(new SuccessCallback(targetContext.getOldContent(), targetContext.getContext(),
+                onReloadListener));
+        initLoadCallback();
 
+    }
+
+    private void initLoadCallback() {
+        addLoadCallbacks(builder.callbacks);
+        setInitializeCallback(builder.initializeCallback);
+    }
+
+    public void setInitializeCallback(Class<? extends Callback> initializeCallback) {
+        mLoadLayout.showStatus(initializeCallback);
     }
 
     public static Builder getBuilder() {
         return builder;
     }
 
-    private void addLoadCallbacks(Builder builder) {
-        for (Callback callback : builder.callbacks) {
-            loadLayout.addCustomLoadCallback(callback);
+    private void addLoadCallbacks(List<Callback> callbacks) {
+        for (Callback callback : callbacks) {
+            mLoadLayout.setupCallback(callback);
         }
     }
 
@@ -98,12 +70,14 @@ public class LoadSir {
     }
 
     public void showWithStatus(Class<? extends Callback> status) {
-        loadLayout.showStatus(status);
+        mLoadLayout.showStatus(status);
     }
 
     public <T> void showWithConvertor(T t) {
         if (convertor != null) {
-            loadLayout.showStatus(convertor.change2Callback(t));
+            mLoadLayout.showStatus(convertor.change2Callback(t));
+        } else {
+            throw new IllegalArgumentException("You haven't set the Convertor.");
         }
     }
 
@@ -112,6 +86,7 @@ public class LoadSir {
         private int errorLayout = R.layout.layout_error;
         private int loadingLayout = R.layout.layout_loading;
         private int emptyLayout = R.layout.layout_empty;
+        private Class<? extends Callback> initializeCallback = LoadingCallback.class;
 
         public Builder setErrorLayout(int errorLayout) {
             this.errorLayout = errorLayout;
@@ -140,6 +115,11 @@ public class LoadSir {
             return emptyLayout;
         }
 
+        public Builder setInitializeCallback(Class<? extends Callback> initializeCallback) {
+            this.initializeCallback = initializeCallback;
+            return this;
+        }
+
         public Builder add(Callback callback) {
             callbacks.add(callback);
             return this;
@@ -151,9 +131,15 @@ public class LoadSir {
         }
 
         public LoadSir build() {
+            addDefaultCallback();
             return new LoadSir(this);
         }
-    }
 
+        private void addDefaultCallback() {
+            callbacks.add(new ErrorCallback());
+            callbacks.add(new EmptyCallback());
+            callbacks.add(new LoadingCallback());
+        }
+    }
 
 }

@@ -6,6 +6,7 @@ import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
+import com.kingja.loadsir.callback.LoadingCallback;
 import com.kingja.loadsir.core.LoadSir;
 import com.kingja.loadsir.callback.Callback;
 import com.kingja.loadsir.callback.EmptyCallback;
@@ -74,8 +75,5 @@ public class ConvertorActivity extends AppCompatActivity {
             return resultCode;
         }
 
-        public void setResultCode(int resultCode) {
-            this.resultCode = resultCode;
-        }
     }
 }

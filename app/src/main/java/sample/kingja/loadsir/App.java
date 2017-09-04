@@ -25,6 +25,7 @@ public class App extends Application {
         // Normal app init code...
         new LoadSir.Builder()
                 .add(new CustomCallback())
+                .add(new TimeoutCallback())
                 .build();
     }
 }

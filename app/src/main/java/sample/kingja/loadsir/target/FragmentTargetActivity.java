@@ -10,6 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.kingja.loadsir.callback.Callback;
+import com.kingja.loadsir.callback.LoadingCallback;
 import com.kingja.loadsir.callback.SuccessCallback;
 import com.kingja.loadsir.core.LoadSir;
 
@@ -35,7 +36,6 @@ public class FragmentTargetActivity extends AppCompatActivity {
 
 
     public static class LoadSirFragment extends Fragment {
-
         private LoadSir loadSir;
 
         @Nullable
