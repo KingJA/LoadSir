@@ -67,6 +67,7 @@ public class LoadSir {
         contentParent.addView(loadLayout, index, lp);
         loadLayout.addLoadCallback(DefaultCallback.createContentCallback(oldContent, context, onReloadListener));
         addLoadCallbacks(builder);
+        showLoadCallback(DefaultCallback.LOADING_CALLBACK);
 
     }
 

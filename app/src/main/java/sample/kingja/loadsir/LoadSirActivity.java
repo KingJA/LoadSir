@@ -10,6 +10,7 @@ import com.kingja.loadsir.LoadSir;
 import com.kingja.loadsir.callback.DefaultCallback;
 import com.kingja.loadsir.callback.LoadCallback;
 
+
 /**
  * Created by Administrator on 2017/9/3.
  */
@@ -28,7 +29,6 @@ public class LoadSirActivity extends AppCompatActivity {
                 showEmpty();
             }
         });
-        loadSir.showLoadCallback(DefaultCallback.LOADING_CALLBACK);
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
