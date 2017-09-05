@@ -7,7 +7,10 @@ import android.widget.Toast;
 import com.kingja.loadsir.callback.Callback;
 
 /**
- * Created by Administrator on 2017/9/3.
+ * Description:TODO
+ * Create Time:2017/9/2 16:17
+ * Author:KingJA
+ * Email:kingjavip@gmail.com
  */
 
 public class TimeoutCallback extends Callback {
@@ -19,7 +22,7 @@ public class TimeoutCallback extends Callback {
 
     @Override
     protected boolean onSingleRetry(Context context, View view) {
-        Toast.makeText(context.getApplicationContext(),"connect the net again!",Toast.LENGTH_SHORT).show();
-        return true;
+        Toast.makeText(context.getApplicationContext(),"Connecting to the network again!",Toast.LENGTH_SHORT).show();
+        return false;
     }
 }

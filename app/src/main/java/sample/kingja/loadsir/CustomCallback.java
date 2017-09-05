@@ -7,9 +7,11 @@ import android.widget.Toast;
 import com.kingja.loadsir.callback.Callback;
 
 /**
- * Created by Administrator on 2017/9/3.
+ * Description:TODO
+ * Create Time:2017/9/3 10:22
+ * Author:KingJA
+ * Email:kingjavip@gmail.com
  */
-
 public class CustomCallback extends Callback {
 
     @Override

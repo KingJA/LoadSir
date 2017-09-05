@@ -13,6 +13,7 @@ import com.kingja.loadsir.callback.SuccessCallback;
 import com.kingja.loadsir.core.LoadSir;
 
 import sample.kingja.loadsir.R;
+import sample.kingja.loadsir.TimeoutCallback;
 import sample.kingja.loadsir.Util;
 
 
@@ -38,7 +39,7 @@ public class ViewTargetActivity extends AppCompatActivity {
                 Util.goLoadCallback(loadSir,SuccessCallback.class);
             }
         });
-        Util.goLoadCallback(loadSir,ErrorCallback.class);
+        Util.goLoadCallback(loadSir,TimeoutCallback.class);
     }
 
 }
