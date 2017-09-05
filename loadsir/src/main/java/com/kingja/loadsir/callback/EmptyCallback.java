@@ -1,5 +1,6 @@
 package com.kingja.loadsir.callback;
 
+import com.kingja.loadsir.R;
 import com.kingja.loadsir.core.LoadSir;
 
 /**
@@ -13,6 +14,6 @@ public class EmptyCallback extends Callback {
 
     @Override
     protected int onCreateView() {
-        return LoadSir.getBuilder().getEmptyLayout();
+        return R.layout.layout_empty;
     }
 }

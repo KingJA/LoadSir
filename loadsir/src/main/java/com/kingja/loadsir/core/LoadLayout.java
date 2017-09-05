@@ -2,10 +2,14 @@ package com.kingja.loadsir.core;
 
 import android.content.Context;
 import android.support.annotation.NonNull;
+import android.util.Log;
 import android.widget.FrameLayout;
 
 import com.kingja.loadsir.Util;
 import com.kingja.loadsir.callback.Callback;
+import com.kingja.loadsir.callback.EmptyCallback;
+import com.kingja.loadsir.callback.ErrorCallback;
+import com.kingja.loadsir.callback.LoadingCallback;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -18,12 +22,16 @@ import java.util.Map;
  */
 
 class LoadLayout extends FrameLayout {
+    private static final String TAG = "LoadLayout";
     private Map<Class<? extends Callback>, Callback> callbacks = new HashMap<>();
     private Context context;
     private Callback.OnReloadListener onReloadListener;
 
     public LoadLayout(@NonNull Context context) {
         super(context);
+        setupCallback(new ErrorCallback());
+        setupCallback(new EmptyCallback());
+        setupCallback(new LoadingCallback());
     }
 
     public LoadLayout(@NonNull Context context, Callback.OnReloadListener onReloadListener) {

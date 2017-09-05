@@ -38,10 +38,11 @@ public class Util {
             throw new IllegalArgumentException("The target must be within Activity, Fragment, View.");
         }
         int childIndex = 0;
+        int childCount =contentParent==null?0:contentParent.getChildCount();
         View oldContent;
         if (target instanceof View) {
             oldContent = (View) target;
-            for (int i = 0; i < contentParent.getChildCount(); i++) {
+            for (int i = 0; i < childCount; i++) {
                 if (contentParent.getChildAt(i) == oldContent) {
                     childIndex = i;
                     break;
@@ -50,7 +51,9 @@ public class Util {
         } else {
             oldContent = contentParent.getChildAt(0);
         }
-        contentParent.removeView(oldContent);
+        if(contentParent!=null) {
+            contentParent.removeView(oldContent);
+        }
         return new TargetContext(context,contentParent, oldContent,childIndex);
     }
 

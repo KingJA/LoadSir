@@ -14,6 +14,12 @@ Feature
 * 支持Activity，Fragment,View状态回调
 * 支持回调实体和状态页字节码文件的转换
 
+
+测试
+状态保存，如Fragment的切换
+多个Fragment之间的冲突
+Fragment viewpager的正常显示，还需调试
+
 默认状态
 错误
 无数据

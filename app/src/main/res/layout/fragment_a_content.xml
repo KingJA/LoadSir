@@ -3,7 +3,9 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:gravity="center"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:id="@+id/ll_root_a"
+    android:background="#8ba2c6">
     <TextView
         android:textSize="30sp"
         android:textColor="#333333"
@@ -12,7 +14,7 @@
         android:layout_height="wrap_content"/>
 
     <TextView
-        android:text="fragment content"
+        android:text="fragment A content"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"/>
 

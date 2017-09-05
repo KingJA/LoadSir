@@ -23,9 +23,9 @@ public class App extends Application {
         }
         LeakCanary.install(this);
         // Normal app init code...
-        new LoadSir.Builder()
-                .add(new CustomCallback())
-                .add(new TimeoutCallback())
-                .build();
+//        new LoadSir.Builder()
+//                .add(new CustomCallback())
+//                .add(new TimeoutCallback())
+//                .build();
     }
 }

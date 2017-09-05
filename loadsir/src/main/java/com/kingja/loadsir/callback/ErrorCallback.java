@@ -1,5 +1,6 @@
 package com.kingja.loadsir.callback;
 
+import com.kingja.loadsir.R;
 import com.kingja.loadsir.core.LoadSir;
 
 /**
@@ -12,6 +13,6 @@ import com.kingja.loadsir.core.LoadSir;
 public class ErrorCallback extends Callback {
     @Override
     protected int onCreateView() {
-        return LoadSir.getBuilder().getErrorLayout();
+        return R.layout.layout_error;
     }
 }

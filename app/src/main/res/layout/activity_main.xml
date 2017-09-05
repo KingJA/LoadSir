@@ -31,6 +31,25 @@
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:onClick="inFragmentMutil"
+        android:text="in Fragment Mutil"
+        android:textAllCaps="false"/>
+   <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="inFragmentViewSirPager"
+        android:text="in Fragment ViewPager Sir(custom)"
+        android:textAllCaps="false"/>
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="inFragmentViewPager"
+        android:text="in Fragment ViewPager(custom)"
+        android:textAllCaps="false"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:onClick="inView"
         android:text="in View"
         android:textAllCaps="false"/>

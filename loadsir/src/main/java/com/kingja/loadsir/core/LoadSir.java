@@ -1,5 +1,6 @@
 package com.kingja.loadsir.core;
 
+import android.os.Build;
 import android.view.ViewGroup;
 
 import com.kingja.loadsir.R;
@@ -22,11 +23,11 @@ import java.util.List;
  */
 public class LoadSir {
     private LoadLayout mLoadLayout;
-    private static Builder builder = new Builder();
+    private  Builder builder = new Builder();
     private Convertor convertor;
 
     private LoadSir(Builder builder) {
-        LoadSir.builder = builder;
+        this.builder = builder;
     }
 
     private <T> LoadSir(Object target, Callback.OnReloadListener onReloadListener, Convertor<T> convertor) {
@@ -34,7 +35,9 @@ public class LoadSir {
         TargetContext targetContext = Util.getTargetContext(target);
         mLoadLayout = new LoadLayout(targetContext.getContext(), onReloadListener);
         ViewGroup.LayoutParams lp = targetContext.getOldContent().getLayoutParams();
-        targetContext.getParentView().addView(mLoadLayout, targetContext.getChildIndex(), lp);
+        if (targetContext.getParentView() != null) {
+            targetContext.getParentView().addView(mLoadLayout, targetContext.getChildIndex(), lp);
+        }
         mLoadLayout.addCallback(new SuccessCallback(targetContext.getOldContent(), targetContext.getContext(),
                 onReloadListener));
         initLoadCallback();
@@ -50,7 +53,7 @@ public class LoadSir {
         mLoadLayout.showStatus(initializeCallback);
     }
 
-    public static Builder getBuilder() {
+    public  Builder getBuilder() {
         return builder;
     }
 
@@ -81,12 +84,21 @@ public class LoadSir {
         }
     }
 
+    public LoadLayout getLoadLayout() {
+        return mLoadLayout;
+    }
+
+    public void setLoadLayout(LoadLayout loadLayout ) {
+        this.mLoadLayout = loadLayout;
+    }
+
     public static class Builder {
         private List<Callback> callbacks = new ArrayList<>();
         private int errorLayout = R.layout.layout_error;
         private int loadingLayout = R.layout.layout_loading;
         private int emptyLayout = R.layout.layout_empty;
         private Class<? extends Callback> initializeCallback = LoadingCallback.class;
+        private boolean addDefault = true;
 
         public Builder setErrorLayout(int errorLayout) {
             this.errorLayout = errorLayout;
@@ -100,6 +112,11 @@ public class LoadSir {
 
         public Builder setEmptyLayout(int emptyLayout) {
             this.emptyLayout = emptyLayout;
+            return this;
+        }
+
+        public Builder addDefaultLayout(boolean addDefault) {
+            this.addDefault = addDefault;
             return this;
         }
 
@@ -131,7 +148,9 @@ public class LoadSir {
         }
 
         public LoadSir build() {
-            addDefaultCallback();
+            if (addDefault) {
+                addDefaultCallback();
+            }
             return new LoadSir(this);
         }
 

@@ -1,25 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:id="@+id/ll_root_b"
               android:layout_width="match_parent"
               android:layout_height="match_parent"
+              android:background="#77bca0"
               android:gravity="center"
-              android:id="@+id/ll_error"
               android:orientation="vertical">
 
-    <ImageView
-     android:layout_marginBottom="4dp"
-        android:layout_width="100dp"
-        android:layout_height="80dp"
-        android:background="@drawable/error"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Success"
+        android:textColor="#333333"
+        android:textSize="30sp"/>
 
     <TextView
-        android:textSize="18sp"
-        android:textColor="#333333"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Boss! something is wrong."/>
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="click me to retry!"/>
+        android:text="fragment B content"/>
+
 </LinearLayout>
