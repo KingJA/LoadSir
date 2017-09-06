@@ -18,7 +18,7 @@ public class FragmentSingleActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_fragment);
-        getSupportFragmentManager().beginTransaction().add(R.id.fl_content, new LoadSirFragmentA()).commit();
+        getSupportFragmentManager().beginTransaction().add(R.id.fl_content, new NormalFragment()).commit();
 
     }
 

@@ -1,10 +1,12 @@
-package sample.kingja.loadsir;
+package sample.kingja.loadsir.custom;
 
 import android.content.Context;
 import android.view.View;
 import android.widget.Toast;
 
 import com.kingja.loadsir.callback.Callback;
+
+import sample.kingja.loadsir.R;
 
 /**
  * Description:TODO

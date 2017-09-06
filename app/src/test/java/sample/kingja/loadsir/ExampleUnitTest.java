@@ -1,5 +1,7 @@
 package sample.kingja.loadsir;
 
+import android.util.Log;
+
 import org.junit.Test;
 
 import static org.junit.Assert.*;
@@ -10,8 +12,13 @@ import static org.junit.Assert.*;
  * @see <a href="http://d.android.com/tools/testing">Testing documentation</a>
  */
 public class ExampleUnitTest {
+
     @Test
     public void addition_isCorrect() throws Exception {
         assertEquals(4, 2 + 2);
+        Object o = new Object();
+        System.out.println( "o1: "+o.hashCode());
+        o = new Object();
+        System.out.println( "o2: "+o.hashCode());
     }
 }

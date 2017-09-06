@@ -5,12 +5,11 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
-import sample.kingja.loadsir.target.FragmentMutilActivity;
+import sample.kingja.loadsir.target.MultiFragmentActivity;
 import sample.kingja.loadsir.target.FragmentSingleActivity;
-import sample.kingja.loadsir.target.ActivityTargetActivity;
+import sample.kingja.loadsir.target.NormalActivity;
 import sample.kingja.loadsir.target.ConvertorActivity;
-import sample.kingja.loadsir.target.FragmentViewPagerActivity;
-import sample.kingja.loadsir.target.FragmentViewPagerSirActivity;
+import sample.kingja.loadsir.target.MultiFragmentWithViewPagerActivity;
 import sample.kingja.loadsir.target.ViewTargetActivity;
 
 /**
@@ -29,7 +28,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void inActivity(View view) {
-        startActivity(new Intent(this, ActivityTargetActivity.class));
+        startActivity(new Intent(this, NormalActivity.class));
     }
 
     public void inActivityWithConvertor(View view) {
@@ -45,14 +44,11 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void inFragmentViewSirPager(View view) {
-        startActivity(new Intent(this,FragmentViewPagerSirActivity.class));
+        startActivity(new Intent(this,MultiFragmentWithViewPagerActivity.class));
     }
 
-    public void inFragmentViewPager(View view) {
-        startActivity(new Intent(this,FragmentViewPagerActivity.class));
-    }
 
     public void inFragmentMutil(View view) {
-        startActivity(new Intent(this,FragmentMutilActivity.class));
+        startActivity(new Intent(this,MultiFragmentActivity.class));
     }
 }

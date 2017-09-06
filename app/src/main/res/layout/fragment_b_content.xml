@@ -3,7 +3,6 @@
               android:id="@+id/ll_root_b"
               android:layout_width="match_parent"
               android:layout_height="match_parent"
-              android:background="#77bca0"
               android:gravity="center"
               android:orientation="vertical">
 
@@ -11,12 +10,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Success"
-        android:textColor="#333333"
+        android:textColor="#358c69"
         android:textSize="30sp"/>
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="fragment B content"/>
+        android:text="Fragment B content"/>
 
 </LinearLayout>

@@ -12,7 +12,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Success"
-        android:textColor="#333333"
+        android:textColor="#358c69"
         android:textSize="30sp"/>
 
     <TextView

@@ -10,7 +10,7 @@
 
     <TextView
         android:textSize="30sp"
-        android:textColor="#333333"
+        android:textColor="#358c69"
         android:text="Success"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"/>

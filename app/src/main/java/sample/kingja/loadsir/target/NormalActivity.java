@@ -10,10 +10,11 @@ import com.kingja.loadsir.callback.Callback;
 import com.kingja.loadsir.callback.EmptyCallback;
 import com.kingja.loadsir.callback.LoadingCallback;
 import com.kingja.loadsir.callback.SuccessCallback;
+import com.kingja.loadsir.core.LoadService;
 import com.kingja.loadsir.core.LoadSir;
 
 import sample.kingja.loadsir.R;
-import sample.kingja.loadsir.Util;
+import sample.kingja.loadsir.PostUtil;
 
 
 /**
@@ -23,30 +24,34 @@ import sample.kingja.loadsir.Util;
  * Email:kingjavip@gmail.com
  */
 
-public class ActivityTargetActivity extends AppCompatActivity {
+public class NormalActivity extends AppCompatActivity {
 
-    private LoadSir loadSir;
+
+    private LoadService loadService;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_activity);
-        loadSir = LoadSir.call(this, new Callback.OnReloadListener() {
+        setContentView(R.layout.activity_content);
+        // Your can change the status on sub thread directly.
+        loadService = LoadSir.getDefault().register(this, new Callback.OnReloadListener() {
             @Override
             public void onReload(View v) {
                 // Your can change the status out of Main thread.
                 new Thread(new Runnable() {
                     @Override
                     public void run() {
-                        loadSir.showWithStatus(LoadingCallback.class);
+                        loadService.showWithStatus(LoadingCallback.class);
+                        //do retry logic...
                         SystemClock.sleep(500);
-                        loadSir.showWithStatus(SuccessCallback.class);
+                        //callback
+                        loadService.showWithStatus(SuccessCallback.class);
                     }
                 }).start();
-
             }
         });
-        Util.goLoadCallback(loadSir,EmptyCallback.class);
+        loadService.showWithStatus(LoadingCallback.class);
+        PostUtil.postCallbackDelayed(loadService,EmptyCallback.class);
     }
 
 }

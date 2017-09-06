@@ -5,52 +5,47 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="sample.kingja.loadsir.MainActivity">
+    tools:context="sample.kingja.loadsir.MainActivity"
+    android:padding="12dp">
 
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:onClick="inActivity"
-        android:text="in Activity(empty)"
+        android:text="Activity(empty)"
         android:textAllCaps="false"/>
 
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:onClick="inActivityWithConvertor"
-        android:text="in Activity with Convertor(error)"
+        android:text="Activity with Convertor"
         android:textAllCaps="false"/>
 
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:onClick="inFragment"
-        android:text="in Fragment(custom)"
+        android:text="single Fragment(custom)"
         android:textAllCaps="false"/>
 
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:onClick="inFragmentMutil"
-        android:text="in Fragment Mutil"
+        android:text="multiple Fragment"
         android:textAllCaps="false"/>
    <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:onClick="inFragmentViewSirPager"
-        android:text="in Fragment ViewPager Sir(custom)"
-        android:textAllCaps="false"/>
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:onClick="inFragmentViewPager"
-        android:text="in Fragment ViewPager(custom)"
+        android:text="multiple Fragment+ViewPager"
         android:textAllCaps="false"/>
 
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:onClick="inView"
-        android:text="in View"
+        android:text="View(timeout)"
         android:textAllCaps="false"/>
 </LinearLayout>

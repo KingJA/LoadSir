@@ -19,13 +19,12 @@
 
 
         </activity>
-        <activity android:name=".target.ActivityTargetActivity"/>
+        <activity android:name=".target.NormalActivity"/>
         <activity android:name=".target.ConvertorActivity"/>
         <activity android:name=".target.FragmentSingleActivity"/>
         <activity android:name=".target.ViewTargetActivity"/>
-        <activity android:name=".target.FragmentViewPagerSirActivity"/>
-        <activity android:name=".target.FragmentViewPagerActivity"/>
-        <activity android:name=".target.FragmentMutilActivity"/>
+        <activity android:name=".target.MultiFragmentWithViewPagerActivity"/>
+        <activity android:name=".target.MultiFragmentActivity"/>
     </application>
 
 </manifest>

@@ -1,21 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:gravity="center"
-    android:orientation="vertical"
-    android:id="@+id/ll_root_a"
-    android:background="#8ba2c6">
-    <TextView
-        android:textSize="30sp"
-        android:textColor="#333333"
-        android:text="Success"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
+              android:id="@+id/ll_root_a"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:gravity="center"
+              android:background="#eae8c7"
+              android:orientation="vertical">
 
     <TextView
-        android:text="fragment A content"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        android:text="Success"
+        android:textColor="#358c69"
+        android:textSize="30sp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Fragment A content"/>
 
 </LinearLayout>

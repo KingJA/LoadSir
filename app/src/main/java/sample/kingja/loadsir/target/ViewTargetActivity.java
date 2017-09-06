@@ -7,14 +7,14 @@ import android.view.View;
 import android.widget.ImageView;
 
 import com.kingja.loadsir.callback.Callback;
-import com.kingja.loadsir.callback.ErrorCallback;
 import com.kingja.loadsir.callback.LoadingCallback;
 import com.kingja.loadsir.callback.SuccessCallback;
+import com.kingja.loadsir.core.LoadService;
 import com.kingja.loadsir.core.LoadSir;
 
 import sample.kingja.loadsir.R;
-import sample.kingja.loadsir.TimeoutCallback;
-import sample.kingja.loadsir.Util;
+import sample.kingja.loadsir.custom.TimeoutCallback;
+import sample.kingja.loadsir.PostUtil;
 
 
 /**
@@ -26,20 +26,27 @@ import sample.kingja.loadsir.Util;
 
 public class ViewTargetActivity extends AppCompatActivity {
 
-    private LoadSir loadSir;
+    private LoadService loadService;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view);
         ImageView iv_img = (ImageView) findViewById(R.id.iv_img);
-        loadSir = LoadSir.call(iv_img, new Callback.OnReloadListener() {
+
+        LoadSir loadSir = new LoadSir.Builder().addCallback(new TimeoutCallback()).setInitializeCallback
+                (LoadingCallback.class).build();
+        loadService = loadSir.register(iv_img, new Callback.OnReloadListener() {
             @Override
             public void onReload(View v) {
-                Util.goLoadCallback(loadSir,SuccessCallback.class);
+                loadService.showWithStatus(LoadingCallback.class);
+                //do retry logic...
+
+                //callback
+                PostUtil.postCallbackDelayed(loadService, SuccessCallback.class);
             }
         });
-        Util.goLoadCallback(loadSir,TimeoutCallback.class);
+        PostUtil.postCallbackDelayed(loadService, TimeoutCallback.class);
     }
 
 }

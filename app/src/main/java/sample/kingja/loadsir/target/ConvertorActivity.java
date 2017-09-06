@@ -7,6 +7,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
 import com.kingja.loadsir.callback.LoadingCallback;
+import com.kingja.loadsir.core.LoadService;
 import com.kingja.loadsir.core.LoadSir;
 import com.kingja.loadsir.callback.Callback;
 import com.kingja.loadsir.callback.EmptyCallback;
@@ -14,8 +15,10 @@ import com.kingja.loadsir.callback.ErrorCallback;
 import com.kingja.loadsir.callback.SuccessCallback;
 import com.kingja.loadsir.convertor.Convertor;
 
+import java.util.Random;
+
 import sample.kingja.loadsir.R;
-import sample.kingja.loadsir.Util;
+import sample.kingja.loadsir.PostUtil;
 
 
 /**
@@ -27,31 +30,32 @@ import sample.kingja.loadsir.Util;
 
 public class ConvertorActivity extends AppCompatActivity {
 
-    private LoadSir loadSir;
-    private Result mResult=new Result(2);
+    private LoadService loadService;
+    private Result mResult = new Result(new Random().nextInt(3));
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_activity_convertor);
-        loadSir = LoadSir.call(this, new Callback.OnReloadListener() {
+        LoadSir loadSir = new LoadSir.Builder().setInitializeCallback(LoadingCallback.class).build();
+        loadService = loadSir.register(this, new Callback.OnReloadListener() {
             @Override
             public void onReload(View v) {
-                Util.goLoadCallback(loadSir,SuccessCallback.class);
+                PostUtil.postCallbackDelayed(loadService, SuccessCallback.class);
             }
-        }, new Convertor<Result>(){
+        }, new Convertor<Result>() {
             @Override
             public Class<? extends Callback> change2Callback(Result result) {
                 Class<? extends Callback> resultCode = SuccessCallback.class;
                 switch (result.getResultCode()) {
                     case 0:
-                        resultCode=SuccessCallback.class;
+                        resultCode = SuccessCallback.class;
                         break;
                     case 1:
-                        resultCode=EmptyCallback.class;
+                        resultCode = EmptyCallback.class;
                         break;
                     case 2:
-                        resultCode=ErrorCallback.class;
+                        resultCode = ErrorCallback.class;
                         break;
                 }
                 return resultCode;
@@ -60,18 +64,23 @@ public class ConvertorActivity extends AppCompatActivity {
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                loadSir.showWithConvertor(mResult);
+                loadService.showWithStatus(LoadingCallback.class);
+                //do retry logic...
+
+                //callback
+                loadService.showWithConvertor(mResult);
             }
         }, 500);
     }
-    public class Result {
-        public Result(int resultCode) {
+
+    class Result {
+        Result(int resultCode) {
             this.resultCode = resultCode;
         }
 
         private int resultCode;
 
-        public int getResultCode() {
+        int getResultCode() {
             return resultCode;
         }
 

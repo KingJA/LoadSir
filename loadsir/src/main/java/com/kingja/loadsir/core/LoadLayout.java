@@ -3,6 +3,7 @@ package com.kingja.loadsir.core;
 import android.content.Context;
 import android.support.annotation.NonNull;
 import android.util.Log;
+import android.view.View;
 import android.widget.FrameLayout;
 
 import com.kingja.loadsir.Util;
@@ -29,9 +30,6 @@ class LoadLayout extends FrameLayout {
 
     public LoadLayout(@NonNull Context context) {
         super(context);
-        setupCallback(new ErrorCallback());
-        setupCallback(new EmptyCallback());
-        setupCallback(new LoadingCallback());
     }
 
     public LoadLayout(@NonNull Context context, Callback.OnReloadListener onReloadListener) {
@@ -46,8 +44,12 @@ class LoadLayout extends FrameLayout {
     }
 
     public void addCallback(Callback callback) {
-        addView(callback.getRootView());
-        callbacks.put(callback.getClass(), callback);
+        if (!callbacks.containsKey(callback.getClass())) {
+            View callbackView = callback.getRootView();
+            addView(callbackView);
+            callbackView.setVisibility(View.GONE);
+            callbacks.put(callback.getClass(), callback);
+        }
     }
 
     public void showStatus(final Class<? extends Callback> status) {

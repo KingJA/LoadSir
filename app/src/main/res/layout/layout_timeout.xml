@@ -16,7 +16,7 @@
         android:textColor="#333333"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Oh no,timeout."/>
+        android:text="Oh no, timeout."/>
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

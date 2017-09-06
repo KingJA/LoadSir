@@ -4,6 +4,7 @@ import android.os.Handler;
 
 import com.kingja.loadsir.callback.Callback;
 import com.kingja.loadsir.callback.LoadingCallback;
+import com.kingja.loadsir.core.LoadService;
 import com.kingja.loadsir.core.LoadSir;
 
 /**
@@ -12,15 +13,14 @@ import com.kingja.loadsir.core.LoadSir;
  * Author:KingJA
  * Email:kingjavip@gmail.com
  */
-public class Util {
+public class PostUtil {
     public static final int DELAY_TIME=500;
 
-    public static void goLoadCallback(final LoadSir loadSir, final Class<? extends Callback> clazz) {
-        loadSir.showWithStatus(LoadingCallback.class);
+    public static void postCallbackDelayed(final LoadService loadService, final Class<? extends Callback> clazz) {
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                loadSir.showWithStatus(clazz);
+                loadService.showWithStatus(clazz);
             }
         }, DELAY_TIME);
     }
