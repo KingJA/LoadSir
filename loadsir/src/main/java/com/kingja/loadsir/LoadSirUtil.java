@@ -14,7 +14,7 @@ import com.kingja.loadsir.core.TargetContext;
  * Author:KingJA
  * Email:kingjavip@gmail.com
  */
-public class Util {
+public class LoadSirUtil {
     public static TargetContext getTargetContext(Object target) {
         ViewGroup contentParent;
         Context context;
@@ -22,14 +22,6 @@ public class Util {
             Activity activity = (Activity) target;
             context = activity;
             contentParent = (ViewGroup) activity.findViewById(android.R.id.content);
-        } else if (target instanceof android.support.v4.app.Fragment) {
-            android.support.v4.app.Fragment fragment = (android.support.v4.app.Fragment) target;
-            context = fragment.getActivity();
-            contentParent = (ViewGroup) (fragment.getView().getParent());
-        } else if (target instanceof android.app.Fragment) {
-            android.app.Fragment fragment = (android.app.Fragment) target;
-            context = fragment.getActivity();
-            contentParent = (ViewGroup) (fragment.getView().getParent());
         } else if (target instanceof View) {
             View view = (View) target;
             contentParent = (ViewGroup) (view.getParent());
@@ -38,7 +30,7 @@ public class Util {
             throw new IllegalArgumentException("The target must be within Activity, Fragment, View.");
         }
         int childIndex = 0;
-        int childCount =contentParent==null?0:contentParent.getChildCount();
+        int childCount = contentParent == null ? 0 : contentParent.getChildCount();
         View oldContent;
         if (target instanceof View) {
             oldContent = (View) target;
@@ -49,12 +41,16 @@ public class Util {
                 }
             }
         } else {
-            oldContent = contentParent.getChildAt(0);
+            oldContent = contentParent != null ? contentParent.getChildAt(0) : null;
         }
-        if(contentParent!=null) {
+        if (oldContent == null) {
+            throw new IllegalArgumentException(String.format("enexpected error when register LoadSir in %s", target
+                    .getClass().getSimpleName()));
+        }
+        if (contentParent != null) {
             contentParent.removeView(oldContent);
         }
-        return new TargetContext(context,contentParent, oldContent,childIndex);
+        return new TargetContext(context, contentParent, oldContent, childIndex);
     }
 
 

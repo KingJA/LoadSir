@@ -1,4 +1,4 @@
-package com.kingja.loadsir.convertor;
+package com.kingja.loadsir.core;
 
 import com.kingja.loadsir.callback.Callback;
 

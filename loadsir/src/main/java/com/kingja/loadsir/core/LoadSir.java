@@ -1,8 +1,7 @@
 package com.kingja.loadsir.core;
 
-import com.kingja.loadsir.Util;
+import com.kingja.loadsir.LoadSirUtil;
 import com.kingja.loadsir.callback.Callback;
-import com.kingja.loadsir.convertor.Convertor;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -42,7 +41,7 @@ public class LoadSir {
 
     public <T> LoadService register(Object target, Callback.OnReloadListener onReloadListener, Convertor<T>
             convertor) {
-        TargetContext targetContext = Util.getTargetContext(target);
+        TargetContext targetContext = LoadSirUtil.getTargetContext(target);
         return new LoadService(convertor, targetContext, onReloadListener, builder);
     }
 
@@ -50,7 +49,6 @@ public class LoadSir {
         private List<Callback> callbacks = new ArrayList<>();
         private Class<? extends Callback> initializeCallback;
         private boolean addDefault = true;
-
 
         public Builder setInitializeCallback(Class<? extends Callback> initializeCallback) {
             this.initializeCallback = initializeCallback;

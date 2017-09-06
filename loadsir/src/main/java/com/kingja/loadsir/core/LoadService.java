@@ -9,7 +9,6 @@ import com.kingja.loadsir.callback.EmptyCallback;
 import com.kingja.loadsir.callback.ErrorCallback;
 import com.kingja.loadsir.callback.LoadingCallback;
 import com.kingja.loadsir.callback.SuccessCallback;
-import com.kingja.loadsir.convertor.Convertor;
 
 import java.util.List;
 

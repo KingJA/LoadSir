@@ -2,15 +2,11 @@ package com.kingja.loadsir.core;
 
 import android.content.Context;
 import android.support.annotation.NonNull;
-import android.util.Log;
 import android.view.View;
 import android.widget.FrameLayout;
 
-import com.kingja.loadsir.Util;
+import com.kingja.loadsir.LoadSirUtil;
 import com.kingja.loadsir.callback.Callback;
-import com.kingja.loadsir.callback.EmptyCallback;
-import com.kingja.loadsir.callback.ErrorCallback;
-import com.kingja.loadsir.callback.LoadingCallback;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -57,7 +53,7 @@ class LoadLayout extends FrameLayout {
             throw new IllegalArgumentException(String.format("The Callback (%s) is nonexistent.", status
                     .getSimpleName()));
         }
-        if (Util.isMainThread()) {
+        if (LoadSirUtil.isMainThread()) {
             setCallbackVisibility(status);
         } else {
             post(new Runnable() {
