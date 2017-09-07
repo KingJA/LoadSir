@@ -14,8 +14,7 @@
 * 可自定义状态页(继承Callback类)
 * 可在子线程直接切换状态
 * 可设置初始状态页面(常用进度页LoadingCallback作为初始状态)
-* 预设加载中(LoadingCallback)，加载失败(ErrorCallback)，无数据(EmptyCallback)，加载成功(SuccessCallback)4个状态页,可通过
-配置取消。
+
 
 (与其它库相比)
 
@@ -25,6 +24,8 @@
 * 支持Activity，Fragment,Fragment(v4),View域状态回调
 * 适配多个Fragment切换，及Fragment+ViewPager切换
 * 利用泛型转换输入信号和输出状态，如，根据网络返回体的状态码或者数据返回不同的状态页类类型，实现全局自动切换
+* 可全局单例配置，也可以单独配置
+* 为解耦，无预设页面，开发者随心所欲
 
 ## Dependencies
 

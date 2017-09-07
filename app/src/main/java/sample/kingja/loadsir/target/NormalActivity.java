@@ -7,8 +7,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
 import com.kingja.loadsir.callback.Callback;
-import com.kingja.loadsir.callback.EmptyCallback;
-import com.kingja.loadsir.callback.LoadingCallback;
+import sample.kingja.loadsir.callback.EmptyCallback;
+import sample.kingja.loadsir.callback.LoadingCallback;
 import com.kingja.loadsir.callback.SuccessCallback;
 import com.kingja.loadsir.core.LoadService;
 import com.kingja.loadsir.core.LoadSir;
@@ -33,7 +33,7 @@ public class NormalActivity extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_content);
-        // Your can change the status on sub thread directly.
+        // Your can change the callback on sub thread directly.
         loadService = LoadSir.getDefault().register(this, new Callback.OnReloadListener() {
             @Override
             public void onReload(View v) {
@@ -41,17 +41,17 @@ public class NormalActivity extends AppCompatActivity {
                 new Thread(new Runnable() {
                     @Override
                     public void run() {
-                        loadService.showWithStatus(LoadingCallback.class);
+                        loadService.showCallback(LoadingCallback.class);
                         //do retry logic...
                         SystemClock.sleep(500);
                         //callback
-                        loadService.showWithStatus(SuccessCallback.class);
+                        loadService.showCallback(SuccessCallback.class);
                     }
                 }).start();
             }
         });
-        loadService.showWithStatus(LoadingCallback.class);
-        PostUtil.postCallbackDelayed(loadService,EmptyCallback.class);
+        loadService.showCallback(LoadingCallback.class);
+        PostUtil.postCallbackDelayed(loadService,LoadingCallback.class);
     }
 
 }

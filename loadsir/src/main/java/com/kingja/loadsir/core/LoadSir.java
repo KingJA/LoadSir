@@ -14,7 +14,7 @@ import java.util.List;
  */
 public class LoadSir {
     private static volatile LoadSir loadSir;
-    private final Builder builder;
+    private Builder builder;
 
     public static LoadSir getDefault() {
         if (loadSir == null) {
@@ -31,6 +31,10 @@ public class LoadSir {
         this.builder = new Builder();
     }
 
+    public void setBuilder(Builder builder) {
+        this.builder = builder;
+    }
+
     private LoadSir(Builder builder) {
         this.builder = builder;
     }
@@ -45,10 +49,13 @@ public class LoadSir {
         return new LoadService(convertor, targetContext, onReloadListener, builder);
     }
 
+    public static Builder beginBuilder() {
+        return new Builder();
+    }
+
     public static class Builder {
         private List<Callback> callbacks = new ArrayList<>();
         private Class<? extends Callback> initializeCallback;
-        private boolean addDefault = true;
 
         public Builder setInitializeCallback(Class<? extends Callback> initializeCallback) {
             this.initializeCallback = initializeCallback;
@@ -60,15 +67,6 @@ public class LoadSir {
             return this;
         }
 
-        public Builder setDefaultable(boolean addDefault) {
-            this.addDefault = addDefault;
-            return this;
-        }
-
-        public boolean getAddDefault() {
-            return addDefault;
-        }
-
         public List<Callback> getCallbacks() {
             return callbacks;
         }
@@ -77,10 +75,14 @@ public class LoadSir {
             return initializeCallback;
         }
 
+        public Builder commit() {
+            getDefault().setBuilder(this);
+            return this;
+        }
+
         public LoadSir build() {
             return new LoadSir(this);
         }
 
     }
-
 }

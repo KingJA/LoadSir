@@ -6,15 +6,20 @@ import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
-import com.kingja.loadsir.callback.LoadingCallback;
+import sample.kingja.loadsir.callback.LoadingCallback;
+
 import com.kingja.loadsir.core.LoadService;
 import com.kingja.loadsir.core.LoadSir;
 import com.kingja.loadsir.callback.Callback;
-import com.kingja.loadsir.callback.EmptyCallback;
-import com.kingja.loadsir.callback.ErrorCallback;
+
+import sample.kingja.loadsir.callback.EmptyCallback;
+import sample.kingja.loadsir.callback.ErrorCallback;
+
 import com.kingja.loadsir.callback.SuccessCallback;
 import com.kingja.loadsir.core.Convertor;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 
 import sample.kingja.loadsir.R;
@@ -31,30 +36,37 @@ import sample.kingja.loadsir.PostUtil;
 public class ConvertorActivity extends AppCompatActivity {
 
     private LoadService loadService;
-    private Result mResult = new Result(new Random().nextInt(3));
+    private HttpResult mHttpResult = new HttpResult(new Random().nextInt(2),new ArrayList<>());
+    private static final int SUCCESS_CODE=0x00;
+    private static final int ERROR_CODE=0x01;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_activity_convertor);
-        LoadSir loadSir = new LoadSir.Builder().setInitializeCallback(LoadingCallback.class).build();
+        LoadSir loadSir = new LoadSir.Builder()
+                .addCallback(new LoadingCallback())
+                .addCallback(new EmptyCallback())
+                .addCallback(new ErrorCallback())
+                .build();
         loadService = loadSir.register(this, new Callback.OnReloadListener() {
             @Override
             public void onReload(View v) {
                 PostUtil.postCallbackDelayed(loadService, SuccessCallback.class);
             }
-        }, new Convertor<Result>() {
+        }, new Convertor<HttpResult>() {
             @Override
-            public Class<? extends Callback> change2Callback(Result result) {
+            public Class<? extends Callback> change2Callback(HttpResult httpResult) {
                 Class<? extends Callback> resultCode = SuccessCallback.class;
-                switch (result.getResultCode()) {
-                    case 0:
-                        resultCode = SuccessCallback.class;
+                switch (httpResult.getResultCode()) {
+                    case SUCCESS_CODE://成功回调
+                        if (httpResult.getData().size() == 0) {
+                            resultCode = EmptyCallback.class;
+                        }else{
+                            resultCode = SuccessCallback.class;
+                        }
                         break;
-                    case 1:
-                        resultCode = EmptyCallback.class;
-                        break;
-                    case 2:
+                    case ERROR_CODE:
                         resultCode = ErrorCallback.class;
                         break;
                 }
@@ -64,25 +76,34 @@ public class ConvertorActivity extends AppCompatActivity {
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                loadService.showWithStatus(LoadingCallback.class);
+                loadService.showCallback(LoadingCallback.class);
                 //do retry logic...
 
                 //callback
-                loadService.showWithConvertor(mResult);
+                loadService.showWithConvertor(mHttpResult);
             }
         }, 500);
     }
 
-    class Result {
-        Result(int resultCode) {
+    class HttpResult {
+        private int resultCode;
+        private List<Object> data;
+
+        HttpResult(int resultCode) {
             this.resultCode = resultCode;
         }
 
-        private int resultCode;
+        public HttpResult(int resultCode, List data) {
+            this.resultCode = resultCode;
+            this.data = data;
+        }
 
         int getResultCode() {
             return resultCode;
         }
 
+        public List<Object> getData() {
+            return data;
+        }
     }
 }

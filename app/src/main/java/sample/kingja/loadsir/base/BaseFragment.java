@@ -8,7 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.kingja.loadsir.callback.Callback;
-import com.kingja.loadsir.callback.LoadingCallback;
+import sample.kingja.loadsir.callback.LoadingCallback;
 import com.kingja.loadsir.core.LoadService;
 import com.kingja.loadsir.core.LoadSir;
 
@@ -27,10 +27,7 @@ public abstract class BaseFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle
             savedInstanceState) {
         View rootView = View.inflate(getActivity(), onCreateFragmentView(), null);
-        LoadSir loadSir = new LoadSir.Builder()
-                .setInitializeCallback(LoadingCallback.class)
-                .build();
-        mBaseLoadService = loadSir.register(rootView, new Callback.OnReloadListener() {
+        mBaseLoadService = LoadSir.getDefault().register(rootView, new Callback.OnReloadListener() {
             @Override
             public void onReload(View v) {
                 onNetReload(v);

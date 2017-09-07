@@ -3,8 +3,8 @@ package sample.kingja.loadsir.target;
 import android.view.View;
 import android.widget.Toast;
 
-import com.kingja.loadsir.callback.ErrorCallback;
-import com.kingja.loadsir.callback.LoadingCallback;
+import sample.kingja.loadsir.callback.ErrorCallback;
+import sample.kingja.loadsir.callback.LoadingCallback;
 import com.kingja.loadsir.callback.SuccessCallback;
 
 import sample.kingja.loadsir.PostUtil;
@@ -34,7 +34,7 @@ public  class FragmentA extends BaseFragment {
     @Override
     protected void onNetReload(View v) {
         Toast.makeText(getContext(),"reload in Fragment A",Toast.LENGTH_SHORT).show();
-        mBaseLoadService.showWithStatus(LoadingCallback.class);
+        mBaseLoadService.showCallback(LoadingCallback.class);
         //do retry logic...
 
         //callback

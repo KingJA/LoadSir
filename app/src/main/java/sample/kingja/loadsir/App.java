@@ -5,6 +5,12 @@ import android.app.Application;
 import com.kingja.loadsir.core.LoadSir;
 import com.squareup.leakcanary.LeakCanary;
 
+import sample.kingja.loadsir.callback.CustomCallback;
+import sample.kingja.loadsir.callback.EmptyCallback;
+import sample.kingja.loadsir.callback.ErrorCallback;
+import sample.kingja.loadsir.callback.LoadingCallback;
+import sample.kingja.loadsir.callback.TimeoutCallback;
+
 /**
  * Description:TODO
  * Create Time:2017/9/3 14:02
@@ -22,10 +28,13 @@ public class App extends Application {
             return;
         }
         LeakCanary.install(this);
-        // Normal app init code...
-//        new LoadSir.Builder()
-//                .addCallback(new CustomCallback())
-//                .addCallback(new TimeoutCallback())
-//                .build();
+        LoadSir.beginBuilder()
+                .addCallback(new ErrorCallback())
+                .addCallback(new EmptyCallback())
+                .addCallback(new LoadingCallback())
+                .addCallback(new TimeoutCallback())
+                .addCallback(new CustomCallback())
+                .setInitializeCallback(LoadingCallback.class)
+                .commit();
     }
 }

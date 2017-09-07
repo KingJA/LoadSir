@@ -19,6 +19,7 @@ Feature
 状态保存，如Fragment的切换
 多个Fragment之间的冲突
 Fragment viewpager的正常显示，还需调试
+单例，LoadLayout中用深克隆，避免Callback携带Context造成内存泄漏
 
 默认状态
 错误

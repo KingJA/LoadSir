@@ -1,6 +1,8 @@
-package com.kingja.loadsir.callback;
+package sample.kingja.loadsir.callback;
 
-import com.kingja.loadsir.R;
+import com.kingja.loadsir.callback.Callback;
+
+import sample.kingja.loadsir.R;
 
 /**
  * Description:TODO

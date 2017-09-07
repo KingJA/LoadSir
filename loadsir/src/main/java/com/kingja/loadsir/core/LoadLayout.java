@@ -35,8 +35,9 @@ class LoadLayout extends FrameLayout {
     }
 
     public void setupCallback(Callback callback) {
-        callback.setCallback(null, context, onReloadListener);
-        addCallback(callback);
+        Callback cloneCallback = callback.copy();
+        cloneCallback.setCallback(null, context, onReloadListener);
+        addCallback(cloneCallback);
     }
 
     public void addCallback(Callback callback) {
@@ -48,22 +49,27 @@ class LoadLayout extends FrameLayout {
         }
     }
 
-    public void showStatus(final Class<? extends Callback> status) {
-        if (!callbacks.containsKey(status)) {
-            throw new IllegalArgumentException(String.format("The Callback (%s) is nonexistent.", status
+    public void showCallback(final Class<? extends Callback> callback) {
+        if (!callbacks.containsKey(callback)) {
+            throw new IllegalArgumentException(String.format("The Callback (%s) is nonexistent.", callback
                     .getSimpleName()));
         }
         if (LoadSirUtil.isMainThread()) {
-            setCallbackVisibility(status);
+            setCallbackVisibility(callback);
         } else {
-            post(new Runnable() {
-                @Override
-                public void run() {
-                    setCallbackVisibility(status);
-                }
-            });
+            postToMainThread(callback);
         }
     }
+
+    private void postToMainThread(final Class<? extends Callback> status) {
+        post(new Runnable() {
+            @Override
+            public void run() {
+                setCallbackVisibility(status);
+            }
+        });
+    }
+
     private void setCallbackVisibility(Class<? extends Callback> status) {
         for (Class key : callbacks.keySet()) {
             Callback callback = callbacks.get(key);
@@ -74,5 +80,4 @@ class LoadLayout extends FrameLayout {
             }
         }
     }
-
 }

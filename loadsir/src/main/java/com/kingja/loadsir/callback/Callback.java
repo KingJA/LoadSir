@@ -3,6 +3,13 @@ package com.kingja.loadsir.callback;
 import android.content.Context;
 import android.view.View;
 
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.io.Serializable;
+
 
 /**
  * Description:TODO
@@ -10,7 +17,7 @@ import android.view.View;
  * Author:KingJA
  * Email:kingjavip@gmail.com
  */
-public abstract class Callback {
+public abstract class Callback implements Serializable {
     private View rootView;
     private Context context;
     private OnReloadListener onReloadListener;
@@ -69,4 +76,24 @@ public abstract class Callback {
         return false;
     }
 
+    public Callback copy() {
+        ByteArrayOutputStream bao = new ByteArrayOutputStream();
+        ObjectOutputStream oos;
+        try {
+            oos = new ObjectOutputStream(bao);
+            oos.writeObject(this);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        ByteArrayInputStream bis = new ByteArrayInputStream(bao.toByteArray());
+        ObjectInputStream ois;
+        Object obj = null;
+        try {
+            ois = new ObjectInputStream(bis);
+            obj = ois.readObject();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return (Callback) obj;
+    }
 }
