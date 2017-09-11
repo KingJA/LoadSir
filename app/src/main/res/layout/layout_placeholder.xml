@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:id="@+id/ll_placeholder">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:padding="12dp">
+
+        <ImageView
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_marginRight="12dp"
+            android:background="#c6f0e7" />
+
+        <LinearLayout
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:background="#c6f0e7" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#c6f0e7" />
+
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+
+    <LinearLayout
+
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="12dp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="12dp"
+            android:background="#c6f0e7" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:layout_marginBottom="16dp"
+            android:background="#c6f0e7" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:layout_marginBottom="16dp"
+            android:background="#c6f0e7" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:layout_marginBottom="16dp"
+            android:background="#c6f0e7" />
+
+
+    </LinearLayout>
+</LinearLayout>

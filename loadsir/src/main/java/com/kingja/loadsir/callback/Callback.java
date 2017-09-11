@@ -40,7 +40,7 @@ public abstract class Callback implements Serializable {
 
     public View getRootView() {
         int resId = onCreateView();
-        if (resId == 0) {
+        if (resId == 0 && rootView != null) {
             return rootView;
         }
         rootView = View.inflate(context, onCreateView(), null);
@@ -56,14 +56,6 @@ public abstract class Callback implements Serializable {
             }
         });
         return rootView;
-    }
-
-    public void hide() {
-        rootView.setVisibility(View.GONE);
-    }
-
-    public void show() {
-        rootView.setVisibility(View.VISIBLE);
     }
 
     public interface OnReloadListener {

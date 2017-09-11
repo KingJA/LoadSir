@@ -32,7 +32,7 @@ public class FragmentB extends BaseFragment {
     }
     @Override
     protected void onNetReload(View v) {
-        Toast.makeText(getContext(),"reload in Fragment A",Toast.LENGTH_SHORT).show();
+        Toast.makeText(getContext(),"reload in Fragment B",Toast.LENGTH_SHORT).show();
         mBaseLoadService.showCallback(LoadingCallback.class);
         //do retry logic...
 

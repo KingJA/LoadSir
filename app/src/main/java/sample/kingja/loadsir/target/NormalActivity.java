@@ -50,8 +50,7 @@ public class NormalActivity extends AppCompatActivity {
                 }).start();
             }
         });
-        loadService.showCallback(LoadingCallback.class);
-        PostUtil.postCallbackDelayed(loadService,LoadingCallback.class);
+        PostUtil.postCallbackDelayed(loadService,EmptyCallback.class);
     }
 
 }

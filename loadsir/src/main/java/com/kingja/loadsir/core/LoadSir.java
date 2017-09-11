@@ -31,7 +31,7 @@ public class LoadSir {
         this.builder = new Builder();
     }
 
-    public void setBuilder(Builder builder) {
+    private void setBuilder(Builder builder) {
         this.builder = builder;
     }
 
@@ -57,21 +57,21 @@ public class LoadSir {
         private List<Callback> callbacks = new ArrayList<>();
         private Class<? extends Callback> initializeCallback;
 
-        public Builder setInitializeCallback(Class<? extends Callback> initializeCallback) {
-            this.initializeCallback = initializeCallback;
-            return this;
-        }
-
         public Builder addCallback(Callback callback) {
             callbacks.add(callback);
             return this;
         }
 
-        public List<Callback> getCallbacks() {
+        public Builder setInitializeCallback(Class<? extends Callback> initializeCallback) {
+            this.initializeCallback = initializeCallback;
+            return this;
+        }
+
+        List<Callback> getCallbacks() {
             return callbacks;
         }
 
-        public Class<? extends Callback> getInitializeCallback() {
+        Class<? extends Callback> getInitializeCallback() {
             return initializeCallback;
         }
 

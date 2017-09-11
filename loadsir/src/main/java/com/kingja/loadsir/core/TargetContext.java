@@ -27,15 +27,15 @@ public class TargetContext {
         return context;
     }
 
-    public View getOldContent() {
+    View getOldContent() {
         return oldContent;
     }
 
-    public int getChildIndex() {
+    int getChildIndex() {
         return childIndex;
     }
 
-    public ViewGroup getParentView() {
+    ViewGroup getParentView() {
         return parentView;
     }
 }

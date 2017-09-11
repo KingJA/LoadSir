@@ -10,6 +10,7 @@ import sample.kingja.loadsir.target.FragmentSingleActivity;
 import sample.kingja.loadsir.target.NormalActivity;
 import sample.kingja.loadsir.target.ConvertorActivity;
 import sample.kingja.loadsir.target.MultiFragmentWithViewPagerActivity;
+import sample.kingja.loadsir.target.PlaceholderActivity;
 import sample.kingja.loadsir.target.ViewTargetActivity;
 
 /**
@@ -50,5 +51,9 @@ public class MainActivity extends AppCompatActivity {
 
     public void inFragmentMutil(View view) {
         startActivity(new Intent(this,MultiFragmentActivity.class));
+    }
+
+    public void showPlaceholder(View view) {
+        startActivity(new Intent(this,PlaceholderActivity.class));
     }
 }

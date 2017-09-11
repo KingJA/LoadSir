@@ -19,7 +19,6 @@ import java.util.Map;
  */
 
 class LoadLayout extends FrameLayout {
-    private static final String TAG = "LoadLayout";
     private Map<Class<? extends Callback>, Callback> callbacks = new HashMap<>();
     private Context context;
     private Callback.OnReloadListener onReloadListener;
@@ -42,9 +41,6 @@ class LoadLayout extends FrameLayout {
 
     public void addCallback(Callback callback) {
         if (!callbacks.containsKey(callback.getClass())) {
-            View callbackView = callback.getRootView();
-            addView(callbackView);
-            callbackView.setVisibility(View.GONE);
             callbacks.put(callback.getClass(), callback);
         }
     }
@@ -55,7 +51,7 @@ class LoadLayout extends FrameLayout {
                     .getSimpleName()));
         }
         if (LoadSirUtil.isMainThread()) {
-            setCallbackVisibility(callback);
+            showCallbackView(callback);
         } else {
             postToMainThread(callback);
         }
@@ -65,18 +61,18 @@ class LoadLayout extends FrameLayout {
         post(new Runnable() {
             @Override
             public void run() {
-                setCallbackVisibility(status);
+                showCallbackView(status);
             }
         });
     }
 
-    private void setCallbackVisibility(Class<? extends Callback> status) {
+    private void showCallbackView(Class<? extends Callback> status) {
+        if (getChildCount() > 0) {
+            removeAllViews();
+        }
         for (Class key : callbacks.keySet()) {
-            Callback callback = callbacks.get(key);
             if (key == status) {
-                callback.show();
-            } else {
-                callback.hide();
+                addView(callbacks.get(key).getRootView());
             }
         }
     }

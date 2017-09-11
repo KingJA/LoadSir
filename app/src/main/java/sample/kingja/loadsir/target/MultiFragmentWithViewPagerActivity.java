@@ -39,9 +39,9 @@ public class MultiFragmentWithViewPagerActivity extends AppCompatActivity {
 
     }
 
-    public class PagerAdapter extends FragmentPagerAdapter {
+    private class PagerAdapter extends FragmentPagerAdapter {
 
-        public PagerAdapter(FragmentManager fm) {
+        PagerAdapter(FragmentManager fm) {
             super(fm);
         }
 

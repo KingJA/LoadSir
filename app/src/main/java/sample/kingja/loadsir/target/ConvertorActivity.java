@@ -36,9 +36,9 @@ import sample.kingja.loadsir.PostUtil;
 public class ConvertorActivity extends AppCompatActivity {
 
     private LoadService loadService;
-    private HttpResult mHttpResult = new HttpResult(new Random().nextInt(2),new ArrayList<>());
-    private static final int SUCCESS_CODE=0x00;
-    private static final int ERROR_CODE=0x01;
+    private HttpResult mHttpResult = new HttpResult(new Random().nextInt(2), new ArrayList<>());
+    private static final int SUCCESS_CODE = 0x00;
+    private static final int ERROR_CODE = 0x01;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -48,10 +48,12 @@ public class ConvertorActivity extends AppCompatActivity {
                 .addCallback(new LoadingCallback())
                 .addCallback(new EmptyCallback())
                 .addCallback(new ErrorCallback())
+                .setInitializeCallback(LoadingCallback.class)
                 .build();
         loadService = loadSir.register(this, new Callback.OnReloadListener() {
             @Override
             public void onReload(View v) {
+                loadService.showCallback(LoadingCallback.class);
                 PostUtil.postCallbackDelayed(loadService, SuccessCallback.class);
             }
         }, new Convertor<HttpResult>() {
@@ -62,7 +64,7 @@ public class ConvertorActivity extends AppCompatActivity {
                     case SUCCESS_CODE://成功回调
                         if (httpResult.getData().size() == 0) {
                             resultCode = EmptyCallback.class;
-                        }else{
+                        } else {
                             resultCode = SuccessCallback.class;
                         }
                         break;
@@ -76,8 +78,7 @@ public class ConvertorActivity extends AppCompatActivity {
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                loadService.showCallback(LoadingCallback.class);
-                //do retry logic...
+                // do net here...
 
                 //callback
                 loadService.showWithConvertor(mHttpResult);
@@ -85,15 +86,11 @@ public class ConvertorActivity extends AppCompatActivity {
         }, 500);
     }
 
-    class HttpResult {
+    private class HttpResult {
         private int resultCode;
         private List<Object> data;
 
-        HttpResult(int resultCode) {
-            this.resultCode = resultCode;
-        }
-
-        public HttpResult(int resultCode, List data) {
+        HttpResult(int resultCode, List<Object> data) {
             this.resultCode = resultCode;
             this.data = data;
         }

@@ -53,7 +53,6 @@ public class LoadSirUtil {
         return new TargetContext(context, contentParent, oldContent, childIndex);
     }
 
-
     public static boolean isMainThread() {
         return Looper.myLooper() == Looper.getMainLooper();
     }
