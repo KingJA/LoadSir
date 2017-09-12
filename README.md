@@ -188,7 +188,15 @@ LoadService loadService = LoadSir.getDefault().register(this, new Callback.OnRel
 ```java
 loadService.showWithConvertor(httpResult);
 ```
+## Changelog
 
+**v1.1.1**
+- Initial release .
+
+## Contact me
+Any questions,Welcome to contact me.
+* [Blog](http://www.jianshu.com/u/8a1a8ed656e8)
+* email:kingjavip@gmail.com
 
 ## License
 
