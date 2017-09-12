@@ -7,9 +7,13 @@ LoadSir
 
 Preview
 ---
-| **loading**|**error**|**timeout**|
+| **in Activity**|**in View**|**in Fragment**|
 |:---:|:----:|:----:|
-|![](imgs/normal_activity.gif)|![](http://upload-images.jianshu.io/upload_images/1411177-be3ab1f823af479a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)|![](http://upload-images.jianshu.io/upload_images/1411177-2eba000af858ab29.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)|
+|![](imgs/normal_activity.gif)|![](imgs/view_activity.gif)|![](imgs/single_fragment.gif)|
+
+| **Placeholder**|**Muitl-Fragment**|**ViewPage+Fragment**|
+|:---:|:----:|:----:|
+|![](imgs/placeholder_activity.gif)|![](imgs/muitl_fragment.gif)|![](imgs/viewpage_fragment.gif)|
 
 
 使用场景
