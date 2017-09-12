@@ -7,7 +7,10 @@ LoadSir
 
 Preview
 ---
-![](res/rxbus2.gif)
+| **loading**|**error**|**timeout**|
+|:---:|:----:|:----:|
+|![](imgs/normal_activity.gif)|![](http://upload-images.jianshu.io/upload_images/1411177-be3ab1f823af479a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)|![](http://upload-images.jianshu.io/upload_images/1411177-2eba000af858ab29.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)|
+
 
 使用场景
 ---

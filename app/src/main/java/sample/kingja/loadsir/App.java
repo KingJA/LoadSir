@@ -3,7 +3,6 @@ package sample.kingja.loadsir;
 import android.app.Application;
 
 import com.kingja.loadsir.core.LoadSir;
-import com.squareup.leakcanary.LeakCanary;
 
 import sample.kingja.loadsir.callback.CustomCallback;
 import sample.kingja.loadsir.callback.EmptyCallback;
@@ -22,12 +21,6 @@ public class App extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
-        if (LeakCanary.isInAnalyzerProcess(this)) {
-            // This process is dedicated to LeakCanary for heap analysis.
-            // You should not init your app in this process.
-            return;
-        }
-        LeakCanary.install(this);
         LoadSir.beginBuilder()
                 .addCallback(new ErrorCallback())
                 .addCallback(new EmptyCallback())

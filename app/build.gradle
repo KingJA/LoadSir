@@ -29,6 +29,5 @@ dependencies {
 
     testCompile 'junit:junit:4.12'
     compile project(':loadsir')
-    debugCompile 'com.squareup.leakcanary:leakcanary-android:1.5.1'
 
 }

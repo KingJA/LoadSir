@@ -12,7 +12,7 @@ import com.kingja.loadsir.core.LoadService;
  * Email:kingjavip@gmail.com
  */
 public class PostUtil {
-    public static final int DELAY_TIME = 500;
+    public static final int DELAY_TIME = 1000;
 
     public static void postCallbackDelayed(final LoadService loadService, final Class<? extends Callback> clazz) {
         new Handler().postDelayed(new Runnable() {
