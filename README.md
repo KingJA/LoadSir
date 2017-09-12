@@ -3,7 +3,7 @@
 LoadSir
 ---
 
-`LoadSir`是一个高效易用，低碳环保，扩展性良好的加载反馈页展示框架，在加载网络或其他数据时候，根据需求切换状态页面，如加载中，加载失败，无数据，网络超时，加载成功等常用页面。可添加自定义状态页面，如占位图，登录失效等。可配合网络加载框架，结合返回状态码，错误码，数据封装使用。**[Github传送门](https://github.com/KingJA/LoadSir)**
+`LoadSir`是一个高效易用，低碳环保，扩展性良好的加载反馈页展示框架，在加载网络或其他数据时候，根据需求切换状态页面，如加载中，加载失败，无数据，网络超时，加载成功等常用页面。可添加自定义状态页面，如占位图，登录失效等。可配合网络加载框架，结合返回状态码，错误码，数据封装使用。
 
 Preview
 ---
@@ -25,22 +25,28 @@ Preview
 
 LoadSir的功能及特点
 ---
-* 支持Activity，Fragment，Fragment(v4)，View状态回调
-* 适配多个Fragment切换，及Fragment+ViewPager切换，不会状态叠加或者状态错乱
-* 利用泛型转换输入信号和输出状态，可根据网络返回体的状态码或者数据返回自动适配状态页，实现全局自动状态切换
-* 只加载唯一一个状态视图，不会预加载全部视图
+* 支持Activity，Fragment，Fragment(v4)，View状态回调:star:
+* 适配多个Fragment切换，及Fragment+ViewPager切换，不会状态叠加或者状态错乱:star:
+* 利用泛型转换输入信号和输出状态，可根据网络返回体的状态码或者数据返回自动适配状态页，实现全局自动状态切换:star:
+* 只加载唯一一个状态视图，不会预加载全部视图:star:
+* 不需要设置枚举或者常量状态值，直接用状态页类类型(xxx.class)作为状态码:star:
+* 可对单个状态页单独设置点击事件，根据返回boolean值覆盖或者结合OnReloadListener使用:star:
+* 低解耦，无预设页面，开发者随心配置:star:
 * 可设置重新加载点击事件(OnReloadListener)
 * 可自定义状态页(继承Callback类)
 * 可在子线程直接切换状态
 * 可设置初始状态页(常用进度页作为初始状态)
-* 不需要设置枚举或者常量状态值，直接用状态页类类型(xxx.class)作为状态码
 * 可扩展状态页面，在配置中添加自定义状态页
-* 可对单个状态页单独设置点击事件，根据返回boolean值覆盖或者结合OnReloadListener使用
 * 可全局单例配置，也可以单独配置
-* 低解耦，无预设页面，开发者随心配置
 
 开始使用LoadSir
 ---
+## Dependencies
+
+```groovy
+compile 'com.kingja.loadsir:loadsir:1.1.1'(未发布)
+```
+
 ## <<配置>>
 
 ###### 全局配置方式
@@ -176,14 +182,6 @@ LoadService loadService = LoadSir.getDefault().register(this, new Callback.OnRel
 loadService.showWithConvertor(httpResult);
 ```
 
-
-## Dependencies
-
-```groovy
-
-```
-
-## Usage
 
 ## License
 
