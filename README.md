@@ -51,7 +51,7 @@ LoadSir的功能及特点
 ## Dependencies
 
 ```groovy
-compile 'com.kingja.loadsir:loadsir:1.1.1'(未发布)
+compile 'com.kingja.loadsir:loadsir:1.1.1'
 ```
 
 ## <<配置>>
