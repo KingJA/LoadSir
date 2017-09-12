@@ -10,7 +10,6 @@ import com.kingja.loadsir.callback.Callback;
 
 import sample.kingja.loadsir.callback.LoadingCallback;
 
-import com.kingja.loadsir.callback.SuccessCallback;
 import com.kingja.loadsir.core.LoadService;
 import com.kingja.loadsir.core.LoadSir;
 
@@ -38,7 +37,7 @@ public class ViewTargetActivity extends AppCompatActivity {
         LoadSir loadSir = new LoadSir.Builder()
                 .addCallback(new TimeoutCallback())
                 .addCallback(new LoadingCallback())
-                .setInitializeCallback(LoadingCallback.class)
+                .setDefaultCallback(LoadingCallback.class)
                 .build();
         loadService = loadSir.register(imageView, new Callback.OnReloadListener() {
             @Override

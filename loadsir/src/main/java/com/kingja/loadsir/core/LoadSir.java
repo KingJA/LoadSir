@@ -55,15 +55,15 @@ public class LoadSir {
 
     public static class Builder {
         private List<Callback> callbacks = new ArrayList<>();
-        private Class<? extends Callback> initializeCallback;
+        private Class<? extends Callback> defaultCallback;
 
         public Builder addCallback(Callback callback) {
             callbacks.add(callback);
             return this;
         }
 
-        public Builder setInitializeCallback(Class<? extends Callback> initializeCallback) {
-            this.initializeCallback = initializeCallback;
+        public Builder setDefaultCallback(Class<? extends Callback> defaultCallback) {
+            this.defaultCallback = defaultCallback;
             return this;
         }
 
@@ -71,13 +71,12 @@ public class LoadSir {
             return callbacks;
         }
 
-        Class<? extends Callback> getInitializeCallback() {
-            return initializeCallback;
+        Class<? extends Callback> getDefaultCallback() {
+            return defaultCallback;
         }
 
-        public Builder commit() {
+        public void commit() {
             getDefault().setBuilder(this);
-            return this;
         }
 
         public LoadSir build() {

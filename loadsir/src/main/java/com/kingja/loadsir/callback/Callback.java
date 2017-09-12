@@ -58,12 +58,6 @@ public abstract class Callback implements Serializable {
         return rootView;
     }
 
-    public interface OnReloadListener {
-        void onReload(View v);
-    }
-
-    protected abstract int onCreateView();
-
     protected boolean onSingleRetry(Context context, View view) {
         return false;
     }
@@ -88,4 +82,10 @@ public abstract class Callback implements Serializable {
         }
         return (Callback) obj;
     }
+
+    public interface OnReloadListener {
+        void onReload(View v);
+    }
+
+    protected abstract int onCreateView();
 }

@@ -8,12 +8,13 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.kingja.loadsir.callback.Callback;
+
+import sample.kingja.loadsir.callback.CustomCallback;
 import sample.kingja.loadsir.callback.LoadingCallback;
-import com.kingja.loadsir.callback.SuccessCallback;
+
 import com.kingja.loadsir.core.LoadService;
 import com.kingja.loadsir.core.LoadSir;
 
-import sample.kingja.loadsir.callback.CustomCallback;
 import sample.kingja.loadsir.PostUtil;
 import sample.kingja.loadsir.R;
 
@@ -36,7 +37,7 @@ public class NormalFragment extends Fragment {
         LoadSir loadSir = new LoadSir.Builder()
                 .addCallback(new CustomCallback())
                 .addCallback(new LoadingCallback())
-                .setInitializeCallback(LoadingCallback.class)
+                .setDefaultCallback(LoadingCallback.class)
                 .build();
         loadService = loadSir.register(rootView, new Callback.OnReloadListener() {
             @Override
@@ -45,7 +46,7 @@ public class NormalFragment extends Fragment {
                 //do retry logic...
 
                 //callback
-                PostUtil.postCallbackDelayed(loadService, SuccessCallback.class);
+                PostUtil.postSuccessDelayed(loadService);
             }
         });
         return loadService.getLoadLayout();

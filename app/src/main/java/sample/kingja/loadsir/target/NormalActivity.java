@@ -7,9 +7,10 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
 import com.kingja.loadsir.callback.Callback;
+
 import sample.kingja.loadsir.callback.EmptyCallback;
 import sample.kingja.loadsir.callback.LoadingCallback;
-import com.kingja.loadsir.callback.SuccessCallback;
+
 import com.kingja.loadsir.core.LoadService;
 import com.kingja.loadsir.core.LoadSir;
 
@@ -45,7 +46,7 @@ public class NormalActivity extends AppCompatActivity {
                         //do retry logic...
                         SystemClock.sleep(500);
                         //callback
-                        loadService.showCallback(SuccessCallback.class);
+                        loadService.showSuccess();
                     }
                 }).start();
             }

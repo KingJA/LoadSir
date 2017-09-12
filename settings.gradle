@@ -1,1 +1,1 @@
-include ':app', ':loadsir', ':loadingandretrymanager'
+include ':app', ':loadsir'

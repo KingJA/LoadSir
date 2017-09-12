@@ -34,7 +34,7 @@ public class App extends Application {
                 .addCallback(new LoadingCallback())
                 .addCallback(new TimeoutCallback())
                 .addCallback(new CustomCallback())
-                .setInitializeCallback(LoadingCallback.class)
+                .setDefaultCallback(LoadingCallback.class)
                 .commit();
     }
 }

@@ -4,7 +4,6 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/LoadSir.iml" filepath="$PROJECT_DIR$/LoadSir.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
-      <module fileurl="file://$PROJECT_DIR$/loadingandretrymanager/loadingandretrymanager.iml" filepath="$PROJECT_DIR$/loadingandretrymanager/loadingandretrymanager.iml" />
       <module fileurl="file://$PROJECT_DIR$/loadsir/loadsir.iml" filepath="$PROJECT_DIR$/loadsir/loadsir.iml" />
     </modules>
   </component>

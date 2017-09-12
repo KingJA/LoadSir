@@ -5,7 +5,6 @@ import android.widget.Toast;
 
 import sample.kingja.loadsir.callback.EmptyCallback;
 import sample.kingja.loadsir.callback.LoadingCallback;
-import com.kingja.loadsir.callback.SuccessCallback;
 
 import sample.kingja.loadsir.PostUtil;
 import sample.kingja.loadsir.R;
@@ -37,6 +36,6 @@ public class FragmentB extends BaseFragment {
         //do retry logic...
 
         //callback
-        PostUtil.postCallbackDelayed(mBaseLoadService, SuccessCallback.class);
+        PostUtil.postSuccessDelayed(mBaseLoadService);
     }
 }

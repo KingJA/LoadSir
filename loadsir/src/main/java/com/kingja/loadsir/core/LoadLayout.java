@@ -2,7 +2,6 @@ package com.kingja.loadsir.core;
 
 import android.content.Context;
 import android.support.annotation.NonNull;
-import android.view.View;
 import android.widget.FrameLayout;
 
 import com.kingja.loadsir.LoadSirUtil;

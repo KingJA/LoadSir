@@ -31,7 +31,7 @@ public class PlaceholderActivity extends AppCompatActivity {
         setContentView(R.layout.activity_placeholder);
         LoadSir loadSir = new LoadSir.Builder()
                 .addCallback(new PlaceholderCallback())
-                .setInitializeCallback(PlaceholderCallback.class)
+                .setDefaultCallback(PlaceholderCallback.class)
                 .build();
         loadService = loadSir.register(this, new Callback.OnReloadListener() {
             @Override

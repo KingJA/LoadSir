@@ -1,13 +1,9 @@
 package sample.kingja.loadsir;
 
 import android.os.Handler;
-import android.util.Log;
 
 import com.kingja.loadsir.callback.Callback;
-import com.kingja.loadsir.callback.SuccessCallback;
 import com.kingja.loadsir.core.LoadService;
-
-import static android.content.ContentValues.TAG;
 
 /**
  * Description:TODO
@@ -35,7 +31,7 @@ public class PostUtil {
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                loadService.showCallback(SuccessCallback.class);
+                loadService.showSuccess();
             }
         }, delay);
     }

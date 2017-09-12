@@ -35,14 +35,14 @@ public class LoadService {
 
     private void initCallback(LoadSir.Builder builder) {
         List<Callback> callbacks = builder.getCallbacks();
-        Class<? extends Callback> initializeCallback = builder.getInitializeCallback();
+        Class<? extends Callback> defalutCallback = builder.getDefaultCallback();
         if (callbacks != null && callbacks.size() > 0) {
             for (Callback callback : callbacks) {
                 loadLayout.setupCallback(callback);
             }
         }
-        if (initializeCallback != null) {
-            loadLayout.showCallback(initializeCallback);
+        if (defalutCallback != null) {
+            loadLayout.showCallback(defalutCallback);
         }
     }
 

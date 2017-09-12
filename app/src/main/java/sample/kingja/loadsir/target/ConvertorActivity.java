@@ -6,16 +6,15 @@ import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
-import sample.kingja.loadsir.callback.LoadingCallback;
-
-import com.kingja.loadsir.core.LoadService;
-import com.kingja.loadsir.core.LoadSir;
-import com.kingja.loadsir.callback.Callback;
-
 import sample.kingja.loadsir.callback.EmptyCallback;
 import sample.kingja.loadsir.callback.ErrorCallback;
+import sample.kingja.loadsir.callback.LoadingCallback;
 
+import com.kingja.loadsir.callback.Callback;
 import com.kingja.loadsir.callback.SuccessCallback;
+import com.kingja.loadsir.core.LoadService;
+import com.kingja.loadsir.core.LoadSir;
+
 import com.kingja.loadsir.core.Convertor;
 
 import java.util.ArrayList;
@@ -48,7 +47,7 @@ public class ConvertorActivity extends AppCompatActivity {
                 .addCallback(new LoadingCallback())
                 .addCallback(new EmptyCallback())
                 .addCallback(new ErrorCallback())
-                .setInitializeCallback(LoadingCallback.class)
+                .setDefaultCallback(LoadingCallback.class)
                 .build();
         loadService = loadSir.register(this, new Callback.OnReloadListener() {
             @Override
