@@ -57,7 +57,7 @@ public class ConvertorActivity extends AppCompatActivity {
             }
         }, new Convertor<HttpResult>() {
             @Override
-            public Class<? extends Callback> change2Callback(HttpResult httpResult) {
+            public Class<? extends Callback> map(HttpResult httpResult) {
                 Class<? extends Callback> resultCode = SuccessCallback.class;
                 switch (httpResult.getResultCode()) {
                     case SUCCESS_CODE://成功回调

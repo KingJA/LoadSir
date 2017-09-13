@@ -166,7 +166,7 @@ LoadService loadService = LoadSir.getDefault().register(this, new Callback.OnRel
             // 重新加载逻辑
     }}, new Convertor<HttpResult>() {
     @Override
-    public Class<? extends Callback> change2Callback(HttpResult httpResult) {
+    public Class<? extends Callback> map(HttpResult httpResult) {
         Class<? extends Callback> resultCode = SuccessCallback.class;
         switch (httpResult.getResultCode()) {
             case SUCCESS_CODE://成功回调

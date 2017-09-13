@@ -21,7 +21,7 @@ Feature
 ---
 * :star:支持Activity，Fragment，Fragment(v4)，View状态回调
 * :star:适配多个Fragment切换，及Fragment+ViewPager切换，不会状态叠加或者状态错乱
-* :star:利用泛型转换输入信号和输出状态，可根据网络返回体的状态码或者数据返回自动适配状态页，实现全局自动状态切换
+* :star: convert some other object or data structure into an Callback
 * :star:只加载唯一一个状态视图，不会预加载全部视图
 * :star:不需要设置枚举或者常量状态值，直接用状态页类类型(xxx.class)作为状态码
 * :star:可对单个状态页单独设置点击事件，根据返回boolean值覆盖或者结合OnReloadListener使用
@@ -153,7 +153,7 @@ LoadService loadService = LoadSir.getDefault().register(this, new Callback.OnRel
             // 重新加载逻辑
     }}, new Convertor<HttpResult>() {
     @Override
-    public Class<? extends Callback> change2Callback(HttpResult httpResult) {
+    public Class<? extends Callback> map(HttpResult httpResult) {
         Class<? extends Callback> resultCode = SuccessCallback.class;
         switch (httpResult.getResultCode()) {
             case SUCCESS_CODE://成功回调
@@ -180,7 +180,7 @@ loadService.showWithConvertor(httpResult);
 **v1.1.1**
 - Initial release .
 
-## Contact me
+## Communication
 Any questions,Welcome to contact me.
 * [Blog](http://www.jianshu.com/u/8a1a8ed656e8)
 * email:kingjavip@gmail.com

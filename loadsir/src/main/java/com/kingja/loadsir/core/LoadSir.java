@@ -12,7 +12,7 @@ import java.util.List;
  * Author:KingJA
  * Email:kingjavip@gmail.com
  */
-public class LoadSir {
+public class LoadSir  {
     private static volatile LoadSir loadSir;
     private Builder builder;
 
@@ -46,7 +46,7 @@ public class LoadSir {
     public <T> LoadService register(Object target, Callback.OnReloadListener onReloadListener, Convertor<T>
             convertor) {
         TargetContext targetContext = LoadSirUtil.getTargetContext(target);
-        return new LoadService(convertor, targetContext, onReloadListener, builder);
+        return new LoadService<>(convertor, targetContext, onReloadListener, builder);
     }
 
     public static Builder beginBuilder() {

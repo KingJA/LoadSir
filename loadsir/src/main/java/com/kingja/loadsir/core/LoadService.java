@@ -14,11 +14,11 @@ import java.util.List;
  * Author:KingJA
  * Email:kingjavip@gmail.com
  */
-public class LoadService {
+public class LoadService<T> {
     private LoadLayout loadLayout;
-    private Convertor convertor;
+    private Convertor<T> convertor;
 
-    LoadService(Convertor convertor, TargetContext targetContext, Callback
+    LoadService(Convertor<T> convertor, TargetContext targetContext, Callback
             .OnReloadListener onReloadListener, LoadSir.Builder builder) {
         this.convertor = convertor;
         Context context = targetContext.getContext();
@@ -54,11 +54,11 @@ public class LoadService {
         loadLayout.showCallback(SuccessCallback.class);
     }
 
-    public <T> void showWithConvertor(T t) {
+    public void showWithConvertor(T t) {
         if (convertor == null) {
             throw new IllegalArgumentException("You haven't set the Convertor.");
         }
-        loadLayout.showCallback(convertor.change2Callback(t));
+        loadLayout.showCallback(convertor.map(t));
     }
 
     public LoadLayout getLoadLayout() {
