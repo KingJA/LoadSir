@@ -6,7 +6,8 @@
     android:layout_height="match_parent"
     tools:context="sample.kingja.loadsir.MainActivity"
     android:gravity="center"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:id="@+id/ll_root_activity">
 
     <TextView
         android:textSize="30sp"
