@@ -193,6 +193,8 @@ public class CustomCallback extends Callback {
 }
 
 ## Changelog
+**v1.2.0**
+- improve API naming notations.
 
 **v1.1.1**
 - Initial release .
