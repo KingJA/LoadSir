@@ -1,5 +1,4 @@
 <div align="center"><img src="res/rxbus.png"/></div>
-
 LoadSir
 ---
 中文 | [English](README-en.md)
@@ -189,6 +188,23 @@ LoadService loadService = LoadSir.getDefault().register(this, new Callback.OnRel
 ```java
 loadService.showWithConvertor(httpResult);
 ```
+
+### 自定义回调页
+
+public class CustomCallback extends Callback {
+
+    @Override
+    protected int onCreateView() {
+        return R.layout.layout_custom;
+    }
+
+    @Override
+    protected boolean onRetry(Context context, View view) {
+        Toast.makeText(context.getApplicationContext(),"Hello mother fuck! :p",Toast.LENGTH_SHORT).show();
+        return true;//返回true则覆盖了register时传入的重试点击事件，返回false则两个都执行
+    }
+}
+
 ## Changelog
 
 **v1.1.1**

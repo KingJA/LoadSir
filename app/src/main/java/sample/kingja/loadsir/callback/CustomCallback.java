@@ -22,7 +22,7 @@ public class CustomCallback extends Callback {
     }
 
     @Override
-    protected boolean onSingleRetry(Context context, View view) {
+    protected boolean onRetry(Context context, View view) {
         Toast.makeText(context.getApplicationContext(),"Hello mother fuck! :p",Toast.LENGTH_SHORT).show();
         return true;
     }

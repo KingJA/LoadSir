@@ -47,7 +47,7 @@ public abstract class Callback implements Serializable {
         rootView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (onSingleRetry(context, rootView)) {
+                if (onRetry(context, rootView)) {
                     return;
                 }
                 if (onReloadListener != null) {
@@ -58,7 +58,7 @@ public abstract class Callback implements Serializable {
         return rootView;
     }
 
-    protected boolean onSingleRetry(Context context, View view) {
+    protected boolean onRetry(Context context, View view) {
         return false;
     }
 

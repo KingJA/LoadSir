@@ -3,6 +3,7 @@
 LoadSir
 ---
 English | [中文](README-cn.md)
+
 `LoadSir` is a lightweight, good expandability android library used for show diffent load page depend on diffent callback when you do net job .
 
 Preview
@@ -133,7 +134,7 @@ public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container,
 }
 ```
 
-### <<Callback>>
+### Callback
 
 * ###### Direct Callback
 ```java
@@ -176,6 +177,24 @@ pass a HttpResult
 ```java
 loadService.showWithConvertor(httpResult);
 ```
+
+### Customize
+
+public class CustomCallback extends Callback {
+
+    @Override
+    protected int onCreateView() {
+        return R.layout.layout_custom;
+    }
+
+    @Override
+    protected boolean onRetry(Context context, View view) {
+        Toast.makeText(context.getApplicationContext(),"Hello mother fuck! :p",Toast.LENGTH_SHORT).show();
+        return true;//return true to cover the retry logic when you register
+    }
+}
+
+
 ## Changelog
 
 **v1.1.1**

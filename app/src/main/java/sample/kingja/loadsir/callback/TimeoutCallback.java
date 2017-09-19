@@ -23,7 +23,7 @@ public class TimeoutCallback extends Callback {
     }
 
     @Override
-    protected boolean onSingleRetry(Context context, View view) {
+    protected boolean onRetry(Context context, View view) {
         Toast.makeText(context.getApplicationContext(),"Connecting to the network again!",Toast.LENGTH_SHORT).show();
         return false;
     }
