@@ -1,7 +1,5 @@
 <div align="center"><img src="imgs/LoadSir.jpg"/></div>
 
-LoadSir
----
 English | [中文](README-cn.md)
 
 `LoadSir` is a lightweight, good expandability android library used for show diffent load page depend on diffent http result when you do net job .

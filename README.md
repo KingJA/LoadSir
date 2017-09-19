@@ -1,8 +1,5 @@
 <div align="center"><img src="imgs/LoadSir.jpg"/></div>
 
-LoadSir
----
-
 中文 | [English](README-en.md)
 
 `LoadSir`是一个高效易用，低碳环保，扩展性良好的加载反馈页管理框架，在加载网络或其他数据时候，根据需求切换状态页面，
