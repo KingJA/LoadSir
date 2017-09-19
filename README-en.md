@@ -2,7 +2,8 @@
 
 English | [中文](README-cn.md)
 
-`LoadSir` is a lightweight, good expandability android library used for show diffent load page depend on diffent http result when you do net job .
+`LoadSir` is a lightweight, good expandability android library used for show diffent load page depend on different http
+ result when you do net job .
 
 Preview
 ---
@@ -15,7 +16,6 @@ Preview
 |![](imgs/placeholder_activity.gif)|![](imgs/muitl_fragment.gif)|![](imgs/viewpage_fragment.gif)|
 
 
-
 Feature
 ---
 * :star:support for Activity，Fragment，Fragment(v4)，View
@@ -23,14 +23,13 @@ Feature
 * :star:convert http result structure into a Callback
 * :star:only load one layout once
 * :star:don't need to set enum or constant for status code
-* :star:be able to set the your own onclick logic in custom Callback
+* :star:set the your own onclick logic in custom Callback
 * :star:no preloaded load page
 * set the retry onclick listener
-* cusomize your own load page
+* allow to cusomize your own load page
 * thread-safety
 * set the default load page
 * add muitl load pages
-* single config object
 
 Getting started
 ---
@@ -40,10 +39,10 @@ Getting started
 compile 'com.kingja.loadsir:loadsir:1.2.0'
 ```
 
-### Config
+### Step 1:Config
 
 * ###### Global Config
-set config with singleton pattern, you can do it in your Application.
+set config with singleton pattern, you can do it in your Application,so that you get get this same LoadSir everywhere.
 ```java
 public class App extends Application {
     @Override
@@ -76,7 +75,7 @@ LoadSir loadSir = new LoadSir.Builder()
             }
         });
 ```
-### Register
+### Step 2: Register
 
 * ###### Register in Activity
 
@@ -112,7 +111,7 @@ loadService = loadSir.register(imageView, new Callback.OnReloadListener() {
 ```
 
 * ###### Register in Fragment
-use it in Fragment is a bit different from others, see the template code.
+use it in Fragment is a bit different from others, follow the template code.
 ```java
 @Nullable
 @Override
@@ -132,7 +131,7 @@ public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container,
 }
 ```
 
-### Callback
+### Step 3: Callback
 
 * ###### Direct Callback
 ```java
@@ -178,6 +177,8 @@ loadService.showWithConvertor(httpResult);
 
 ### Customize
 you can customize your own load page, like loading, empty, error, timeout, etc.
+
+```java
 public class CustomCallback extends Callback {
 
     @Override
@@ -191,7 +192,7 @@ public class CustomCallback extends Callback {
         return true;//return true to cover the retry logic when you register
     }
 }
-
+```
 
 ## Changelog
 
