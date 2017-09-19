@@ -1,6 +1,7 @@
 <div align="center"><img src="res/rxbus.png"/></div>
 LoadSir
 ---
+
 中文 | [English](README-en.md)
 
 `LoadSir`是一个高效易用，低碳环保，扩展性良好的加载反馈页展示框架，在加载网络或其他数据时候，根据需求切换状态页面，如加载中，加载失败，无数据，网络超时，加载成功等常用页面。可添加自定义状态页面，如占位图，登录失效等。可配合网络加载框架，结合返回状态码，错误码，数据封装使用。
@@ -19,14 +20,6 @@ Preview
 使用场景
 ---
 下面为大家常见的加载反馈页面：
-
-| **loading**|**error**|**timeout**|
-|:---:|:----:|:----:|
-|![](http://upload-images.jianshu.io/upload_images/1411177-4ff5baaeac614661.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)|![](http://upload-images.jianshu.io/upload_images/1411177-be3ab1f823af479a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)|![](http://upload-images.jianshu.io/upload_images/1411177-2eba000af858ab29.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)|
-
-| **empty**|**empty**|**custom**|
-|:---:|:----:|:----:|
-|![](http://upload-images.jianshu.io/upload_images/1411177-41c45decb8b31c97.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)|![](http://upload-images.jianshu.io/upload_images/1411177-a17c7015f0d00172.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)|![](http://upload-images.jianshu.io/upload_images/1411177-8a37cfb2ad80027f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)|
 
 面对这么多状态页面，你是不是还在用include的方式，setVisibility(View.VISIBLE/GONE)，这种方式即不方便控制，也造成了视图层级冗余。如果有一种工具，能把这些事都做了就好了。恰好，  `LoadSir` 把这些事做了，接下来我们就来了解一下它。
 
