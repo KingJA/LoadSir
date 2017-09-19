@@ -2,8 +2,7 @@
 
 LoadSir
 ---
-
-`LoadSir`是一个高效易用，低碳环保，扩展性良好的加载反馈页展示框架，在加载网络或其他数据时候，根据需求切换状态页面，如加载中，加载失败，无数据，网络超时，加载成功等常用页面。可添加自定义状态页面，如占位图，登录失效等。可配合网络加载框架，结合返回状态码，错误码，数据封装使用。
+`LoadSir` is a lightweight, good expandability android library used for show diffent load page depend on diffent callback when you do net job .
 
 Preview
 ---
@@ -19,32 +18,32 @@ Preview
 
 Feature
 ---
-* :star:支持Activity，Fragment，Fragment(v4)，View状态回调
-* :star:适配多个Fragment切换，及Fragment+ViewPager切换，不会状态叠加或者状态错乱
-* :star: convert some other object or data structure into an Callback
-* :star:只加载唯一一个状态视图，不会预加载全部视图
-* :star:不需要设置枚举或者常量状态值，直接用状态页类类型(xxx.class)作为状态码
-* :star:可对单个状态页单独设置点击事件，根据返回boolean值覆盖或者结合OnReloadListener使用
-* :star:低耦合，无预设页面，开发者随心配置
-* 可设置重新加载点击事件(OnReloadListener)
-* 可自定义状态页(继承Callback类)
+* :star:support for Activity，Fragment，Fragment(v4)，View
+* :star:support for muitl-Fragment，Fragment+ViewPager
+* :star:convert some other object or data structure into an Callback
+* :star:only load one layout once
+* :star:don't need to set enum or constant for status code
+* :star:be able to set the your own onclick logic in custom Callback
+* :star:no preloaded load page
+* be able to set the retry onclick listener
+* cusomize your own load page
 * thread-safety
-* 可设置初始状态页(常用进度页作为初始状态)
-* 可扩展状态页面，在配置中添加自定义状态页
-* 可全局单例配置，也可以单独配置
+* be able to set the default load page
+* be able to add muitl load pages
+* single config object
 
 Getting started
 ---
-## Download
+### Download
 
 ```groovy
 compile 'com.kingja.loadsir:loadsir:1.1.1'
 ```
 
-## config
+### Config
 
-###### 全局配置方式
-全局配置方式，使用的是单例模式，即获取的配置都是一样的。可在Application中配置，添加状态页，设置初始化状态页。
+* ###### Global Config
+set config with singleton pattern, you can do it in your Application.
 ```java
 public class App extends Application {
     @Override
@@ -61,8 +60,8 @@ public class App extends Application {
     }
 }
 ```
-###### 单独配置方式
-如果你即想保留全局配置，又想在某个特殊页面加点不同的配置，可采用该方式。
+* ###### Single Config
+if your want to build another specific LoadSir, you can set config like this.
 
 ```java
 LoadSir loadSir = new LoadSir.Builder()
@@ -73,13 +72,13 @@ LoadSir loadSir = new LoadSir.Builder()
         loadService = loadSir.register(this, new Callback.OnReloadListener() {
             @Override
             public void onReload(View v) {
-                // 重新加载逻辑
+                // retry logic
             }
         });
 ```
-## <<注册>>
+### Register
 
-###### 在Activity中使用
+* ###### Register in Activity
 
 ```java
 @Override
@@ -90,13 +89,13 @@ protected void onCreate(@Nullable Bundle savedInstanceState) {
     LoadService loadService = LoadSir.getDefault().register(this, new Callback.OnReloadListener() {
         @Override
         public void onReload(View v) {
-            // 重新加载逻辑
+            // retry logic
         }
     });
 }}
 ```
 
-###### 在View 中使用
+* ###### Register in View
 ```java
 ImageView imageView = (ImageView) findViewById(R.id.iv_img);
 LoadSir loadSir = new LoadSir.Builder()
@@ -107,56 +106,57 @@ loadService = loadSir.register(imageView, new Callback.OnReloadListener() {
     @Override
     public void onReload(View v) {
         loadService.showCallback(LoadingCallback.class);
-        // 重新加载逻辑
+        // retry logic
     }
 });
 ```
-###### 在Fragment 中使用
-由于Fragment添加到Activitiy方式多样，比较特别，所以在Fragment注册方式不同于上面两种，大家先看模板代码：
+
+* ###### Register in Fragment
+use it in Fragment is a bit different from others, see the template code.
 ```java
 @Nullable
 @Override
 public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle
         savedInstanceState) {
-    //第一步：获取布局View
+    //step 1：obtain get root view
     rootView = View.inflate(getActivity(), R.layout.fragment_a_content, null);
-    //第二步：注册布局View
+    //step 2：obtain the LoadService
     LoadService loadService = LoadSir.getDefault().register(rootView, new Callback.OnReloadListener() {
         @Override
         public void onReload(View v) {
-            // 重新加载逻辑
+            // retry logic
         }
     });
-    //第三步：返回LoadSir生成的LoadLayout
+    //step 3：return the LoadLayout from LoadService
     return loadService.getLoadLayout();
 }
 ```
 
-## <<回调>>
+### <<Callback>>
 
-###### 直接回调
+* ###### Direct Callback
 ```java
 protected void loadNet() {
-        // 进行网络访问...
-        // 进行回调
-        loadService.showSuccess();//成功回调
-        loadService.showCallback(EmptyCallback.class);//其他回调
+        // do net job...
+        // callback
+        loadService.showSuccess();//successful case
+        loadService.showCallback(EmptyCallback.class);//other case
     }
 ```
-###### 转换器回调 (推荐使用)
-如果你不想再每次回调都要手动进行的话，可以选择注册的时候加入转换器，可根据返回的数据，适配对应的回调。
+* ###### Convertor Callback (recommended )
+if you want LoadSir do callback automatically, you can pass a Convertor when you register it.
 
 ```java
 LoadService loadService = LoadSir.getDefault().register(this, new Callback.OnReloadListener() {
     @Override
     public void onReload(View v) {
-            // 重新加载逻辑
+         // retry logic
     }}, new Convertor<HttpResult>() {
     @Override
     public Class<? extends Callback> map(HttpResult httpResult) {
         Class<? extends Callback> resultCode = SuccessCallback.class;
         switch (httpResult.getResultCode()) {
-            case SUCCESS_CODE://成功回调
+            case SUCCESS_CODE:
                 if (httpResult.getData().size() == 0) {
                     resultCode = EmptyCallback.class;
                 }else{
@@ -171,7 +171,7 @@ LoadService loadService = LoadSir.getDefault().register(this, new Callback.OnRel
     }
 });
 ```
-回调的时候直接传入转换器指定类型的数据。
+pass a HttpResult
 ```java
 loadService.showWithConvertor(httpResult);
 ```
