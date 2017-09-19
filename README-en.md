@@ -4,7 +4,7 @@ LoadSir
 ---
 English | [中文](README-cn.md)
 
-`LoadSir` is a lightweight, good expandability android library used for show diffent load page depend on diffent callback when you do net job .
+`LoadSir` is a lightweight, good expandability android library used for show diffent load page depend on diffent http result when you do net job .
 
 Preview
 ---
@@ -22,16 +22,16 @@ Feature
 ---
 * :star:support for Activity，Fragment，Fragment(v4)，View
 * :star:support for muitl-Fragment，Fragment+ViewPager
-* :star:convert some other object or data structure into an Callback
+* :star:convert http result structure into a Callback
 * :star:only load one layout once
 * :star:don't need to set enum or constant for status code
 * :star:be able to set the your own onclick logic in custom Callback
 * :star:no preloaded load page
-* be able to set the retry onclick listener
+* set the retry onclick listener
 * cusomize your own load page
 * thread-safety
-* be able to set the default load page
-* be able to add muitl load pages
+* set the default load page
+* add muitl load pages
 * single config object
 
 Getting started
@@ -146,7 +146,7 @@ protected void loadNet() {
     }
 ```
 * ###### Convertor Callback (recommended )
-if you want LoadSir do callback automatically, you can pass a Convertor when you register it.
+if you want LoadSir to do callback automatically, you can pass a Convertor when you register it.
 
 ```java
 LoadService loadService = LoadSir.getDefault().register(this, new Callback.OnReloadListener() {
@@ -179,7 +179,7 @@ loadService.showWithConvertor(httpResult);
 ```
 
 ### Customize
-
+you can customize your own load page, like loading, empty, error, timeout, etc.
 public class CustomCallback extends Callback {
 
     @Override

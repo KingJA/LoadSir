@@ -190,7 +190,7 @@ loadService.showWithConvertor(httpResult);
 ```
 
 ### 自定义回调页
-
+你可以自定义自己的回调页面，比如加载中，没数据，错误，超时等常用页面，设置布局及自定义点击逻辑
 public class CustomCallback extends Callback {
 
     @Override
