@@ -16,6 +16,9 @@
 |:---:|:----:|:----:|
 |![](imgs/placeholder_activity.gif)|![](imgs/muitl_fragment.gif)|![](imgs/viewpage_fragment.gif)|
 
+流程图
+---
+<div align="center"><img src="imgs/LoadSir_flow.jpg"/></div>
 
 LoadSir的功能及特点
 ---
@@ -32,6 +35,8 @@ LoadSir的功能及特点
 * 可设置初始状态页(常用进度页作为初始状态)
 * 可扩展状态页面，在配置中添加自定义状态页
 * 可全局单例配置，也可以单独配置
+
+
 
 开始使用LoadSir
 ---

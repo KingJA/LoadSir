@@ -46,12 +46,12 @@ public class LoadService<T> {
         }
     }
 
-    public void showCallback(Class<? extends Callback> callback) {
-        loadLayout.showCallback(callback);
-    }
-
     public void showSuccess() {
         loadLayout.showCallback(SuccessCallback.class);
+    }
+
+    public void showCallback(Class<? extends Callback> callback) {
+        loadLayout.showCallback(callback);
     }
 
     public void showWithConvertor(T t) {

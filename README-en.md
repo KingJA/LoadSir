@@ -30,6 +30,10 @@ Feature
 * set the default load page
 * add muitl load pages
 
+diagram
+---
+<div align="center"><img src="imgs/LoadSir_flow.jpg"/></div>
+
 Getting started
 ---
 ### Download
