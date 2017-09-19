@@ -1,4 +1,4 @@
-<div align="center"><img src="imgs/LoadSir.jpg"/></div>
+![](imgs/LoadSir.jpg)
 
 中文 | [English](README-en.md)
 
