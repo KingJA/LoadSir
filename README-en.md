@@ -1,4 +1,4 @@
-<div align="center"><img src="res/rxbus.png"/></div>
+<div align="center"><img src="imgs/LoadSir.jpg"/></div>
 
 LoadSir
 ---
@@ -39,7 +39,7 @@ Getting started
 ### Download
 
 ```groovy
-compile 'com.kingja.loadsir:loadsir:1.1.1'
+compile 'com.kingja.loadsir:loadsir:1.2.0'
 ```
 
 ### Config

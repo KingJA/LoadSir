@@ -1,11 +1,13 @@
-<div align="center"><img src="res/rxbus.png"/></div>
+<div align="center"><img src="imgs/LoadSir.jpg"/></div>
 
 LoadSir
 ---
 
 中文 | [English](README-en.md)
 
-`LoadSir`是一个高效易用，低碳环保，扩展性良好的加载反馈页展示框架，在加载网络或其他数据时候，根据需求切换状态页面，如加载中，加载失败，无数据，网络超时，加载成功等常用页面。可添加自定义状态页面，如占位图，登录失效等。可配合网络加载框架，结合返回状态码，错误码，数据封装使用。
+`LoadSir`是一个高效易用，低碳环保，扩展性良好的加载反馈页管理框架，在加载网络或其他数据时候，根据需求切换状态页面，
+如加载中，加载失败，无数据，网络超时，加载成功等常用页面。可添加自定义状态页面，如占位图，登录失效等。可配合网络加载框架，
+结合返回状态码，错误码，数据封装使用。
 
 Preview
 ---
@@ -18,12 +20,6 @@ Preview
 |![](imgs/placeholder_activity.gif)|![](imgs/muitl_fragment.gif)|![](imgs/viewpage_fragment.gif)|
 
 
-使用场景
----
-下面为大家常见的加载反馈页面：
-
-面对这么多状态页面，你是不是还在用include的方式，setVisibility(View.VISIBLE/GONE)，这种方式即不方便控制，也造成了视图层级冗余。如果有一种工具，能把这些事都做了就好了。恰好，  `LoadSir` 把这些事做了，接下来我们就来了解一下它。
-
 LoadSir的功能及特点
 ---
 * :star:支持Activity，Fragment，Fragment(v4)，View状态回调
@@ -32,7 +28,7 @@ LoadSir的功能及特点
 * :star:只加载唯一一个状态视图，不会预加载全部视图
 * :star:不需要设置枚举或者常量状态值，直接用状态页类类型(xxx.class)作为状态码
 * :star:可对单个状态页单独设置点击事件，根据返回boolean值覆盖或者结合OnReloadListener使用
-* :star:低耦合，无预设页面，开发者随心配置
+* :star:无预设页面，低耦合，开发者随心配置
 * 可设置重新加载点击事件(OnReloadListener)
 * 可自定义状态页(继承Callback类)
 * 可在子线程直接切换状态
@@ -42,16 +38,16 @@ LoadSir的功能及特点
 
 开始使用LoadSir
 ---
-## Dependencies
+### Download
 
 ```groovy
-compile 'com.kingja.loadsir:loadsir:1.1.1'
+compile 'com.kingja.loadsir:loadsir:1.2.0'
 ```
 
-## <<配置>>
+### 配置
 
 ###### 全局配置方式
-全局配置方式，使用的是单例模式，即获取的配置都是一样的。可在Application中配置，添加状态页，设置初始化状态页。
+全局配置方式，使用的是单例模式，即获取的配置都是一样的。可在Application中配置，添加状态页，设置默认状态页。
 ```java
 public class App extends Application {
     @Override
@@ -84,7 +80,7 @@ LoadSir loadSir = new LoadSir.Builder()
             }
         });
 ```
-## <<注册>>
+### 注册
 
 ###### 在Activity中使用
 
@@ -139,7 +135,7 @@ public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container,
 }
 ```
 
-## <<回调>>
+### 回调
 
 ###### 直接回调
 ```java
