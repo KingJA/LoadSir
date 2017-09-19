@@ -2,6 +2,7 @@
 
 LoadSir
 ---
+English | [中文](README-cn.md)
 `LoadSir` is a lightweight, good expandability android library used for show diffent load page depend on diffent callback when you do net job .
 
 Preview
