@@ -5,10 +5,9 @@ English | [中文](README-cn.md)
 What's LoadSir?
 ---
 
-***LoadSir*** is a lightweight android library with good expandability used for displaying different pages like loading,
+**LoadSir** is a lightweight android library with good expandability used for displaying different pages like loading,
 error, empty, timeout or even your custom page when you load a page(such as do net job). LoadSir is very different from
-other similar libraries. I mean ***better***.
-
+other similar libraries. I mean **better**.
 
 Preview
 ---
@@ -35,7 +34,7 @@ Feature
 * set the default load page
 * add muitl load pages
 
-Diagram
+How does LoadSir works?
 ---
 <div align="center"><img src="imgs/LoadSir_flow.jpg"/></div>
 
@@ -50,10 +49,10 @@ LoadSir only needs 3 steps to finish his task.
 compile 'com.kingja.loadsir:loadsir:1.2.0'
 ```
 
-### Step 1:Config
+### Step 1: Config
 
 * ###### Global Config
-set config with singleton pattern, you can do it in your Application, so that you get get this unique LoadSir everywhere.
+Set config with singleton pattern, you can do it in your Application, so that you could get this unique LoadSir everywhere.
 ```java
 public class App extends Application {
     @Override
@@ -71,7 +70,7 @@ public class App extends Application {
 }
 ```
 * ###### Single Config
-if your want to build another specific LoadSir, you can set config like this.
+If your want to create another specific LoadSir, you can set config like this.
 
 ```java
 LoadSir loadSir = new LoadSir.Builder()
@@ -88,7 +87,7 @@ LoadSir loadSir = new LoadSir.Builder()
 ```
 ### Step 2: Register
 
-tell LoadSir which one you want replace it's layout with LoadLayout.
+Tell LoadSir which one you want replace it's layout with LoadLayout.
 
 * ###### Register in Activity
 
@@ -124,7 +123,7 @@ loadService = loadSir.register(imageView, new Callback.OnReloadListener() {
 ```
 
 * ###### Register in Fragment
-use it in Fragment is a bit different from others, follow the template code.
+Use it in Fragment is a bit different from the other two, follow the template code.
 ```java
 @Nullable
 @Override
@@ -156,7 +155,7 @@ protected void loadNet() {
     }
 ```
 * ###### Convertor Callback (recommended )
-if you want LoadSir to do callback automatically, you can pass a Convertor when you register it.
+If you want LoadSir to do callback automatically, you can pass a Convertor when you register.
 
 ```java
 LoadService loadService = LoadSir.getDefault().register(this, new Callback.OnReloadListener() {
@@ -183,13 +182,14 @@ LoadService loadService = LoadSir.getDefault().register(this, new Callback.OnRel
     }
 });
 ```
-pass a HttpResult
+Pass a HttpResult, now you start up a robot LoadSir.
 ```java
 loadService.showWithConvertor(httpResult);
 ```
 
 ### Customize
-you can customize your own load page, like loading, empty, error, timeout, etc.
+You can customize your own load page, like loading, empty, error, timeout, etc. Provide the layout and fill the retry
+logic(if necessarily).
 
 ```java
 public class CustomCallback extends Callback {
@@ -217,7 +217,7 @@ public class CustomCallback extends Callback {
 
 [V1.2.0](docs/changelog.md)
 
-## Communication
+## Contact Me
 Any questions,Welcome to contact me.
 * [Blog](http://www.jianshu.com/u/8a1a8ed656e8)
 * email:kingjavip@gmail.com
