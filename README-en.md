@@ -3,7 +3,7 @@
 English | [Chinese](README-cn.md)
 
 `LoadSir` is a lightweight, good expandability android library used for displaying different load pages like loading,
-error, empty,timeout or your custom load page when you do net job .It's very different from other similar libraries.
+error, empty, timeout or your custom load page when you do net job. It's very different from other similar libraries.
 
 
 Preview
