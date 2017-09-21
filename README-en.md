@@ -190,9 +190,15 @@ public class CustomCallback extends Callback {
     }
 
     @Override
-    protected boolean onRetry(Context context, View view) {
-        Toast.makeText(context.getApplicationContext(),"Hello mother fuck! :p",Toast.LENGTH_SHORT).show();
-        return true;//return true to cover the retry logic when you register
+    protected boolean onRetry(final Context context, View view) {
+        Toast.makeText(context.getApplicationContext(), "Hello mother fuck! :p", Toast.LENGTH_SHORT).show();
+        (view.findViewById(R.id.iv_gift)).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(context.getApplicationContext(), "It's your gift! :p", Toast.LENGTH_SHORT).show();
+            }
+        });
+        return true;
     }
 }
 ```
