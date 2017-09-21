@@ -204,14 +204,14 @@ public class CustomCallback extends Callback {
     }
 }
 ```
-## 更新记录
+## Changelog
 **v1.2.0**
-- 完善API命名规范
+- improve API naming notations.
 
 **v1.1.1**
-- 首次发布
+- Initial release .
 
-## 欢迎交流
+## Contact me
 
 * [博客](http://www.jianshu.com/u/8a1a8ed656e8)
 * [邮箱]:kingjavip@gmail.com
