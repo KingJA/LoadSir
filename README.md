@@ -212,10 +212,9 @@ public class CustomCallback extends Callback {
 - Initial release .
 
 ## Contact me
-
-* [博客](http://www.jianshu.com/u/8a1a8ed656e8)
-* [邮箱]:kingjavip@gmail.com
-* [扣扣]:87049319
+Any questions,Welcome to contact me.
+* [Blog](http://www.jianshu.com/u/8a1a8ed656e8)
+* email:kingjavip@gmail.com
 
 ## License
 
