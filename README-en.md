@@ -1,9 +1,10 @@
 ![](imgs/LoadSir.jpg)
 
-English | [中文](README-cn.md)
+English | [Chinese](README-cn.md)
 
-`LoadSir` is a lightweight, good expandability android library used for show diffent load page depend on different http
- result when you do net job .
+`LoadSir` is a lightweight, good expandability android library used for displaying different load pages like loading,
+error, empty,timeout or your custom load page when you do net job .It's very different from other similar libraries.
+
 
 Preview
 ---
@@ -36,6 +37,9 @@ Diagram
 
 Getting started
 ---
+
+LoadSir only needs 3 steps to finish his task.
+
 ### Download
 
 ```groovy
@@ -45,7 +49,7 @@ compile 'com.kingja.loadsir:loadsir:1.2.0'
 ### Step 1:Config
 
 * ###### Global Config
-set config with singleton pattern, you can do it in your Application,so that you get get this same LoadSir everywhere.
+set config with singleton pattern, you can do it in your Application, so that you get get this unique LoadSir everywhere.
 ```java
 public class App extends Application {
     @Override
@@ -79,6 +83,8 @@ LoadSir loadSir = new LoadSir.Builder()
         });
 ```
 ### Step 2: Register
+
+tell LoadSir which one you want replace it's layout with LoadLayout.
 
 * ###### Register in Activity
 
