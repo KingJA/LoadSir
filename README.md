@@ -5,9 +5,9 @@ English | [中文](README-cn.md)
 What's LoadSir?
 ---
 
-**LoadSir** is a lightweight android library with good expandability used for displaying different pages like loading,
+***LoadSir*** is a lightweight, good expandability Android library used for displaying different pages like loading,
 error, empty, timeout or even your custom page when you load a page(such as do net job). LoadSir is very different from
-other similar libraries. I mean **better**.
+other similar libraries. I mean.. ***better***.
 
 Preview
 ---
@@ -50,9 +50,11 @@ compile 'com.kingja.loadsir:loadsir:1.2.0'
 ```
 
 ### Step 1: Config
+The are two ways to set config. Add your custom pages and set the default page.
 
 * ###### Global Config
 Set config with singleton pattern, you can do it in your Application, so that you could get this unique LoadSir everywhere.
+
 ```java
 public class App extends Application {
     @Override

@@ -211,13 +211,10 @@ public class CustomCallback extends Callback {
 }
 ```
 ## Changelog
-**v1.2.0**
-- improve API naming notations.
 
-**v1.1.1**
-- Initial release .
+[V1.2.0](docs/changelog.md)
 
-## Contact me
+## Contact Me
 Any questions,Welcome to contact me.
 * [Blog](http://www.jianshu.com/u/8a1a8ed656e8)
 * email:kingjavip@gmail.com
