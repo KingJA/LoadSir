@@ -10,8 +10,8 @@ What's LoadSir?
 [![](https://img.shields.io/github/release/KingJA/LoadSir.svg)](https://github.com/KingJA/LoadSir/releases)
 
 
-***LoadSir*** is a lightweight, good expandability Android library used for displaying different pages like loading,
-error, empty, timeout or even your custom page when you load a page(such as do net job). LoadSir is very different from
+***LoadSir*** is a lightweight, good expandability Android library used for displaying different pages like **loading**,
+**error**, **empty**, **timeout** or even your **custom page** when you load a page (such as do net job). LoadSir is very different from
 other similar libraries. I mean... ***better***.
 
 Preview
@@ -20,21 +20,21 @@ Preview
 |:---:|:----:|:----:|
 |![](imgs/normal_activity.gif)|![](imgs/view_activity.gif)|![](imgs/single_fragment.gif)|
 
-| **Placeholder**|**Multi-Fragment**|**ViewPage+Fragment**|
+| **Placeholder**|**Multi-Fragment**|**ViewPager+Fragment**|
 |:---:|:----:|:----:|
 |![](imgs/placeholder_activity.gif)|![](imgs/muitl_fragment.gif)|![](imgs/viewpage_fragment.gif)|
 
 Feature
 ---
 * :star: support for Activity, Fragment, Fragment(v4), View
-* :star: support for muitl-Fragment, Fragment+ViewPager
+* :star: support for Multi-Fragment, Fragment+ViewPager
 * :star: convert http result structure into a Callback
 * :star: only load one layout once
 * :star: don't need to set enum or constant for status code
-* :star: set the your own onclick logic in custom Callback
+* :star: set your own onClick logic in custom Callback
 * :star: no preloaded load page
-* allow to cusomize your own load page
-* set the retry onclick listener
+* allow to customize your own load page
+* set the retry onClick listener
 * set the default load page
 * add multi load pages
 * thread-safety
@@ -46,7 +46,7 @@ How does LoadSir works?
 🚀 Getting started
 ---
 
-LoadSir only needs 3 steps to finish his task.
+LoadSir only needs 3 steps to finish its task: **Config** -> **Register** -> **Callback**
 
 ### Download
 
@@ -55,10 +55,10 @@ compile 'com.kingja.loadsir:loadsir:1.2.0'
 ```
 
 ### Step 1: Config
-The are two ways to set config. Add your custom pages and set the default page.
+There are two ways to set the config. Add your custom pages and set the default page.
 
 * ###### Global Config
-Set config with singleton pattern, you can do it in your Application. No matter where you do this job,you could get the
+Set config with singleton pattern, you can do it in your Application. No matter where you do this job, you could get the
 unique LoadSir everywhere.
 
 ```java
@@ -78,7 +78,7 @@ public class App extends Application {
 }
 ```
 * ###### Single Config
-If your want to create another specific LoadSir, you can set config like this.
+If you want to create another specific LoadSir, you can set config like this.
 
 ```java
 LoadSir loadSir = new LoadSir.Builder()
@@ -95,10 +95,9 @@ LoadSir loadSir = new LoadSir.Builder()
 ```
 ### Step 2: Register
 
-Tell LoadSir which one you want replace it's layout with LoadLayout.
+Tell LoadSir which "layout" you want be replaced with LoadLayout.
 
 * ###### Register in Activity
-
 ```java
 @Override
 protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -196,8 +195,8 @@ loadService.showWithConvertor(httpResult);
 ```
 
 ### Customize
-You can customize your own load page, like loading, empty, error, timeout, etc. Provide the layout and fill the retry
-logic(if necessarily).
+You can customize your own load page like loading, empty, error, timeout, etc. Provide the layout and fill the retry
+logic (if necessarily).
 
 ```java
 public class CustomCallback extends Callback {
