@@ -20,7 +20,7 @@ Preview
 |:---:|:----:|:----:|
 |![](imgs/normal_activity.gif)|![](imgs/view_activity.gif)|![](imgs/single_fragment.gif)|
 
-| **Placeholder**|**Multi-Fragment**|**ViewPage+Fragment**|
+| **Placeholder**|**Multi-Fragment**|**ViewPager+Fragment**|
 |:---:|:----:|:----:|
 |![](imgs/placeholder_activity.gif)|![](imgs/muitl_fragment.gif)|![](imgs/viewpage_fragment.gif)|
 
