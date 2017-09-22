@@ -220,6 +220,10 @@ public class CustomCallback extends Callback {
 }
 ```
 
+### About placeholder effect
+The effect of placeholder is just like the library [ShimmerRecyclerView](https://github.com/sharish/ShimmerRecyclerView)
+works. LoadSir do the same job only through a PlaceHolder Callback, just a custom Callback.
+
 ## ProGuard
 
 ```xml
