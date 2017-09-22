@@ -217,6 +217,14 @@ public class CustomCallback extends Callback {
     }
 }
 ```
+## 代码混淆
+
+```xml
+-dontwarn com.kingja.loadsir.**
+-keep class com.kingja.loadsir.** {*;}
+```
+
+
 ## Changelog
 
 [V1.2.0](docs/changelog.md)

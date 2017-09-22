@@ -220,6 +220,14 @@ public class CustomCallback extends Callback {
 }
 ```
 
+## ProGuard
+
+```xml
+-dontwarn com.kingja.loadsir.**
+-keep class com.kingja.loadsir.** {*;}
+```
+
+
 ## 📌 Version
 
 CurrentVersion: [v1.2.0](docs/changelog.md)
