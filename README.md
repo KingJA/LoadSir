@@ -46,7 +46,7 @@ How does LoadSir works?
 🚀 Getting started
 ---
 
-LoadSir only needs 3 steps to finish its task: **Config** -> **Register** -> **Callback**
+LoadSir only needs 3 steps to finish its task: **Config** -> **Register** -> **Display**
 
 ### Download
 
