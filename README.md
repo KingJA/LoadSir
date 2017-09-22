@@ -7,7 +7,7 @@ What's LoadSir?
 
 ***LoadSir*** is a lightweight, good expandability Android library used for displaying different pages like loading,
 error, empty, timeout or even your custom page when you load a page(such as do net job). LoadSir is very different from
-other similar libraries. I mean.. ***better***.
+other similar libraries. I mean... ***better***.
 
 Preview
 ---
@@ -15,19 +15,19 @@ Preview
 |:---:|:----:|:----:|
 |![](imgs/normal_activity.gif)|![](imgs/view_activity.gif)|![](imgs/single_fragment.gif)|
 
-| **Placeholder**|**Muitl-Fragment**|**ViewPage+Fragment**|
+| **Placeholder**|**Multi-Fragment**|**ViewPage+Fragment**|
 |:---:|:----:|:----:|
 |![](imgs/placeholder_activity.gif)|![](imgs/muitl_fragment.gif)|![](imgs/viewpage_fragment.gif)|
 
 Feature
 ---
-* :star:support for Activity，Fragment，Fragment(v4)，View
-* :star:support for muitl-Fragment，Fragment+ViewPager
-* :star:convert http result structure into a Callback
-* :star:only load one layout once
-* :star:don't need to set enum or constant for status code
-* :star:set the your own onclick logic in custom Callback
-* :star:no preloaded load page
+* :star: support for Activity, Fragment, Fragment(v4), View
+* :star: support for muitl-Fragment, Fragment+ViewPager
+* :star: convert http result structure into a Callback
+* :star: only load one layout once
+* :star: don't need to set enum or constant for status code
+* :star: set the your own onclick logic in custom Callback
+* :star: no preloaded load page
 * set the retry onclick listener
 * allow to cusomize your own load page
 * thread-safety
@@ -156,7 +156,7 @@ protected void loadNet() {
         loadService.showCallback(EmptyCallback.class);//other case
     }
 ```
-* ###### Convertor Callback (recommended )
+* ###### Convertor Callback (recommended)
 If you want LoadSir to do callback automatically, you can pass a Convertor when you register.
 
 ```java
@@ -220,9 +220,9 @@ public class CustomCallback extends Callback {
 [V1.2.0](docs/changelog.md)
 
 ## Contact Me
-Any questions,Welcome to contact me.
+Any questions: Welcome to contact me.
 * [Blog](http://www.jianshu.com/u/8a1a8ed656e8)
-* email:kingjavip@gmail.com
+* Email: kingjavip@gmail.com
 
 ## License
 
