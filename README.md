@@ -24,7 +24,7 @@ Preview
 |:---:|:----:|:----:|
 |![](imgs/placeholder_activity.gif)|![](imgs/muitl_fragment.gif)|![](imgs/viewpage_fragment.gif)|
 
-💡 Feature
+Feature
 ---
 * :star: support for Activity, Fragment, Fragment(v4), View
 * :star: support for muitl-Fragment, Fragment+ViewPager
