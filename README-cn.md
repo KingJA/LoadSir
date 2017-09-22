@@ -223,7 +223,7 @@ public class CustomCallback extends Callback {
 ## Contact Me
 Any questions,Welcome to contact me.
 * [Blog](http://www.jianshu.com/u/8a1a8ed656e8)
-* email:kingjavip@gmail.com
+* Email:kingjavip@gmail.com
 
 ## License
 
