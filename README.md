@@ -1,6 +1,7 @@
 ![](imgs/LoadSir.jpg)
 
 English | [中文](README-cn.md)
+[![](https://img.shields.io/badge/%20%20Android%20Arsenal%20%20-%20%20LoadSir%20%20-blue.svg)](https://android-arsenal.com/details/1/6227)
 
 What's LoadSir?
 ---
