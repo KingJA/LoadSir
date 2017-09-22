@@ -1,10 +1,11 @@
 ![](imgs/LoadSir.jpg)
 
 English | [中文](README-cn.md)
-[![](https://img.shields.io/badge/%20%20Android%20Arsenal%20%20-%20%20LoadSir%20%20-blue.svg)](https://android-arsenal.com/details/1/6227)
 
 What's LoadSir?
 ---
+
+[![](https://img.shields.io/badge/%20%20Android%20Arsenal%20%20-%20%20LoadSir%20%20-blue.svg)](https://android-arsenal.com/details/1/6227)
 
 ***LoadSir*** is a lightweight, good expandability Android library used for displaying different pages like loading,
 error, empty, timeout or even your custom page when you load a page(such as do net job). LoadSir is very different from
