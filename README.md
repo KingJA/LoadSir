@@ -7,6 +7,8 @@ What's LoadSir?
 
 [![](https://img.shields.io/badge/%20%20Android%20Arsenal%20%20-%20%20LoadSir%20%20-blue.svg)](https://android-arsenal.com/details/1/6227)
 [![](https://img.shields.io/badge/%20%20aar%20size-26KB-green.svg)](https://bintray.com/kingja/maven/loadsir#files/com%2Fkingja%2Floadsir%2Floadsir%2F1.2.0)
+[![](https://img.shields.io/github/release/KingJA/rubidium.svg)]()
+
 
 ***LoadSir*** is a lightweight, good expandability Android library used for displaying different pages like loading,
 error, empty, timeout or even your custom page when you load a page(such as do net job). LoadSir is very different from
@@ -207,7 +209,7 @@ public class CustomCallback extends Callback {
 
     @Override
     protected boolean onRetry(final Context context, View view) {
-        Toast.makeText(context.getApplicationContext(), "Hello mother fuck! :p", Toast.LENGTH_SHORT).show();
+        Toast.makeText(context.getApplicationContext(), "Hello buddy! :p", Toast.LENGTH_SHORT).show();
         (view.findViewById(R.id.iv_gift)).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
