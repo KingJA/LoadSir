@@ -150,9 +150,9 @@ public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container,
 }
 ```
 
-### Step 3: Callback
+### Step 3: Display
 
-* ###### Direct Callback
+* ###### Direct Display
 ```java
 protected void loadNet() {
         // do net job...
@@ -161,7 +161,7 @@ protected void loadNet() {
         loadService.showCallback(EmptyCallback.class);//other case
     }
 ```
-* ###### Convertor Callback (recommended)
+* ###### Convertor Display (recommended)
 If you want LoadSir to do callback automatically, you can pass a Convertor when you register.
 
 ```java
