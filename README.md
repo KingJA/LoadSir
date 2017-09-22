@@ -24,7 +24,7 @@ Preview
 |:---:|:----:|:----:|
 |![](imgs/placeholder_activity.gif)|![](imgs/muitl_fragment.gif)|![](imgs/viewpage_fragment.gif)|
 
-Feature
+💡 Feature
 ---
 * :star: support for Activity, Fragment, Fragment(v4), View
 * :star: support for muitl-Fragment, Fragment+ViewPager
@@ -43,7 +43,7 @@ How does LoadSir works?
 ---
 <div align="center"><img src="imgs/LoadSir_flow.jpg"/></div>
 
-Getting started
+🚀 Getting started
 ---
 
 LoadSir only needs 3 steps to finish his task.
@@ -221,9 +221,9 @@ public class CustomCallback extends Callback {
 }
 ```
 
-## Changelog
+## 📌 Version
 
-[V1.2.0](docs/changelog.md)
+CurrentVersion: [v1.2.0](docs/changelog.md)
 
 ## Contact Me
 Any questions: Welcome to contact me.
