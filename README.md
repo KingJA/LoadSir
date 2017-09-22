@@ -7,7 +7,7 @@ What's LoadSir?
 
 [![](https://img.shields.io/badge/%20%20Android%20Arsenal%20%20-%20%20LoadSir%20%20-blue.svg)](https://android-arsenal.com/details/1/6227)
 [![](https://img.shields.io/badge/%20%20aar%20size-26KB-green.svg)](https://bintray.com/kingja/maven/loadsir#files/com%2Fkingja%2Floadsir%2Floadsir%2F1.2.0)
-[![](https://img.shields.io/github/release/KingJA/rubidium.svg)](https://bintray.com/kingja/maven/loadsir#files/com%2Fkingja%2Floadsir%2Floadsir%2F1.2.0)
+[![](https://img.shields.io/github/release/KingJA/LoadSir.svg)](https://github.com/KingJA/LoadSir/releases)
 
 
 ***LoadSir*** is a lightweight, good expandability Android library used for displaying different pages like loading,
