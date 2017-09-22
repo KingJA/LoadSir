@@ -31,11 +31,11 @@ Feature
 * :star: don't need to set enum or constant for status code
 * :star: set the your own onclick logic in custom Callback
 * :star: no preloaded load page
-* set the retry onclick listener
 * allow to cusomize your own load page
-* thread-safety
+* set the retry onclick listener
 * set the default load page
-* add muitl load pages
+* add multi load pages
+* thread-safety
 
 How does LoadSir works?
 ---
@@ -56,7 +56,8 @@ compile 'com.kingja.loadsir:loadsir:1.2.0'
 The are two ways to set config. Add your custom pages and set the default page.
 
 * ###### Global Config
-Set config with singleton pattern, you can do it in your Application, so that you could get this unique LoadSir everywhere.
+Set config with singleton pattern, you can do it in your Application. No matter where you do this job,you could get the
+unique LoadSir everywhere.
 
 ```java
 public class App extends Application {
@@ -134,7 +135,7 @@ Use it in Fragment is a bit different from the other two, follow the template co
 @Override
 public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle
         savedInstanceState) {
-    //step 1：obtain get root view
+    //step 1：obtain root view
     rootView = View.inflate(getActivity(), R.layout.fragment_a_content, null);
     //step 2：obtain the LoadService
     LoadService loadService = LoadSir.getDefault().register(rootView, new Callback.OnReloadListener() {
