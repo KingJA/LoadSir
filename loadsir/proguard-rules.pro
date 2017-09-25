@@ -24,5 +24,5 @@
 # hide the original source file name.
 #-renamesourcefileattribute SourceFile
 
--dontwarn com.kingja.loadsir.**
--keep class com.kingja.loadsir.** {*;}
+#-dontwarn com.kingja.loadsir.**
+#-keep class com.kingja.loadsir.** {*;}
