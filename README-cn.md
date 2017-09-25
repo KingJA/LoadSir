@@ -32,6 +32,7 @@ LoadSir的功能及特点
 * :star:支持Activity，Fragment，Fragment(v4)，View状态回调
 * :star:适配多个Fragment切换，及Fragment+ViewPager切换，不会布局叠加或者布局错乱
 * :star:利用泛型转换输入信号和输出状态，可根据网络返回体的状态码或者数据返回自动适配状态页，实现全局自动状态切换
+* :star:无需修改布局文件
 * :star:只加载唯一一个状态视图，不会预加载全部视图
 * :star:不需要设置枚举或者常量状态值，直接用状态页类类型(xxx.class)作为状态码
 * :star:可对单个状态页单独设置点击事件，根据返回boolean值覆盖或者结合OnReloadListener使用，如网络错误可跳转设置页
@@ -223,6 +224,10 @@ public class CustomCallback extends Callback {
 -dontwarn com.kingja.loadsir.**
 -keep class com.kingja.loadsir.** {*;}
 ```
+
+### :bulb: About placeholder effect
+placeholder效果状态页类似[ShimmerRecyclerView](https://github.com/sharish/ShimmerRecyclerView)的效果. LoadSir只用了一个
+自定义状态页PlaceHolderCallback就完成类似的效果，是不是很棒 :ghost:
 
 
 ## Changelog

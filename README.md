@@ -29,6 +29,7 @@ Feature
 * :star: support for Activity, Fragment, Fragment(v4), View
 * :star: support for Multi-Fragment, Fragment+ViewPager
 * :star: convert http result structure into a Callback
+* :star: don't need to modify the layout
 * :star: only load one layout once
 * :star: don't need to set enum or constant for status code
 * :star: set your own onClick logic in custom Callback
