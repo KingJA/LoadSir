@@ -229,6 +229,8 @@ public class CustomCallback extends Callback {
 placeholder效果状态页类似[ShimmerRecyclerView](https://github.com/sharish/ShimmerRecyclerView)的效果. LoadSir只用了一个
 自定义状态页PlaceHolderCallback就完成类似的效果，是不是很棒 :ghost:
 
+## 常见问题
+:point_right: [FAQ](docs/FAQ.md)
 
 ## Changelog
 

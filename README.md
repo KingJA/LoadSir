@@ -233,6 +233,8 @@ amazing. :ghost:
 -keep class com.kingja.loadsir.** {*;}
 ```
 
+## FAQ
+:point_right: [FAQ](docs/FAQ.md)
 
 ## 📌 Version
 
