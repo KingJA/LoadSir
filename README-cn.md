@@ -218,7 +218,7 @@ public class CustomCallback extends Callback {
     }
 }
 ```
-
+在使用过程中，遇到问题可以先去[FAQ](docs/FAQ.md)和Issues看看有没解决方案，如果没有的话，请给我提Issue吧。
 
 
 ### :bulb: About placeholder effect
@@ -226,8 +226,8 @@ placeholder效果状态页类似[ShimmerRecyclerView](https://github.com/sharish
 自定义状态页PlaceHolderCallback就完成类似的效果，是不是很棒 :ghost:
 
 ## Docs
-* :point_right: [FAQ](docs/FAQ.md)
-* 📌 [v1.2.0](docs/changelog.md)
+* :point_right: [常见问题](docs/FAQ-cn.md)
+* 📌 [更新日志](docs/changelog.md)
 
 ## 代码混淆
 

@@ -228,7 +228,7 @@ amazing. :ghost:
 
 ## Docs
 * :point_right: [FAQ](docs/FAQ.md)
-* 📌 [v1.2.0](docs/changelog.md)
+* 📌 [Versions](docs/changelog.md)
 
 ## ProGuard
 

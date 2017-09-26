@@ -1,9 +1,9 @@
-FAQ
+常见问题
 ---
 
-If you have better solutions about the questions below, welcome to push pull requests to me.
+如果下列问题中，你有更好的解决方法，欢迎对docs/FAQ-cn.md 发起pull request。
 
-### #1 How to use with ButterKnife?
+### #1 如何和ButterKnife配合使用?
 
 in Activity
 
@@ -60,6 +60,6 @@ in Fragment
     }
 ```
 
-### #2 How to add Toolbar or TitleView in custom Callback?
-Cause the styles of TitleView were so many. LoadSir didn't support this feature. You can register the View below the
-TitleView instead. So that LayoutLoad will not include the TitleView. If you have better idea, please let me know. Tks.
+### #2 如何在自定义状态页上添加标题栏以模仿原布局的标题栏
+由于标题栏的样式多种多样，为了降低耦合没有对该需求提供扩展，如果有这方面需求的同学可以利用View注册的方式，对标题栏以下
+的布局进行注册，这样就保留了标题栏，如果大家有更好的思路请告诉我，或发起pull request。
