@@ -226,20 +226,16 @@ The effect of placeholder is just like the library [ShimmerRecyclerView](https:/
 works. LoadSir do the similar job only through a PlaceHolderCallback, just a custom ***Callback***. That feeling was
 amazing. :ghost:
 
+## Docs
+* :point_right: [FAQ](docs/FAQ.md)
+* 📌 [v1.2.0](docs/changelog.md)
+
 ## ProGuard
 
 ```xml
 -dontwarn com.kingja.loadsir.**
 -keep class com.kingja.loadsir.** {*;}
 ```
-
-## FAQ
-:point_right: [FAQ](docs/FAQ.md)
-
-## 📌 Version
-
-CurrentVersion: [v1.2.0](docs/changelog.md)
-
 ## Contact Me
 Any questions: Welcome to contact me.
 * Email: kingjavip@gmail.com
