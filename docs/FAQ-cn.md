@@ -38,7 +38,7 @@ public class BufferKnifeActivity extends AppCompatActivity {
 
 in Fragment
 
-````java
+```java
 @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle
@@ -63,3 +63,11 @@ in Fragment
 ### #2 如何在自定义状态页上添加标题栏以模仿原布局的标题栏
 由于标题栏的样式多种多样，为了降低耦合没有对该需求提供扩展，如果有这方面需求的同学可以利用View注册的方式，对标题栏以下
 的布局进行注册，这样就保留了标题栏，如果大家有更好的思路请告诉我，或发起pull request。
+
+
+
+
+
+
+
+

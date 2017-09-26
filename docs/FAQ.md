@@ -38,7 +38,7 @@ public class BufferKnifeActivity extends AppCompatActivity {
 
 in Fragment
 
-````java
+```java
 @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle
@@ -63,3 +63,12 @@ in Fragment
 ### #2 How to add Toolbar or TitleView in custom Callback?
 Cause the styles of TitleView were so many. LoadSir didn't support this feature. You can register the View below the
 TitleView instead. So that LayoutLoad will not include the TitleView. If you have better idea, please let me know. Tks.
+
+
+
+
+
+
+
+
+
