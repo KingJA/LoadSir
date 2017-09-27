@@ -17,7 +17,7 @@ import java.util.Map;
  * Email:kingjavip@gmail.com
  */
 
-class LoadLayout extends FrameLayout {
+public class LoadLayout extends FrameLayout {
     private Map<Class<? extends Callback>, Callback> callbacks = new HashMap<>();
     private Context context;
     private Callback.OnReloadListener onReloadListener;

@@ -55,7 +55,12 @@ public abstract class Callback implements Serializable {
                 }
             }
         });
+        onViewCreate(context, rootView);
         return rootView;
+    }
+
+    protected void onViewCreate(Context context, View rootView) {
+
     }
 
     protected boolean onRetry(Context context, View view) {
@@ -88,4 +93,10 @@ public abstract class Callback implements Serializable {
     }
 
     protected abstract int onCreateView();
+
+
+    protected void onDetach() {
+
+    }
+
 }
