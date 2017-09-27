@@ -1,6 +1,7 @@
 package com.kingja.loadsir.callback;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.View;
 
 import java.io.ByteArrayInputStream;
@@ -9,6 +10,8 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.Serializable;
+
+import static android.content.ContentValues.TAG;
 
 
 /**
@@ -92,14 +95,16 @@ public abstract class Callback implements Serializable {
 
     protected void onViewCreate(Context context, View view) {
 
-    }
-
-    public void onDetach() {
 
     }
 
     public void onAttach(Context context, View view) {
-
+        Log.e(TAG, "onAttach: " + this.getClass().getSimpleName());
     }
+
+    public void onDetach() {
+        Log.e(TAG, "onDetach: " + this.getClass().getSimpleName());
+    }
+
 
 }

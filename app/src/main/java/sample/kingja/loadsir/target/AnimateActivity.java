@@ -26,7 +26,7 @@ import sample.kingja.loadsir.callback.LoadingCallback;
  * Email:kingjavip@gmail.com
  */
 
-public class DebugActivity extends AppCompatActivity {
+public class AnimateActivity extends AppCompatActivity {
 
 
     private LoadService loadService;
@@ -38,6 +38,7 @@ public class DebugActivity extends AppCompatActivity {
         // Your can change the callback on sub thread directly.
         LoadSir loadSir = new LoadSir.Builder()
                 .addCallback(new LoadingCallback())
+                .addCallback(new EmptyCallback())
                 .addCallback(new AnimateCallback())
                 .setDefaultCallback(AnimateCallback.class)
                 .build();
@@ -57,7 +58,7 @@ public class DebugActivity extends AppCompatActivity {
                 }).start();
             }
         });
-//        PostUtil.postSuccessDelayed(loadService, 2000);
+        PostUtil.postCallbackDelayed(loadService,EmptyCallback.class, 5000);
     }
 
 }

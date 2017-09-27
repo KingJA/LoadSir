@@ -30,6 +30,11 @@ public class AnimateCallback extends Callback {
         return R.layout.layout_animate;
     }
 
+    @Override
+    protected void onViewCreate(Context context, View view) {
+        super.onViewCreate(context, view);
+        Log.e(TAG, "onViewCreate: " );
+    }
 
     @Override
     public void onAttach(Context context, View view) {
