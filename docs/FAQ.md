@@ -5,7 +5,7 @@ If you have better solutions about the questions below, welcome to push pull req
 
 ### #1 How to use with ButterKnife?
 
-in Activity
+* ###### in Activity
 
 ```java
 
@@ -36,7 +36,7 @@ public class BufferKnifeActivity extends AppCompatActivity {
 
 ```
 
-in Fragment
+* ###### in Fragment
 
 ```java
 @Nullable
@@ -61,8 +61,10 @@ in Fragment
 ```
 
 ### #2 How to add Toolbar or TitleView in custom Callback?
-Cause the styles of TitleView were so many. LoadSir didn't support this feature. You can register the View below the
-TitleView instead. So that LayoutLoad will not include the TitleView. If you have better idea, please let me know. Tks.
+Because there are so many styles of TitleView, LoadSir didn't support this feature. You can register the View below the
+TitleView instead. So that LayoutLoad will not include the TitleView.
+
+If you have a better idea, please let me know. I'm very interested to improve LoadSir in any way. Thanks for your help.
 
 
 
