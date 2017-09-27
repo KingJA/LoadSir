@@ -10,7 +10,7 @@ What Next Version Will Include?(1.2.2)
     * protected abstract int onCreateView()
     * public void onDetach()
     * public void onAttach(Context context, View view)
-- [ ] other
+- [ ] others
 
 
 
