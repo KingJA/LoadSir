@@ -16,11 +16,11 @@ other similar libraries. I mean... ***better***.
 
 Preview
 ---
-| **in Activity**|**in View**|**in Fragment**|
+| **in [Activity](https://github.com/KingJA/LoadSir/blob/master/app/src/main/java/sample/kingja/loadsir/target/NormalActivity.java)**|**in [View](https://github.com/KingJA/LoadSir/blob/master/app/src/main/java/sample/kingja/loadsir/target/ViewTargetActivity.java)**|**in [Fragment](https://github.com/KingJA/LoadSir/blob/master/app/src/main/java/sample/kingja/loadsir/target/NormalFragment.java)**|
 |:---:|:----:|:----:|
 |![](imgs/normal_activity.gif)|![](imgs/view_activity.gif)|![](imgs/single_fragment.gif)|
 
-| **Placeholder**|**Multi-Fragment**|**ViewPager+Fragment**|
+| **[Placeholder](https://github.com/KingJA/LoadSir/blob/master/app/src/main/java/sample/kingja/loadsir/target/PlaceholderActivity.java)**|**[Multi-Fragment](https://github.com/KingJA/LoadSir/blob/master/app/src/main/java/sample/kingja/loadsir/target/MultiFragmentActivity.java)**|**[ViewPager+Fragment](https://github.com/KingJA/LoadSir/blob/master/app/src/main/java/sample/kingja/loadsir/target/MultiFragmentWithViewPagerActivity.java)**|
 |:---:|:----:|:----:|
 |![](imgs/placeholder_activity.gif)|![](imgs/muitl_fragment.gif)|![](imgs/viewpage_fragment.gif)|
 
