@@ -5,6 +5,8 @@ import android.os.Handler;
 import com.kingja.loadsir.callback.Callback;
 import com.kingja.loadsir.core.LoadService;
 
+import java.lang.ref.WeakReference;
+
 /**
  * Description:TODO
  * Create Time:2017/9/4 15:21
@@ -28,11 +30,22 @@ public class PostUtil {
     }
 
     public static void postSuccessDelayed(final LoadService loadService, long delay) {
-        new Handler().postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                loadService.showSuccess();
+        new Handler().postDelayed(new SuccessRunnable(loadService), delay);
+    }
+
+    private static class SuccessRunnable implements Runnable {
+
+        private WeakReference<LoadService> mLoadService;
+
+        public SuccessRunnable(LoadService loadService) {
+            mLoadService = new WeakReference<LoadService>(loadService);
+        }
+
+        @Override
+        public void run() {
+            if (mLoadService.get() != null) {
+                mLoadService.get().showSuccess();
             }
-        }, delay);
+        }
     }
 }
