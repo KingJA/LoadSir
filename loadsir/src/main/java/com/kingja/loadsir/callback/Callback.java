@@ -94,7 +94,11 @@ public abstract class Callback implements Serializable {
 
     }
 
-    protected void onDetach() {
+    public void onDetach() {
+
+    }
+
+    public void onAttach(Context context, View view) {
 
     }
 

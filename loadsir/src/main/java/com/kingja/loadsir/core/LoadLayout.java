@@ -2,6 +2,8 @@ package com.kingja.loadsir.core;
 
 import android.content.Context;
 import android.support.annotation.NonNull;
+import android.util.Log;
+import android.view.View;
 import android.widget.FrameLayout;
 
 import com.kingja.loadsir.LoadSirUtil;
@@ -9,6 +11,8 @@ import com.kingja.loadsir.callback.Callback;
 
 import java.util.HashMap;
 import java.util.Map;
+
+import static android.content.ContentValues.TAG;
 
 /**
  * Description:TODO
@@ -21,6 +25,7 @@ public class LoadLayout extends FrameLayout {
     private Map<Class<? extends Callback>, Callback> callbacks = new HashMap<>();
     private Context context;
     private Callback.OnReloadListener onReloadListener;
+    private Class<? extends Callback> preCallback;
 
     public LoadLayout(@NonNull Context context) {
         super(context);
@@ -66,12 +71,18 @@ public class LoadLayout extends FrameLayout {
     }
 
     private void showCallbackView(Class<? extends Callback> status) {
+        if (preCallback != null) {
+            callbacks.get(preCallback).onDetach();
+        }
         if (getChildCount() > 0) {
             removeAllViews();
         }
         for (Class key : callbacks.keySet()) {
             if (key == status) {
-                addView(callbacks.get(key).getRootView());
+                View rootView = callbacks.get(key).getRootView();
+                addView(rootView);
+                callbacks.get(key).onAttach(context, rootView);
+                preCallback = status;
             }
         }
     }

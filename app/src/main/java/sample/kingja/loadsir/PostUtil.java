@@ -15,12 +15,17 @@ public class PostUtil {
     public static final int DELAY_TIME = 1000;
 
     public static void postCallbackDelayed(final LoadService loadService, final Class<? extends Callback> clazz) {
+        postCallbackDelayed(loadService, clazz, DELAY_TIME);
+    }
+
+    public static void postCallbackDelayed(final LoadService loadService, final Class<? extends Callback> clazz, long
+            delay) {
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
                 loadService.showCallback(clazz);
             }
-        }, DELAY_TIME);
+        }, delay);
     }
 
     public static void postSuccessDelayed(final LoadService loadService) {
