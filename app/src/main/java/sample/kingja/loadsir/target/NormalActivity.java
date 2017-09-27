@@ -1,10 +1,12 @@
 package sample.kingja.loadsir.target;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.os.SystemClock;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.TextView;
 
 import com.kingja.loadsir.callback.Callback;
 
@@ -13,6 +15,7 @@ import sample.kingja.loadsir.callback.LoadingCallback;
 
 import com.kingja.loadsir.core.LoadService;
 import com.kingja.loadsir.core.LoadSir;
+import com.kingja.loadsir.core.Transport;
 
 import sample.kingja.loadsir.R;
 import sample.kingja.loadsir.PostUtil;
@@ -49,6 +52,14 @@ public class NormalActivity extends AppCompatActivity {
                         loadService.showSuccess();
                     }
                 }).start();
+            }
+        });
+        //modify callback dynamically
+        loadService.setCallBack(EmptyCallback.class, new Transport() {
+            @Override
+            public void order(Context context, View view) {
+                TextView mTvEmpty = (TextView) view.findViewById(R.id.tv_empty);
+                mTvEmpty.setText("fine, no data. You must fill it!");
             }
         });
         PostUtil.postCallbackDelayed(loadService,EmptyCallback.class);

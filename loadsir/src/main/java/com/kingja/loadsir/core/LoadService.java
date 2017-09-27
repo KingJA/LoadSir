@@ -64,4 +64,8 @@ public class LoadService<T> {
     public LoadLayout getLoadLayout() {
         return loadLayout;
     }
+
+    public void setCallBack(Class<? extends Callback> callback, Transport transport) {
+        loadLayout.setCallBack(callback, transport);
+    }
 }

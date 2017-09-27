@@ -2,7 +2,6 @@ package com.kingja.loadsir.core;
 
 import android.content.Context;
 import android.support.annotation.NonNull;
-import android.util.Log;
 import android.view.View;
 import android.widget.FrameLayout;
 
@@ -11,8 +10,6 @@ import com.kingja.loadsir.callback.Callback;
 
 import java.util.HashMap;
 import java.util.Map;
-
-import static android.content.ContentValues.TAG;
 
 /**
  * Description:TODO
@@ -50,10 +47,7 @@ public class LoadLayout extends FrameLayout {
     }
 
     public void showCallback(final Class<? extends Callback> callback) {
-        if (!callbacks.containsKey(callback)) {
-            throw new IllegalArgumentException(String.format("The Callback (%s) is nonexistent.", callback
-                    .getSimpleName()));
-        }
+        checkCallbackExist(callback);
         if (LoadSirUtil.isMainThread()) {
             showCallbackView(callback);
         } else {
@@ -84,6 +78,21 @@ public class LoadLayout extends FrameLayout {
                 callbacks.get(key).onAttach(context, rootView);
                 preCallback = status;
             }
+        }
+    }
+
+    public void setCallBack(Class<? extends Callback> callback, Transport transport) {
+        if (transport == null) {
+            return;
+        }
+        checkCallbackExist(callback);
+        transport.order(context, callbacks.get(callback).obtainRootView());
+    }
+
+    private void checkCallbackExist(Class<? extends Callback> callback) {
+        if (!callbacks.containsKey(callback)) {
+            throw new IllegalArgumentException(String.format("The Callback (%s) is nonexistent.", callback
+                    .getSimpleName()));
         }
     }
 }

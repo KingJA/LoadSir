@@ -46,7 +46,9 @@ public abstract class Callback implements Serializable {
         if (resId == 0 && rootView != null) {
             return rootView;
         }
-        rootView = View.inflate(context, onCreateView(), null);
+        if (rootView == null) {
+            rootView = View.inflate(context, onCreateView(), null);
+        }
         rootView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -59,6 +61,13 @@ public abstract class Callback implements Serializable {
             }
         });
         onViewCreate(context, rootView);
+        return rootView;
+    }
+
+    public View obtainRootView() {
+        if (rootView == null) {
+            rootView = View.inflate(context, onCreateView(), null);
+        }
         return rootView;
     }
 
@@ -95,6 +104,7 @@ public abstract class Callback implements Serializable {
 
     /**
      * Called immediately after {@link #onCreateView()}
+     *
      * @since 1.2.2
      */
     protected void onViewCreate(Context context, View view) {
@@ -102,6 +112,7 @@ public abstract class Callback implements Serializable {
 
     /**
      * Called when the rootView of Callback is attached to its LoadLayout.
+     *
      * @since 1.2.2
      */
     public void onAttach(Context context, View view) {
@@ -110,6 +121,7 @@ public abstract class Callback implements Serializable {
 
     /**
      * Called when the rootView of Callback is removed from its LoadLayout.
+     *
      * @since 1.2.2
      */
     public void onDetach() {
