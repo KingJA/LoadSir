@@ -93,18 +93,27 @@ public abstract class Callback implements Serializable {
 
     protected abstract int onCreateView();
 
+    /**
+     * Called immediately after {@link #onCreateView()}
+     * @since 1.2.2
+     */
     protected void onViewCreate(Context context, View view) {
-
-
     }
 
+    /**
+     * Called when the rootView of Callback is attached to its LoadLayout.
+     * @since 1.2.2
+     */
     public void onAttach(Context context, View view) {
         Log.e(TAG, "onAttach: " + this.getClass().getSimpleName());
     }
 
+    /**
+     * Called when the rootView of Callback is removed from its LoadLayout.
+     * @since 1.2.2
+     */
     public void onDetach() {
         Log.e(TAG, "onDetach: " + this.getClass().getSimpleName());
     }
-
 
 }

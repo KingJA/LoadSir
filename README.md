@@ -230,7 +230,7 @@ amazing. :ghost:
 * :point_right: [FAQ](docs/FAQ.md)
 * 📌 [Versions](docs/changelog.md)
 * [Best Practice](docs/BestPractice.md)
-* [Next Version](docs/NextVersion.md)
+* [What Next Version Will Include?](docs/NextVersion.md)
 
 ## ProGuard
 

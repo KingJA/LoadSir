@@ -1,7 +1,7 @@
 Next Version
 ---
 
-Next version will include(1.2.2)
+What Next Version Will Include?(1.2.2)
 
 * change minSdkVersion 16 to 14 [issues #8](https://github.com/KingJA/LoadSir/issues/8)
 * make LoadLayout public
