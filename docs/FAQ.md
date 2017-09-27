@@ -66,9 +66,12 @@ TitleView instead. So that LayoutLoad will not include the TitleView.
 
 If you have a better idea, please let me know. I'm very interested to improve LoadSir in any way. Thanks for your help.
 
+### #3 `setDefaultCallback(...)` vs `addCallback(...)`
+What's the purpose of a `DefaultCallback`?
 
-
-
+With `setDefaultCallback(...)` you set the **first** visible "view" for LoadSir.
+With `addCallback(...)` you could set other "views" for different purposes.
+Normally you have the use case to show a loading view/ProgressBar, therefore you should use `setDefaultCallback("your LoadingCallback")`.
 
 
 
