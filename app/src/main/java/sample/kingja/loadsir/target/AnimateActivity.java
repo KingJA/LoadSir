@@ -52,13 +52,13 @@ public class AnimateActivity extends AppCompatActivity {
                         loadService.showCallback(LoadingCallback.class);
                         //do retry logic...
                         SystemClock.sleep(500);
-                        //callback
+                        //callback on sub thread
                         loadService.showSuccess();
                     }
                 }).start();
             }
         });
-        PostUtil.postCallbackDelayed(loadService,EmptyCallback.class, 5000);
+        PostUtil.postCallbackDelayed(loadService,EmptyCallback.class, 2500);
     }
 
 }
