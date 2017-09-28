@@ -153,16 +153,21 @@ public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container,
 ```
 
 ### Step 3: Display
-
+What to show after fetching data (from REST service or database...)?
 * ###### Direct Display
 ```java
-protected void loadNet() {
-        // do net job...
-        // callback
-        loadService.showSuccess();//successful case
-        loadService.showCallback(EmptyCallback.class);//other case
-    }
+protected void loadFromNet() {
+    // do net job/load data...
+
+    // callback after finish
+    loadService.showSuccess(); // successful case -> show the data, eg RecyclerView,...
+    --- OR ---
+    loadService.showCallback(EmptyCallback.class); // do/show something else
+}
 ```
+Info:
+- `showSuccess()` calls the `SuccessCallback` to "hide" LoadSir and show the content.
+
 * ###### Convertor Display (recommended)
 If you want LoadSir to do callback automatically, you can pass a Convertor when you register.
 
