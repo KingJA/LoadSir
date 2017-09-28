@@ -1,7 +1,7 @@
 Changelog
 ---
 
-**v1.2.2**
+* **v1.2.2**
 - [x] change minSdkVersion 16 to 14 [issues #8](https://github.com/KingJA/LoadSir/issues/8)
 - [x] modify callback dynamically [issues #11](https://github.com/KingJA/LoadSir/issues/11) [issues #7](https://github.com/KingJA/LoadSir/issues/7)
 - [x] add TitleBar sample [issues #12](https://github.com/KingJA/LoadSir/issues/12)
@@ -11,8 +11,8 @@ Changelog
     * public void onAttach(Context context, View view)
 - [x] make LoadLayout public
 
-**v1.2.0**
+* **v1.2.0**
 - [x] Improve API naming notations.
 
-**v1.1.1**
+* **v1.1.1**
 - [x] Initial release .

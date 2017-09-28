@@ -34,6 +34,7 @@ Feature
 * :star: don't need to set enum or constant for status code
 * :star: set your own onClick logic in custom Callback
 * :star: no preloaded load page
+* :star: support for keeping the toolbar, titileview
 * allow to customize your own load page
 * set the retry onClick listener
 * set the default load page
@@ -220,6 +221,21 @@ public class CustomCallback extends Callback {
     }
 }
 ```
+
+### Modify Callback Dynamically
+
+```java
+loadService = LoadSir.getDefault().register(...);
+loadService.setCallBack(EmptyCallback.class, new Transport() {
+   @Override
+   public void order(Context context, View view) {
+       TextView mTvEmpty = (TextView) view.findViewById(R.id.tv_empty);
+       mTvEmpty.setText("fine, no data. You must fill it!");
+   }
+});
+```
+
+
 
 ### :bulb: About placeholder effect
 The effect of placeholder is just like the library [ShimmerRecyclerView](https://github.com/sharish/ShimmerRecyclerView)
