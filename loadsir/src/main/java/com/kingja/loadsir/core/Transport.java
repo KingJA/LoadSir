@@ -10,5 +10,5 @@ import android.view.View;
  * Email:kingjavip@gmail.com
  */
 public interface Transport {
-    public void order(Context context, View view);
+    void order(Context context, View view);
 }

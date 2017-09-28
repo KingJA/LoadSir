@@ -64,13 +64,6 @@ public abstract class Callback implements Serializable {
         return rootView;
     }
 
-    public View obtainRootView() {
-        if (rootView == null) {
-            rootView = View.inflate(context, onCreateView(), null);
-        }
-        return rootView;
-    }
-
     protected boolean onRetry(Context context, View view) {
         return false;
     }
@@ -94,6 +87,16 @@ public abstract class Callback implements Serializable {
             e.printStackTrace();
         }
         return (Callback) obj;
+    }
+
+    /**
+     * @since 1.2.2
+     */
+    public View obtainRootView() {
+        if (rootView == null) {
+            rootView = View.inflate(context, onCreateView(), null);
+        }
+        return rootView;
     }
 
     public interface OnReloadListener {
