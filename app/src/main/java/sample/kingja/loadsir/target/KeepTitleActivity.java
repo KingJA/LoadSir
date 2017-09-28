@@ -2,7 +2,6 @@ package sample.kingja.loadsir.target;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.view.View;
 import android.view.Window;
 
 import sample.kingja.loadsir.R;
@@ -24,7 +23,7 @@ public class KeepTitleActivity extends AppCompatActivity {
         if (getSupportActionBar() != null) {
             getSupportActionBar().hide();
         }
-        getSupportFragmentManager().beginTransaction().add(R.id.fl_content, new FragmentKeepTitle()).commit();
+        getSupportFragmentManager().beginTransaction().add(R.id.fl_content, new KeepTitleFragment()).commit();
     }
 
 

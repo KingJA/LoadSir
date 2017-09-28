@@ -63,7 +63,7 @@ public class LoadService<T> {
         loadLayout.showCallback(convertor.map(t));
     }
 
-    public LinearLayout getTitleLoadLayout(Context context, ViewGroup rootView, View titleView, View content) {
+    public LinearLayout getTitleLoadLayout(Context context, ViewGroup rootView, View titleView) {
         LinearLayout linearLayout = new LinearLayout(context);
         linearLayout.setOrientation(LinearLayout.VERTICAL);
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,

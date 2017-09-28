@@ -9,7 +9,6 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
-import android.widget.TextView;
 
 import com.kingja.loadsir.callback.Callback;
 import com.kingja.loadsir.core.LoadService;
@@ -30,7 +29,7 @@ import sample.kingja.loadsir.callback.LoadingCallback;
  * Author:KingJA
  * Email:kingjavip@gmail.com
  */
-public class FragmentKeepTitle extends Fragment {
+public class KeepTitleFragment extends Fragment {
 
     private LoadService loadService;
     @BindView(R.id.iv_back)
@@ -54,22 +53,22 @@ public class FragmentKeepTitle extends Fragment {
             savedInstanceState) {
         ViewGroup rootView = (ViewGroup) inflater.inflate(R.layout.title_title_bar, container, false);
         unBinder = ButterKnife.bind(this, rootView);
-        RelativeLayout rl_titleBar = (RelativeLayout) rootView.findViewById(R.id.rl_titleBar);
-        LinearLayout ll_content = (LinearLayout) rootView.findViewById(R.id.ll_content);
-        rootView.removeView(ll_content);
+        RelativeLayout titleBarView = (RelativeLayout) rootView.findViewById(R.id.rl_titleBar);
+        LinearLayout contentView = (LinearLayout) rootView.findViewById(R.id.ll_content);
+        rootView.removeView(contentView);
         LoadSir loadSir = new LoadSir.Builder()
                 .addCallback(new EmptyCallback())
                 .addCallback(new LoadingCallback())
                 .setDefaultCallback(LoadingCallback.class)
                 .build();
-        loadService = loadSir.register(ll_content, new Callback.OnReloadListener() {
+        loadService = loadSir.register(contentView, new Callback.OnReloadListener() {
             @Override
             public void onReload(View v) {
                 loadService.showSuccess();
             }
 
         });
-        return loadService.getTitleLoadLayout(getContext(), rootView, rl_titleBar, ll_content);
+        return loadService.getTitleLoadLayout(getContext(), rootView, titleBarView);
     }
 
     @Override
