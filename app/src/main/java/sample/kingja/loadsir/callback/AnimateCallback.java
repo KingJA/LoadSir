@@ -33,7 +33,6 @@ public class AnimateCallback extends Callback {
     @Override
     protected void onViewCreate(Context context, View view) {
         super.onViewCreate(context, view);
-        Log.e(TAG, "onViewCreate: ");
     }
 
     @Override
