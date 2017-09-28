@@ -33,4 +33,9 @@ dependencies {
     })
     testCompile 'junit:junit:4.12'
     compile project(':loadsir')
+    debugCompile 'com.squareup.leakcanary:leakcanary-android:1.5.4'
+    releaseCompile 'com.squareup.leakcanary:leakcanary-android-no-op:1.5.4'
+    /*ButterKnife*/
+    compile 'com.jakewharton:butterknife:8.8.1'
+    annotationProcessor 'com.jakewharton:butterknife-compiler:8.8.1'
 }

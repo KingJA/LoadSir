@@ -2,6 +2,8 @@ package com.kingja.loadsir.core;
 
 import android.content.Context;
 import android.view.View;
+import android.view.ViewGroup;
+import android.widget.LinearLayout;
 
 import com.kingja.loadsir.callback.Callback;
 import com.kingja.loadsir.callback.SuccessCallback;
@@ -63,5 +65,33 @@ public class LoadService<T> {
 
     public LoadLayout getLoadLayout() {
         return loadLayout;
+    }
+
+    /**
+     * obtain rootView if you want keep the toolbar in Fragment
+     *
+     * @since 1.2.2
+     */
+    public LinearLayout getTitleLoadLayout(Context context, ViewGroup rootView, View titleView) {
+        LinearLayout newRootView = new LinearLayout(context);
+        newRootView.setOrientation(LinearLayout.VERTICAL);
+        LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,
+                ViewGroup.LayoutParams.MATCH_PARENT);
+        newRootView.setLayoutParams(layoutParams);
+        rootView.removeView(titleView);
+        newRootView.addView(titleView);
+        newRootView.addView(loadLayout, layoutParams);
+        return newRootView;
+    }
+
+    /**
+     * modify the callback dynamically
+     *
+     * @param callback  which callback you want modify(layout, event)
+     * @param transport a interface include modify logic
+     * @since 1.2.2
+     */
+    public void setCallBack(Class<? extends Callback> callback, Transport transport) {
+        loadLayout.setCallBack(callback, transport);
     }
 }

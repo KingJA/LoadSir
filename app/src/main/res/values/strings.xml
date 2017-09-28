@@ -1,3 +1,15 @@
 <resources>
     <string name="app_name">LoadSir</string>
+    <string name="activity_empty">Activity(empty)</string>
+    <string name="activity_placeholder">Activity(placeholder)</string>
+    <string name="activity_with_convertor">Activity with Convertor</string>
+    <string name="single_fragment_custom">single Fragment(custom)</string>
+    <string name="multiple_fragment">multiple Fragment</string>
+    <string name="multiple_fragment_viewpager">multiple Fragment+ViewPager</string>
+    <string name="view_timeout">View(timeout)</string>
+    <string name="animat_callback">Animat Callback</string>
+    <string name="keep_title_bar_in_fragment">keep title bar in Fragment</string>
+    <string name="loadsir">LoadSir</string>
+    <string name="success">Success</string>
+    <string name="keep_title_bar">keep title bar</string>
 </resources>

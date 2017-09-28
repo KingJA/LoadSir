@@ -5,6 +5,8 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
+import sample.kingja.loadsir.target.AnimateActivity;
+import sample.kingja.loadsir.target.KeepTitleActivity;
 import sample.kingja.loadsir.target.MultiFragmentActivity;
 import sample.kingja.loadsir.target.FragmentSingleActivity;
 import sample.kingja.loadsir.target.NormalActivity;
@@ -41,19 +43,27 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void inView(View view) {
-        startActivity(new Intent(this,ViewTargetActivity.class));
+        startActivity(new Intent(this, ViewTargetActivity.class));
     }
 
     public void inFragmentViewSirPager(View view) {
-        startActivity(new Intent(this,MultiFragmentWithViewPagerActivity.class));
+        startActivity(new Intent(this, MultiFragmentWithViewPagerActivity.class));
     }
 
 
     public void inFragmentMutil(View view) {
-        startActivity(new Intent(this,MultiFragmentActivity.class));
+        startActivity(new Intent(this, MultiFragmentActivity.class));
     }
 
     public void showPlaceholder(View view) {
-        startActivity(new Intent(this,PlaceholderActivity.class));
+        startActivity(new Intent(this, PlaceholderActivity.class));
+    }
+
+    public void animatCallback(View view) {
+        startActivity(new Intent(this, AnimateActivity.class));
+    }
+
+    public void titleBarActivity(View view) {
+        startActivity(new Intent(this, KeepTitleActivity.class));
     }
 }

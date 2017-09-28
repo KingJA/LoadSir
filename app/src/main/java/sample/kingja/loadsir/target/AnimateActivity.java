@@ -1,24 +1,22 @@
 package sample.kingja.loadsir.target;
 
-import android.content.Context;
 import android.os.Bundle;
 import android.os.SystemClock;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
-import android.widget.TextView;
 
 import com.kingja.loadsir.callback.Callback;
-
-import sample.kingja.loadsir.callback.EmptyCallback;
-import sample.kingja.loadsir.callback.LoadingCallback;
-
+import com.kingja.loadsir.callback.SuccessCallback;
 import com.kingja.loadsir.core.LoadService;
 import com.kingja.loadsir.core.LoadSir;
-import com.kingja.loadsir.core.Transport;
 
-import sample.kingja.loadsir.R;
 import sample.kingja.loadsir.PostUtil;
+import sample.kingja.loadsir.R;
+import sample.kingja.loadsir.callback.AnimateCallback;
+import sample.kingja.loadsir.callback.CustomCallback;
+import sample.kingja.loadsir.callback.EmptyCallback;
+import sample.kingja.loadsir.callback.LoadingCallback;
 
 
 /**
@@ -28,7 +26,7 @@ import sample.kingja.loadsir.PostUtil;
  * Email:kingjavip@gmail.com
  */
 
-public class NormalActivity extends AppCompatActivity {
+public class AnimateActivity extends AppCompatActivity {
 
 
     private LoadService loadService;
@@ -38,7 +36,13 @@ public class NormalActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_content);
         // Your can change the callback on sub thread directly.
-        loadService = LoadSir.getDefault().register(this, new Callback.OnReloadListener() {
+        LoadSir loadSir = new LoadSir.Builder()
+                .addCallback(new LoadingCallback())
+                .addCallback(new EmptyCallback())
+                .addCallback(new AnimateCallback())
+                .setDefaultCallback(AnimateCallback.class)
+                .build();
+        loadService = loadSir.register(this, new Callback.OnReloadListener() {
             @Override
             public void onReload(View v) {
                 // Your can change the status out of Main thread.
@@ -48,21 +52,13 @@ public class NormalActivity extends AppCompatActivity {
                         loadService.showCallback(LoadingCallback.class);
                         //do retry logic...
                         SystemClock.sleep(500);
-                        //callback
+                        //callback on sub thread
                         loadService.showSuccess();
                     }
                 }).start();
             }
         });
-        //modify callback dynamically
-        loadService.setCallBack(EmptyCallback.class, new Transport() {
-            @Override
-            public void order(Context context, View view) {
-                TextView mTvEmpty = (TextView) view.findViewById(R.id.tv_empty);
-                mTvEmpty.setText("fine, no data. You must fill it!");
-            }
-        });
-        PostUtil.postCallbackDelayed(loadService,EmptyCallback.class);
+        PostUtil.postCallbackDelayed(loadService,EmptyCallback.class, 2500);
     }
 
 }

@@ -1,6 +1,7 @@
 package com.kingja.loadsir.callback;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.View;
 
 import java.io.ByteArrayInputStream;
@@ -9,6 +10,8 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.Serializable;
+
+import static android.content.ContentValues.TAG;
 
 
 /**
@@ -43,7 +46,9 @@ public abstract class Callback implements Serializable {
         if (resId == 0 && rootView != null) {
             return rootView;
         }
-        rootView = View.inflate(context, onCreateView(), null);
+        if (rootView == null) {
+            rootView = View.inflate(context, onCreateView(), null);
+        }
         rootView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -55,6 +60,7 @@ public abstract class Callback implements Serializable {
                 }
             }
         });
+        onViewCreate(context, rootView);
         return rootView;
     }
 
@@ -83,9 +89,44 @@ public abstract class Callback implements Serializable {
         return (Callback) obj;
     }
 
+    /**
+     * @since 1.2.2
+     */
+    public View obtainRootView() {
+        if (rootView == null) {
+            rootView = View.inflate(context, onCreateView(), null);
+        }
+        return rootView;
+    }
+
     public interface OnReloadListener {
         void onReload(View v);
     }
 
     protected abstract int onCreateView();
+
+    /**
+     * Called immediately after {@link #onCreateView()}
+     *
+     * @since 1.2.2
+     */
+    protected void onViewCreate(Context context, View view) {
+    }
+
+    /**
+     * Called when the rootView of Callback is attached to its LoadLayout.
+     *
+     * @since 1.2.2
+     */
+    public void onAttach(Context context, View view) {
+    }
+
+    /**
+     * Called when the rootView of Callback is removed from its LoadLayout.
+     *
+     * @since 1.2.2
+     */
+    public void onDetach() {
+    }
+
 }
