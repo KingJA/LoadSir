@@ -165,6 +165,9 @@ protected void loadFromNet() {
     loadService.showCallback(EmptyCallback.class); // do/show something else
 }
 ```
+Info:
+- `showSuccess()` calls the `SuccessCallback` to "hide" LoadSir and show the content.
+
 * ###### Convertor Display (recommended)
 If you want LoadSir to do callback automatically, you can pass a Convertor when you register.
 
