@@ -34,9 +34,9 @@ Feature
 * :star: don't need to set enum or constant for status code
 * :star: set your own onClick logic in custom Callback
 * :star: no preloaded load page
-* :star: support for keeping the toolbar, titileview
+* :star: support for keeping the toolbar, titleview
 * allow to customize your own load page
-* set the retry onClick listener
+* set the retry onClick listener `OnReloadListener`
 * set the default load page
 * add multi load pages
 * thread-safety
@@ -223,7 +223,7 @@ public class CustomCallback extends Callback {
 ```
 
 ### Modify Callback Dynamically
-
+Access the view of a `Callback.
 ```java
 loadService = LoadSir.getDefault().register(...);
 loadService.setCallBack(EmptyCallback.class, new Transport() {
@@ -244,9 +244,9 @@ amazing. :ghost:
 
 ## Docs
 * :point_right: [FAQ](docs/FAQ.md)
-* 📌 [Versions](docs/changelog.md)
+* 📌 [Version changelog](docs/changelog.md)
 * [Best Practice](docs/BestPractice.md)
-* [What Will Next Version Include?](docs/NextVersion.md)
+* [What will the next version include?](docs/NextVersion.md)
 
 ## ProGuard
 
