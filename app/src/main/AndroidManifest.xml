@@ -18,10 +18,7 @@
 
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
-<<<<<<< HEAD
-=======
 
->>>>>>> v1.2.2-pre
         </activity>
         <activity android:name=".target.NormalActivity"/>
         <activity android:name=".target.ConvertorActivity"/>

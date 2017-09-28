@@ -58,7 +58,7 @@ public class AnimateActivity extends AppCompatActivity {
                 }).start();
             }
         });
-        PostUtil.postCallbackDelayed(loadService,EmptyCallback.class, 2500);
+        PostUtil.postCallbackDelayed(loadService, EmptyCallback.class, 2500);
     }
 
 }

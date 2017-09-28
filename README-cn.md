@@ -55,7 +55,7 @@ LoadSir的使用，只需要简单的三步
 ### 添加依赖
 
 ```groovy
-compile 'com.kingja.loadsir:loadsir:1.2.0'
+compile 'com.kingja.loadsir:loadsir:1.2.2'
 ```
 
 ### 第一步：配置
@@ -230,11 +230,7 @@ placeholder效果状态页类似[ShimmerRecyclerView](https://github.com/sharish
 * :point_right: [常见问题](docs/FAQ-cn.md)
 * 📌 [更新日志](docs/changelog.md)
 * [最佳实践](docs/BestPractice-cn.md)
-<<<<<<< HEAD
 * [下个版本开发计划](docs/NextVersion.md)
-=======
-* [Next Version](docs/NextVersion.md)
->>>>>>> v1.2.2-pre
 
 ## 代码混淆
 

@@ -52,7 +52,7 @@ LoadSir only needs 3 steps to finish its task: **Config** -> **Register** -> **D
 ### Download
 
 ```groovy
-compile 'com.kingja.loadsir:loadsir:1.2.0'
+compile 'com.kingja.loadsir:loadsir:1.2.2'
 ```
 
 ### Step 1: Config
@@ -230,11 +230,7 @@ amazing. :ghost:
 * :point_right: [FAQ](docs/FAQ.md)
 * 📌 [Versions](docs/changelog.md)
 * [Best Practice](docs/BestPractice.md)
-<<<<<<< HEAD
-* [What Next Version Will Include?](docs/NextVersion.md)
-=======
 * [What Will Next Version Include?](docs/NextVersion.md)
->>>>>>> v1.2.2-pre
 
 ## ProGuard
 

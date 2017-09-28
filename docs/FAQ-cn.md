@@ -60,9 +60,34 @@ in Fragment
     }
 ```
 
-### #2 如何在自定义状态页上添加标题栏以模仿原布局的标题栏
-由于标题栏的样式多种多样，为了降低耦合没有对该需求提供扩展，如果有这方面需求的同学可以利用View注册的方式，对标题栏以下
-的布局进行注册，这样就保留了标题栏，如果大家有更好的思路请告诉我，或发起pull request。
+### #2 如果保留原布局的标题栏(toolbar,或者titileView)?
+在Activity，只要注册toolbar,或者titileView以下的布局View即可，这样LoadSir就会保留标题栏。
+在Fragment，情况稍微复杂点，请看模板代码:
+```java
+@Nullable
+    @Override
+    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle
+            savedInstanceState) {
+        ViewGroup rootView = (ViewGroup) inflater.inflate(R.layout.title_title_bar, container, false);
+        unBinder = ButterKnife.bind(this, rootView);
+        RelativeLayout titleBarView = (RelativeLayout) rootView.findViewById(R.id.rl_titleBar);
+        LinearLayout contentView = (LinearLayout) rootView.findViewById(R.id.ll_content);
+        rootView.removeView(contentView);
+        LoadSir loadSir = new LoadSir.Builder()
+                .addCallback(new EmptyCallback())
+                .addCallback(new LoadingCallback())
+                .setDefaultCallback(LoadingCallback.class)
+                .build();
+        loadService = loadSir.register(contentView, new Callback.OnReloadListener() {
+            @Override
+            public void onReload(View v) {
+                loadService.showSuccess();
+            }
+
+        });
+        return loadService.getTitleLoadLayout(getContext(), rootView, titleBarView);
+    }
+```
 
 
 

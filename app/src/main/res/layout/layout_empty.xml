@@ -15,12 +15,12 @@
         android:id="@+id/tv_empty"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="fine, no data."
+        android:text="@string/fine_no_data"
         android:textColor="#333333"
         android:textSize="18sp"/>
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="click me to retry!"/>
+        android:text="@string/click_me_to_retry"/>
 </LinearLayout>
