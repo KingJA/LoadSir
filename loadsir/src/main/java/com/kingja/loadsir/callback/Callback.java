@@ -116,7 +116,6 @@ public abstract class Callback implements Serializable {
      * @since 1.2.2
      */
     public void onAttach(Context context, View view) {
-        Log.e(TAG, "onAttach: " + this.getClass().getSimpleName());
     }
 
     /**
@@ -125,7 +124,6 @@ public abstract class Callback implements Serializable {
      * @since 1.2.2
      */
     public void onDetach() {
-        Log.e(TAG, "onDetach: " + this.getClass().getSimpleName());
     }
 
 }

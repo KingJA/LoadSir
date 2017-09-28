@@ -2,6 +2,8 @@ package com.kingja.loadsir.core;
 
 import android.content.Context;
 import android.view.View;
+import android.view.ViewGroup;
+import android.widget.LinearLayout;
 
 import com.kingja.loadsir.callback.Callback;
 import com.kingja.loadsir.callback.SuccessCallback;
@@ -61,10 +63,26 @@ public class LoadService<T> {
         loadLayout.showCallback(convertor.map(t));
     }
 
+    public LinearLayout getTitleLoadLayout(Context context, ViewGroup rootView, View titleView, View content) {
+        LinearLayout linearLayout = new LinearLayout(context);
+        linearLayout.setOrientation(LinearLayout.VERTICAL);
+        LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,
+                ViewGroup.LayoutParams.MATCH_PARENT);
+        linearLayout.setLayoutParams(layoutParams);
+        rootView.removeView(titleView);
+        linearLayout.addView(titleView);
+        linearLayout.addView(loadLayout, layoutParams);
+        return linearLayout;
+    }
+
     public LoadLayout getLoadLayout() {
         return loadLayout;
     }
 
+    /**
+     * @param callback  which callback you want modify(layout, event)
+     * @param transport a interface include modify logic
+     */
     public void setCallBack(Class<? extends Callback> callback, Transport transport) {
         loadLayout.setCallBack(callback, transport);
     }

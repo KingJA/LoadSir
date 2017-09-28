@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
 import sample.kingja.loadsir.target.AnimateActivity;
+import sample.kingja.loadsir.target.KeepTitleActivity;
 import sample.kingja.loadsir.target.MultiFragmentActivity;
 import sample.kingja.loadsir.target.FragmentSingleActivity;
 import sample.kingja.loadsir.target.NormalActivity;
@@ -60,5 +61,9 @@ public class MainActivity extends AppCompatActivity {
 
     public void animatCallback(View view) {
         startActivity(new Intent(this, AnimateActivity.class));
+    }
+
+    public void titleBarActivity(View view) {
+        startActivity(new Intent(this, KeepTitleActivity.class));
     }
 }

@@ -29,6 +29,7 @@
         <activity android:name=".target.MultiFragmentActivity"/>
         <activity android:name=".target.PlaceholderActivity"/>
         <activity android:name=".target.AnimateActivity"/>
+        <activity android:name=".target.KeepTitleActivity"/>
     </application>
 
 </manifest>
