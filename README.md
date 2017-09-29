@@ -11,7 +11,7 @@ What's LoadSir?
 [![](https://img.shields.io/badge/preview-v1.2.2-orange.svg)](https://github.com/KingJA/LoadSir/tree/v1.2.2-pre)
 
 ***LoadSir*** is a lightweight, good expandable Android library used for displaying different pages like **loading**,
-**error**, **empty**, **timeout** or even your **custom page** when you load data from database or a REST service (such as do net job). LoadSir is very different from
+**error**, **empty**, **timeout** or even your **custom page** when you load data from database or a REST service. LoadSir is very different from
 other similar libraries. I mean... ***better***.
 
 Preview - samples
