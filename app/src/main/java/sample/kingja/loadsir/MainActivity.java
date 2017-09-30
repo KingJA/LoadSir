@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
 import sample.kingja.loadsir.target.AnimateActivity;
+import sample.kingja.loadsir.target.BestPracticesActivity;
 import sample.kingja.loadsir.target.KeepTitleActivity;
 import sample.kingja.loadsir.target.MultiFragmentActivity;
 import sample.kingja.loadsir.target.FragmentSingleActivity;
@@ -65,5 +66,9 @@ public class MainActivity extends AppCompatActivity {
 
     public void titleBarActivity(View view) {
         startActivity(new Intent(this, KeepTitleActivity.class));
+    }
+
+    public void bestPractices(View view) {
+        startActivity(new Intent(this, BestPracticesActivity.class));
     }
 }

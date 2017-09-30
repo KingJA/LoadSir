@@ -76,5 +76,14 @@
             android:text="@string/keep_title_bar_in_fragment"
             android:textAllCaps="false"/>
 
+        <Button
+            android:background="#d77213"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="bestPractices"
+            android:text="@string/best_practices"
+            android:textAllCaps="false"/>
+
+
     </LinearLayout>
 </ScrollView>

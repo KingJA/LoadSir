@@ -53,16 +53,14 @@ public class NormalActivity extends AppCompatActivity {
                     }
                 }).start();
             }
-        });
-        //modify callback dynamically
-        loadService.setCallBack(EmptyCallback.class, new Transport() {
+        }).setCallBack(EmptyCallback.class, new Transport() {
             @Override
             public void order(Context context, View view) {
                 TextView mTvEmpty = (TextView) view.findViewById(R.id.tv_empty);
                 mTvEmpty.setText("fine, no data. You must fill it!");
             }
         });
-        PostUtil.postCallbackDelayed(loadService,EmptyCallback.class);
+        PostUtil.postCallbackDelayed(loadService, EmptyCallback.class);
     }
 
 }

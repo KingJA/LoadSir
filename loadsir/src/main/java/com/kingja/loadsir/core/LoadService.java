@@ -91,7 +91,8 @@ public class LoadService<T> {
      * @param transport a interface include modify logic
      * @since 1.2.2
      */
-    public void setCallBack(Class<? extends Callback> callback, Transport transport) {
+    public LoadService<T> setCallBack(Class<? extends Callback> callback, Transport transport) {
         loadLayout.setCallBack(callback, transport);
+        return this;
     }
 }

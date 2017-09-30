@@ -44,6 +44,12 @@ public class KeepTitleFragment extends Fragment {
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        mIvBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                getActivity().finish();
+            }
+        });
         PostUtil.postCallbackDelayed(loadService, EmptyCallback.class, 1200);
     }
 
@@ -61,6 +67,8 @@ public class KeepTitleFragment extends Fragment {
                 .addCallback(new LoadingCallback())
                 .setDefaultCallback(LoadingCallback.class)
                 .build();
+
+
         loadService = loadSir.register(contentView, new Callback.OnReloadListener() {
             @Override
             public void onReload(View v) {
@@ -68,6 +76,7 @@ public class KeepTitleFragment extends Fragment {
             }
 
         });
+
         return loadService.getTitleLoadLayout(getContext(), rootView, titleBarView);
     }
 
