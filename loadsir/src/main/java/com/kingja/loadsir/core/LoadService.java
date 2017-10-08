@@ -26,7 +26,7 @@ public class LoadService<T> {
         Context context = targetContext.getContext();
         View oldContent = targetContext.getOldContent();
         loadLayout = new LoadLayout(context, onReloadListener);
-        loadLayout.addCallback(new SuccessCallback(oldContent, context,
+        loadLayout.setupSuccessLayout(new SuccessCallback(oldContent, context,
                 onReloadListener));
         if (targetContext.getParentView() != null) {
             targetContext.getParentView().addView(loadLayout, targetContext.getChildIndex(), oldContent

@@ -1,5 +1,7 @@
 package com.kingja.loadsir.core;
 
+import android.support.annotation.NonNull;
+
 import com.kingja.loadsir.LoadSirUtil;
 import com.kingja.loadsir.callback.Callback;
 
@@ -12,7 +14,7 @@ import java.util.List;
  * Author:KingJA
  * Email:kingjavip@gmail.com
  */
-public class LoadSir  {
+public class LoadSir {
     private static volatile LoadSir loadSir;
     private Builder builder;
 
@@ -31,12 +33,16 @@ public class LoadSir  {
         this.builder = new Builder();
     }
 
-    private void setBuilder(Builder builder) {
+    private void setBuilder(@NonNull Builder builder) {
         this.builder = builder;
     }
 
     private LoadSir(Builder builder) {
         this.builder = builder;
+    }
+
+    public LoadService register(@NonNull Object target) {
+        return register(target, null, null);
     }
 
     public LoadService register(Object target, Callback.OnReloadListener onReloadListener) {
@@ -57,12 +63,12 @@ public class LoadSir  {
         private List<Callback> callbacks = new ArrayList<>();
         private Class<? extends Callback> defaultCallback;
 
-        public Builder addCallback(Callback callback) {
+        public Builder addCallback(@NonNull Callback callback) {
             callbacks.add(callback);
             return this;
         }
 
-        public Builder setDefaultCallback(Class<? extends Callback> defaultCallback) {
+        public Builder setDefaultCallback(@NonNull Class<? extends Callback> defaultCallback) {
             this.defaultCallback = defaultCallback;
             return this;
         }

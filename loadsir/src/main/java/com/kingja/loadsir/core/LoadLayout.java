@@ -7,6 +7,7 @@ import android.widget.FrameLayout;
 
 import com.kingja.loadsir.LoadSirUtil;
 import com.kingja.loadsir.callback.Callback;
+import com.kingja.loadsir.callback.SuccessCallback;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -23,6 +24,7 @@ public class LoadLayout extends FrameLayout {
     private Context context;
     private Callback.OnReloadListener onReloadListener;
     private Class<? extends Callback> preCallback;
+    private static final int CALLBACK_CUSTOM_INDEX = 1;
 
     public LoadLayout(@NonNull Context context) {
         super(context);
@@ -32,6 +34,13 @@ public class LoadLayout extends FrameLayout {
         this(context);
         this.context = context;
         this.onReloadListener = onReloadListener;
+    }
+
+    public void setupSuccessLayout(Callback callback) {
+        addCallback(callback);
+        View successView = callback.getRootView();
+        successView.setVisibility(View.GONE);
+        addView(successView);
     }
 
     public void setupCallback(Callback callback) {
@@ -66,16 +75,26 @@ public class LoadLayout extends FrameLayout {
 
     private void showCallbackView(Class<? extends Callback> status) {
         if (preCallback != null) {
+            if (preCallback == status) {
+                return;
+            }
             callbacks.get(preCallback).onDetach();
         }
-        if (getChildCount() > 0) {
-            removeAllViews();
+        if (getChildCount() > 1) {
+            removeViewAt(CALLBACK_CUSTOM_INDEX);
         }
+
         for (Class key : callbacks.keySet()) {
             if (key == status) {
-                View rootView = callbacks.get(key).getRootView();
-                addView(rootView);
-                callbacks.get(key).onAttach(context, rootView);
+                SuccessCallback successCallback = (SuccessCallback) callbacks.get(SuccessCallback.class);
+                if (key == SuccessCallback.class) {
+                    successCallback.show();
+                } else {
+                    successCallback.hide();
+                    View rootView = callbacks.get(key).getRootView();
+                    addView(rootView);
+                    callbacks.get(key).onAttach(context, rootView);
+                }
                 preCallback = status;
             }
         }

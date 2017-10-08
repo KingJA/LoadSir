@@ -19,4 +19,12 @@ public class SuccessCallback extends Callback {
     protected int onCreateView() {
         return 0;
     }
+
+    public void hide() {
+        obtainRootView().setVisibility(View.GONE);
+    }
+
+    public void show() {
+        obtainRootView().setVisibility(View.VISIBLE);
+    }
 }
