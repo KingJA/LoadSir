@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:tools="http://schemas.android.com/tools"
+	android:id="@+id/rl_root"
+	android:layout_centerInParent="true"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	android:gravity="center"
+	tools:ignore="ContentDescription">
+
+	<ImageView
+		android:visibility="gone"
+		android:id="@+id/ivImage"
+		android:layout_centerHorizontal="true"
+		android:layout_marginBottom="16dp"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		tools:visibility="visible">
+	</ImageView>
+
+	<TextView
+		android:visibility="gone"
+		android:id="@+id/tvTitle"
+		android:layout_below="@+id/ivImage"
+		android:layout_centerHorizontal="true"
+		android:gravity="center_horizontal"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:textAppearance="@style/TextAppearance.AppCompat.Title"
+		android:textColor="@color/ls_textColorPrimary"
+		tools:text="Empty"
+		tools:visibility="visible">
+	</TextView>
+
+	<TextView
+		android:visibility="gone"
+		android:id="@+id/tvSubtitle"
+		android:layout_below="@+id/tvTitle"
+		android:layout_marginTop="8dp"
+		android:layout_centerHorizontal="true"
+		android:gravity="center_horizontal"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+		android:textColor="@color/ls_textColorSecondary"
+		tools:text="Couldn\'t load items"
+		tools:visibility="visible">
+	</TextView>
+
+	<Button
+		android:visibility="gone"
+		android:id="@+id/btAction"
+		android:layout_below="@+id/tvSubtitle"
+		android:layout_marginTop="16dp"
+		android:layout_centerHorizontal="true"
+		android:gravity="center_horizontal"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:text="@string/ls_retry_text"
+		android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+		android:textAllCaps="true"
+		android:textColor="?colorAccent"
+		style="@style/Widget.AppCompat.Button.Borderless.Colored"
+		tools:text="@string/ls_retry_text"
+		tools:visibility="visible">
+	</Button>
+
+</RelativeLayout>
