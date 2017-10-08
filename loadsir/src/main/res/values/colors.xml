@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="ls_textColorPrimary">#de000000</color>        <!-- 87% of #000000 -> DE -->
+    <color name="ls_textColorSecondary">#8a000000</color>      <!-- 54% of #000000 -> 8A -->
+
+</resources>

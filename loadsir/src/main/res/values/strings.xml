@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="ls_loading_text">Loading…</string>
+    <string name="ls_retry_text">retry</string>
+
+
+</resources>
