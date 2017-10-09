@@ -34,6 +34,10 @@ public class LoadSirHintCallback extends Callback implements Serializable {
         this.onRetryListener = onRetryListener;
     }
 
+    public interface OnRetryListener extends Serializable {
+        void onRetry();
+    }
+
     @Override
     protected int onCreateView() {
         return R.layout.item_loadsir__empty_error_timeout;
