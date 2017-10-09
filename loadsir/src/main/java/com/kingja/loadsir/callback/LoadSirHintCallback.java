@@ -17,7 +17,7 @@ import java.io.Serializable;
  * Author:KingJA
  * Email:kingjavip@gmail.com
  */
-public class LoadSirHintCallback extends Callback implements Serializable {
+public class LoadSirHintCallback extends Callback{
 
     private String title;
     private String subTitle;
@@ -34,7 +34,7 @@ public class LoadSirHintCallback extends Callback implements Serializable {
         this.onRetryListener = onRetryListener;
     }
 
-    public interface OnRetryListener extends Serializable {
+    public interface OnRetryListener  {
         void onRetry();
     }
 
@@ -68,7 +68,7 @@ public class LoadSirHintCallback extends Callback implements Serializable {
         }
     }
 
-    public static class Builder implements Serializable {
+    public static class Builder {
         private String title;
         private String subTitle;
         private int imgResId = -1;
