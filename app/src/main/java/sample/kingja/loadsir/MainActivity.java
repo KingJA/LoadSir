@@ -7,6 +7,7 @@ import android.view.View;
 
 import sample.kingja.loadsir.target.AnimateActivity;
 import sample.kingja.loadsir.target.BestPracticesActivity;
+import sample.kingja.loadsir.target.DefaultCallbackActivity;
 import sample.kingja.loadsir.target.KeepTitleActivity;
 import sample.kingja.loadsir.target.MultiFragmentActivity;
 import sample.kingja.loadsir.target.FragmentSingleActivity;
@@ -35,6 +36,10 @@ public class MainActivity extends AppCompatActivity {
         startActivity(new Intent(this, NormalActivity.class));
     }
 
+    public void showPlaceholder(View view) {
+        startActivity(new Intent(this, PlaceholderActivity.class));
+    }
+
     public void inActivityWithConvertor(View view) {
         startActivity(new Intent(this, ConvertorActivity.class));
     }
@@ -43,21 +48,20 @@ public class MainActivity extends AppCompatActivity {
         startActivity(new Intent(this, FragmentSingleActivity.class));
     }
 
-    public void inView(View view) {
-        startActivity(new Intent(this, ViewTargetActivity.class));
+    public void inFragmentMutil(View view) {
+        startActivity(new Intent(this, MultiFragmentActivity.class));
     }
 
     public void inFragmentViewSirPager(View view) {
         startActivity(new Intent(this, MultiFragmentWithViewPagerActivity.class));
     }
 
-
-    public void inFragmentMutil(View view) {
-        startActivity(new Intent(this, MultiFragmentActivity.class));
+    public void inView(View view) {
+        startActivity(new Intent(this, ViewTargetActivity.class));
     }
 
-    public void showPlaceholder(View view) {
-        startActivity(new Intent(this, PlaceholderActivity.class));
+    public void defaultCallback(View view) {
+        startActivity(new Intent(this, DefaultCallbackActivity.class));
     }
 
     public void animatCallback(View view) {
@@ -71,4 +75,5 @@ public class MainActivity extends AppCompatActivity {
     public void bestPractices(View view) {
         startActivity(new Intent(this, BestPracticesActivity.class));
     }
+
 }

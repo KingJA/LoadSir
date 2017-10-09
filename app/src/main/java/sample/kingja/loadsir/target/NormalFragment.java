@@ -39,16 +39,7 @@ public class NormalFragment extends Fragment {
                 .addCallback(new LoadingCallback())
                 .setDefaultCallback(LoadingCallback.class)
                 .build();
-        loadService = loadSir.register(rootView, new Callback.OnReloadListener() {
-            @Override
-            public void onReload(View v) {
-                loadService.showCallback(LoadingCallback.class);
-                //do retry logic...
-
-                //callback
-                PostUtil.postSuccessDelayed(loadService);
-            }
-        });
+        loadService = loadSir.register(rootView);
         return loadService.getLoadLayout();
     }
 

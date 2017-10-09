@@ -17,21 +17,19 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:onClick="mvpActivity"
-            android:text="MVP+RxJava2+Retrofit+Dragger2"
+            android:text="..."
             android:textAllCaps="false"/>
 
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:onClick="showPlaceholder"
-            android:text="@string/activity_placeholder"
+            android:text="..."
             android:textAllCaps="false"/>
 
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:onClick="inActivityWithConvertor"
-            android:text="@string/activity_with_convertor"
+            android:text="..."
             android:textAllCaps="false"/>
 
 

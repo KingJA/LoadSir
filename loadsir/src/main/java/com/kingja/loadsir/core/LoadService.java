@@ -20,8 +20,8 @@ public class LoadService<T> {
     private LoadLayout loadLayout;
     private Convertor<T> convertor;
 
-    LoadService(Convertor<T> convertor, TargetContext targetContext, Callback
-            .OnReloadListener onReloadListener, LoadSir.Builder builder) {
+    LoadService(Convertor<T> convertor, TargetContext targetContext, Callback.OnReloadListener onReloadListener,
+                LoadSir.Builder builder) {
         this.convertor = convertor;
         Context context = targetContext.getContext();
         View oldContent = targetContext.getOldContent();

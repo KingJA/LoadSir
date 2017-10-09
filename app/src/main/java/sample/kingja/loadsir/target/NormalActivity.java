@@ -8,11 +8,10 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.TextView;
 
-import com.kingja.loadsir.callback.Callback;
-
 import sample.kingja.loadsir.callback.EmptyCallback;
 import sample.kingja.loadsir.callback.LoadingCallback;
 
+import com.kingja.loadsir.callback.Callback;
 import com.kingja.loadsir.core.LoadService;
 import com.kingja.loadsir.core.LoadSir;
 import com.kingja.loadsir.core.Transport;

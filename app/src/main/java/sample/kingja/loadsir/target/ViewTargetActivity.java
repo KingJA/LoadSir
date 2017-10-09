@@ -6,10 +6,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.ImageView;
 
-import com.kingja.loadsir.callback.Callback;
-
 import sample.kingja.loadsir.callback.LoadingCallback;
 
+import com.kingja.loadsir.callback.Callback;
 import com.kingja.loadsir.core.LoadService;
 import com.kingja.loadsir.core.LoadSir;
 

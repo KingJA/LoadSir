@@ -65,6 +65,13 @@
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:onClick="defaultCallback"
+            android:text="@string/default_loadsir_callback"
+            android:textAllCaps="false"/>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:onClick="animatCallback"
             android:text="@string/animat_callback"
             android:textAllCaps="false"/>

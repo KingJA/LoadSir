@@ -5,7 +5,6 @@
 
     <application
         android:name=".App"
-        android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
@@ -24,11 +23,13 @@
         <activity android:name=".target.ConvertorActivity"/>
         <activity android:name=".target.FragmentSingleActivity"/>
         <activity android:name=".target.ViewTargetActivity"/>
+        <activity android:name=".target.DefaultCallbackActivity"/>
         <activity android:name=".target.MultiFragmentWithViewPagerActivity"/>
         <activity android:name=".target.MultiFragmentActivity"/>
         <activity android:name=".target.PlaceholderActivity"/>
         <activity android:name=".target.AnimateActivity"/>
         <activity android:name=".target.KeepTitleActivity"/>
+        <activity android:name=".target.BestPracticesActivity"/>
     </application>
 
 </manifest>

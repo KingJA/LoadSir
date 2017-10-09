@@ -1,7 +1,6 @@
 package com.kingja.loadsir.callback;
 
 import android.content.Context;
-import android.util.Log;
 import android.view.View;
 
 import java.io.ByteArrayInputStream;
@@ -10,8 +9,6 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.Serializable;
-
-import static android.content.ContentValues.TAG;
 
 
 /**
@@ -64,7 +61,14 @@ public abstract class Callback implements Serializable {
         return rootView;
     }
 
+    /**
+     * @deprecated Use {@link #onReloadEvent(Context context, View view)} instead.
+     */
     protected boolean onRetry(Context context, View view) {
+        return false;
+    }
+
+    protected boolean onReloadEvent(Context context, View view) {
         return false;
     }
 
@@ -99,7 +103,7 @@ public abstract class Callback implements Serializable {
         return rootView;
     }
 
-    public interface OnReloadListener {
+    public interface OnReloadListener extends Serializable {
         void onReload(View v);
     }
 
