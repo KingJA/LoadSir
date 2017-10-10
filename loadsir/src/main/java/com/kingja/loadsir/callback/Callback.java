@@ -43,6 +43,11 @@ public abstract class Callback implements Serializable {
         if (resId == 0 && rootView != null) {
             return rootView;
         }
+
+        if (onBuildView(context) != null) {
+            rootView = onBuildView(context);
+        }
+
         if (rootView == null) {
             rootView = View.inflate(context, onCreateView(), null);
         }
@@ -59,6 +64,10 @@ public abstract class Callback implements Serializable {
         });
         onViewCreate(context, rootView);
         return rootView;
+    }
+
+    protected View onBuildView(Context context) {
+        return null;
     }
 
     /**

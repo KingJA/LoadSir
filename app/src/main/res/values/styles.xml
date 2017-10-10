@@ -8,4 +8,13 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <style name="Hint_Title">
+        <item name="android:textColor">@color/colorAccent</item>
+        <item name="android:textSize">20sp</item>
+    </style>
+
+    <style name="Hint_SubTitle">
+        <item name="android:textColor">#666666</item>
+    </style>
+
 </resources>

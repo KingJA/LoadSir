@@ -3,9 +3,11 @@ package sample.kingja.loadsir.target;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
 
-import com.kingja.loadsir.callback.LoadSirHintCallback;
-import com.kingja.loadsir.callback.LoadSirLoadingCallback;
+import com.kingja.loadsir.callback.Callback;
+import com.kingja.loadsir.callback.HintCallback;
+import com.kingja.loadsir.callback.ProgressCallback;
 import com.kingja.loadsir.core.LoadService;
 import com.kingja.loadsir.core.LoadSir;
 
@@ -23,36 +25,38 @@ import sample.kingja.loadsir.R;
 public class DefaultCallbackActivity extends AppCompatActivity {
 
 
+    private LoadService loadService;
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_content);
-        // Your can change the callback on sub thread directly.
-        LoadSirLoadingCallback loadingCallback = new LoadSirLoadingCallback.Builder()
-                .setTitle("loading")
-                .setSubTitle("Don't worry, I will be back soon.")
+
+        ProgressCallback loadingCallback = new ProgressCallback.Builder()
+                .setTitle("Loading")
                 .build();
 
-        LoadSirHintCallback hintCallback = new LoadSirHintCallback.Builder()
-                .setTitle("error")
-                .setSubTitle("Sorry, boss, I will try it again.")
-                .setHintImg(R.drawable.awkward)
-                .setRetry("retry", new LoadSirHintCallback.OnRetryListener() {
-                    @Override
-                    public void onRetry() {
-
-                    }
-                })
+        HintCallback hintCallback = new HintCallback.Builder()
+                .setTitle("Error", R.style.Hint_Title)
+                .setSubTitle("Sorry, buddy, I will try it again.")
+                .setHintImg(R.drawable.error)
                 .build();
 
         LoadSir loadSir = new LoadSir.Builder()
                 .addCallback(loadingCallback)
                 .addCallback(hintCallback)
-                .setDefaultCallback(LoadSirLoadingCallback.class)
+                .setDefaultCallback(ProgressCallback.class)
                 .build();
 
-        LoadService loadService = loadSir.register(this, null);
-        PostUtil.postCallbackDelayed(loadService, LoadSirHintCallback.class);
+        loadService = loadSir.register(this, new Callback.OnReloadListener() {
+            @Override
+            public void onReload(View v) {
+                loadService.showCallback(ProgressCallback.class);
+                PostUtil.postSuccessDelayed(loadService);
+
+            }
+        });
+        PostUtil.postCallbackDelayed(loadService, HintCallback.class);
     }
 
 }
