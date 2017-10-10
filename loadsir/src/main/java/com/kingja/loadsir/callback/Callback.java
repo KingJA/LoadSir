@@ -5,7 +5,6 @@ import android.view.View;
 
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
-import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.Serializable;
@@ -84,18 +83,15 @@ public abstract class Callback implements Serializable {
     public Callback copy() {
         ByteArrayOutputStream bao = new ByteArrayOutputStream();
         ObjectOutputStream oos;
+        Object obj = null;
         try {
             oos = new ObjectOutputStream(bao);
             oos.writeObject(this);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        ByteArrayInputStream bis = new ByteArrayInputStream(bao.toByteArray());
-        ObjectInputStream ois;
-        Object obj = null;
-        try {
-            ois = new ObjectInputStream(bis);
+            oos.close();
+            ByteArrayInputStream bis = new ByteArrayInputStream(bao.toByteArray());
+            ObjectInputStream ois = new ObjectInputStream(bis);
             obj = ois.readObject();
+            ois.close();
         } catch (Exception e) {
             e.printStackTrace();
         }

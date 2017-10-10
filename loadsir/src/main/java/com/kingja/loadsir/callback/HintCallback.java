@@ -32,7 +32,6 @@ public class HintCallback extends Callback {
         this.imgResId = builder.imgResId;
         this.subTitleStyleRes = builder.subTitleStyleRes;
         this.titleStyleRes = builder.titleStyleRes;
-
     }
 
     @Override

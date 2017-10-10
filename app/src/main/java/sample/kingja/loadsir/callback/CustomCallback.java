@@ -2,7 +2,6 @@ package sample.kingja.loadsir.callback;
 
 import android.content.Context;
 import android.view.View;
-import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.kingja.loadsir.callback.Callback;
