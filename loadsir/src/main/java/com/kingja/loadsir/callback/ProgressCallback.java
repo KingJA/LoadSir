@@ -1,7 +1,6 @@
 package com.kingja.loadsir.callback;
 
 import android.content.Context;
-import android.support.annotation.DrawableRes;
 import android.support.annotation.StyleRes;
 import android.text.TextUtils;
 import android.view.Gravity;
@@ -24,7 +23,7 @@ public class ProgressCallback extends Callback {
     private int subTitleStyleRes = -1;
     private int titleStyleRes = -1;
 
-    public ProgressCallback(Builder builder) {
+    private ProgressCallback(Builder builder) {
         this.title = builder.title;
         this.subTitle = builder.subTitle;
         this.subTitleStyleRes = builder.subTitleStyleRes;
@@ -80,14 +79,8 @@ public class ProgressCallback extends Callback {
 
         private String title;
         private String subTitle;
-        private int imgResId = -1;
         private int subTitleStyleRes = -1;
         private int titleStyleRes = -1;
-
-        public Builder setHintImg(@DrawableRes int imgResId) {
-            this.imgResId = imgResId;
-            return this;
-        }
 
         public Builder setTitle(String title) {
             return setTitle(title, -1);

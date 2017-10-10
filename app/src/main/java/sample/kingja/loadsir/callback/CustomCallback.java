@@ -23,7 +23,7 @@ public class CustomCallback extends Callback {
     }
 
     @Override
-    protected boolean onRetry(final Context context, View view) {
+    protected boolean onReloadEvent(final Context context, View view) {
         Toast.makeText(context.getApplicationContext(), "Hello buddy, how r u! :p", Toast.LENGTH_SHORT).show();
         (view.findViewById(R.id.iv_gift)).setOnClickListener(new View.OnClickListener() {
             @Override

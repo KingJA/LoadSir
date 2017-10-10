@@ -24,7 +24,6 @@ import sample.kingja.loadsir.R;
 
 public class DefaultCallbackActivity extends AppCompatActivity {
 
-
     private LoadService loadService;
 
     @Override
