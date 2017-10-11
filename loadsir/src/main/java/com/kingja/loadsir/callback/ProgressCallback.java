@@ -56,16 +56,19 @@ public class ProgressCallback extends Callback {
         if (!TextUtils.isEmpty(title)) {
             TextView tvTitle = new TextView(context);
             tvTitle.setText(title);
-            TextViewCompat.setTextAppearance(tvTitle, android.R.style.TextAppearance_Large);
-            if (titleStyleRes != -1) {
-                TextViewCompat.setTextAppearance(tvTitle, titleStyleRes);
+            if (titleStyleRes == -1) {
+                TextViewCompat.setTextAppearance(tvTitle, android.R.style.TextAppearance_Large);
+            } else {
+                TextViewCompat.setTextAppearance(tvTitle, titleStyleRes);                
             }
             ll.addView(tvTitle, lp);
         }
         if (!TextUtils.isEmpty(subTitle)) {
             TextView tvSubtitle = new TextView(context);
             tvSubtitle.setText(subTitle);
-            if (subTitleStyleRes != -1) {
+            if (subTitleStyleRes == -1) {
+                TextViewCompat.setTextAppearance(tvSubtitle, android.R.style.TextAppearance_Medium);
+            } else {
                 TextViewCompat.setTextAppearance(tvSubtitle, subTitleStyleRes);
             }
             ll.addView(tvSubtitle, lp);
