@@ -2,6 +2,7 @@ package com.kingja.loadsir.callback;
 
 import android.content.Context;
 import android.support.annotation.StyleRes;
+import android.support.v4.widget.TextViewCompat;
 import android.text.TextUtils;
 import android.view.Gravity;
 import android.view.View;
@@ -55,24 +56,20 @@ public class ProgressCallback extends Callback {
         if (!TextUtils.isEmpty(title)) {
             TextView tvTitle = new TextView(context);
             tvTitle.setText(title);
-            tvTitle.setTextColor(0xff333333);
-            tvTitle.setTextSize(20);
+            TextViewCompat.setTextAppearance(tvTitle, android.R.style.TextAppearance_Large);
             if (titleStyleRes != -1) {
-                tvTitle.setTextAppearance(context, titleStyleRes);
+                TextViewCompat.setTextAppearance(tvTitle, titleStyleRes);
             }
             ll.addView(tvTitle, lp);
         }
         if (!TextUtils.isEmpty(subTitle)) {
             TextView tvSubtitle = new TextView(context);
             tvSubtitle.setText(subTitle);
-            tvSubtitle.setTextColor(0xff666666);
-            tvSubtitle.setTextSize(14);
             if (subTitleStyleRes != -1) {
-                tvSubtitle.setTextAppearance(context, subTitleStyleRes);
+                TextViewCompat.setTextAppearance(tvSubtitle, subTitleStyleRes);
             }
             ll.addView(tvSubtitle, lp);
         }
-
     }
 
     public static class Builder {
