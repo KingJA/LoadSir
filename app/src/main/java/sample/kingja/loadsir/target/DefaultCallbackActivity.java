@@ -32,7 +32,7 @@ public class DefaultCallbackActivity extends AppCompatActivity {
         setContentView(R.layout.activity_content);
 
         ProgressCallback loadingCallback = new ProgressCallback.Builder()
-                .setTitle("Loading")
+                .setTitle("Loading", R.style.Hint_Title)
                 .build();
 
         HintCallback hintCallback = new HintCallback.Builder()

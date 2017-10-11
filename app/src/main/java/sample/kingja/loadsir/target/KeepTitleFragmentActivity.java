@@ -13,16 +13,17 @@ import sample.kingja.loadsir.R;
  * Email:kingjavip@gmail.com
  */
 
-public class KeepTitleActivity extends AppCompatActivity {
+public class KeepTitleFragmentActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         requestWindowFeature(Window.FEATURE_NO_TITLE);
-        setContentView(R.layout.activity_content);
+        setContentView(R.layout.activity_fragment);
         if (getSupportActionBar() != null) {
             getSupportActionBar().hide();
         }
+        getSupportFragmentManager().beginTransaction().add(R.id.fl_content, new KeepTitleFragment()).commit();
     }
 
 

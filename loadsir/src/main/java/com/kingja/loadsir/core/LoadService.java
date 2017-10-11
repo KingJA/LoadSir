@@ -5,7 +5,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 
+import com.kingja.loadsir.R;
 import com.kingja.loadsir.callback.Callback;
+import com.kingja.loadsir.callback.ProgressCallback;
 import com.kingja.loadsir.callback.SuccessCallback;
 
 import java.util.List;

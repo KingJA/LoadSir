@@ -29,7 +29,6 @@ import sample.kingja.loadsir.PostUtil;
 
 public class NormalActivity extends AppCompatActivity {
 
-
     private LoadService loadService;
 
     @Override
