@@ -24,6 +24,4 @@ public class KeepTitleActivity extends AppCompatActivity {
             getSupportActionBar().hide();
         }
     }
-
-
 }

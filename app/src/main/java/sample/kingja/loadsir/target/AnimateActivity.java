@@ -35,10 +35,9 @@ public class AnimateActivity extends AppCompatActivity {
         setContentView(R.layout.activity_content);
         // Your can change the callback on sub thread directly.
         LoadSir loadSir = new LoadSir.Builder()
-                .addCallback(new LoadingCallback())
                 .addCallback(new EmptyCallback())
                 .addCallback(new AnimateCallback())
-                .setDefaultCallback(AnimateCallback.class)
+                .setDefaultCallback(EmptyCallback.class)
                 .build();
         loadService = loadSir.register(this, new Callback.OnReloadListener() {
             @Override
@@ -47,7 +46,7 @@ public class AnimateActivity extends AppCompatActivity {
                 new Thread(new Runnable() {
                     @Override
                     public void run() {
-                        loadService.showCallback(LoadingCallback.class);
+                        loadService.showCallback(AnimateCallback.class);
                         //do retry logic...
                         SystemClock.sleep(500);
                         //callback on sub thread
@@ -56,7 +55,5 @@ public class AnimateActivity extends AppCompatActivity {
                 }).start();
             }
         });
-        PostUtil.postCallbackDelayed(loadService, EmptyCallback.class, 2500);
     }
-
 }

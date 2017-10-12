@@ -37,7 +37,6 @@ public class AnimateCallback extends Callback {
 
     @Override
     public void onAttach(Context context, View view) {
-        super.onAttach(context, view);
         this.context = context;
         animateView = view.findViewById(R.id.view_animate);
         Animation animation = new RotateAnimation(0, 359, Animation.RELATIVE_TO_SELF,
