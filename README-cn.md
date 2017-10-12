@@ -39,7 +39,6 @@ LoadSir的功能及特点
 * :star:可对单个状态页单独设置点击事件，根据返回boolean值覆盖或者结合OnReloadListener使用，如网络错误可跳转设置页
 * :star:无预设页面，低耦合，开发者随心配置
 * :star:可保留标题栏(Toolbar,titile view等)
-* 提供ProgressCallback，HintCallback两个自带Callback
 * 可设置重新加载点击事件(OnReloadListener)
 * 可自定义状态页(继承Callback类)
 * 可在子线程直接切换状态
