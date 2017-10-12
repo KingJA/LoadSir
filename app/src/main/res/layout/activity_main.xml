@@ -79,7 +79,14 @@
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:onClick="titleBarActivity"
+            android:onClick="keepTitleInActivity"
+            android:text="@string/keep_title_bar_in_activity"
+            android:textAllCaps="false"/>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="keepTitleInFragment"
             android:text="@string/keep_title_bar_in_fragment"
             android:textAllCaps="false"/>
 

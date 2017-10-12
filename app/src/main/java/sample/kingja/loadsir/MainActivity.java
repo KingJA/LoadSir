@@ -8,6 +8,7 @@ import android.view.View;
 import sample.kingja.loadsir.target.AnimateActivity;
 import sample.kingja.loadsir.target.BestPracticesActivity;
 import sample.kingja.loadsir.target.DefaultCallbackActivity;
+import sample.kingja.loadsir.target.KeepTitleActivity;
 import sample.kingja.loadsir.target.KeepTitleFragmentActivity;
 import sample.kingja.loadsir.target.MultiFragmentActivity;
 import sample.kingja.loadsir.target.FragmentSingleActivity;
@@ -68,7 +69,7 @@ public class MainActivity extends AppCompatActivity {
         startActivity(new Intent(this, AnimateActivity.class));
     }
 
-    public void titleBarActivity(View view) {
+    public void keepTitleInFragment(View view) {
         startActivity(new Intent(this, KeepTitleFragmentActivity.class));
     }
 
@@ -76,4 +77,7 @@ public class MainActivity extends AppCompatActivity {
         startActivity(new Intent(this, BestPracticesActivity.class));
     }
 
+    public void keepTitleInActivity(View view) {
+        startActivity(new Intent(this, KeepTitleActivity.class));
+    }
 }

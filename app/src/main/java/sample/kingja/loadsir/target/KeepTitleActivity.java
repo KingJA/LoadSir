@@ -1,10 +1,14 @@
 package sample.kingja.loadsir.target;
 
-import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
-import android.view.Window;
+import android.view.View;
+import android.widget.TextView;
 
+import butterknife.BindView;
+import sample.kingja.loadsir.PostUtil;
 import sample.kingja.loadsir.R;
+import sample.kingja.loadsir.base.BaseTitleActivity;
+import sample.kingja.loadsir.callback.ErrorCallback;
+import sample.kingja.loadsir.callback.LoadingCallback;
 
 /**
  * Description:
@@ -13,15 +17,36 @@ import sample.kingja.loadsir.R;
  * Email:kingjavip@gmail.com
  */
 
-public class KeepTitleActivity extends AppCompatActivity {
+public class KeepTitleActivity extends BaseTitleActivity {
+    @BindView(R.id.tv_title)
+    TextView mTvTitle;
+
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        requestWindowFeature(Window.FEATURE_NO_TITLE);
-        setContentView(R.layout.activity_content);
-        if (getSupportActionBar() != null) {
-            getSupportActionBar().hide();
-        }
+    protected String getContentTitle() {
+        return "Title";
+    }
+
+    @Override
+    protected int getContentView() {
+        return R.layout.activity_content;
+    }
+
+    @Override
+    protected void initView() {
+        TextView tv_msg = (TextView) findViewById(R.id.tv_subTitle);
+        tv_msg.setText("Keep Title In Activity");
+        mTvTitle.setText("Yes, Success");
+    }
+
+    @Override
+    protected void initNet() {
+        PostUtil.postCallbackDelayed(mBaseLoadService, ErrorCallback.class);
+    }
+
+    @Override
+    protected void onNetReload(View v) {
+        mBaseLoadService.showCallback(LoadingCallback.class);
+        PostUtil.postSuccessDelayed(mBaseLoadService);
     }
 }

@@ -28,7 +28,9 @@
         <activity android:name=".target.AnimateActivity"/>
         <activity android:name=".target.KeepTitleFragmentActivity"/>
         <activity android:name=".target.BestPracticesActivity"/>
-        <activity android:name=".target.KeepTitleActivity"/>
+        <activity
+            android:name=".target.KeepTitleActivity"
+            android:theme="@style/NoTitle"/>
     </application>
 
 </manifest>

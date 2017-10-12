@@ -1,7 +1,6 @@
 package sample.kingja.loadsir.callback;
 
 import android.content.Context;
-import android.util.Log;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.LinearInterpolator;
@@ -11,8 +10,6 @@ import android.widget.Toast;
 import com.kingja.loadsir.callback.Callback;
 
 import sample.kingja.loadsir.R;
-
-import static android.content.ContentValues.TAG;
 
 /**
  * Description:TODO
