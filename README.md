@@ -10,11 +10,11 @@ What's LoadSir?
 :point_right:[![](https://img.shields.io/github/release/KingJA/LoadSir.svg)](https://github.com/KingJA/LoadSir/releases):point_left:
 [![](https://img.shields.io/badge/preview-v1.2.2-orange.svg)](https://github.com/KingJA/LoadSir/tree/v1.2.2-pre)
 
-***LoadSir*** is a lightweight, good expandability Android library used for displaying different pages like **loading**,
-**error**, **empty**, **timeout** or even your **custom page** when you load a page (such as do net job). LoadSir is very different from
+***LoadSir*** is a lightweight, good expandable Android library used for displaying different pages like **loading**,
+**error**, **empty**, **timeout** or even your **custom page** when you load data from database or a REST service. LoadSir is very different from
 other similar libraries. I mean... ***better***.
 
-Preview
+Preview - samples
 ---
 | **in [Activity](https://github.com/KingJA/LoadSir/blob/master/app/src/main/java/sample/kingja/loadsir/target/NormalActivity.java)**|**in [View](https://github.com/KingJA/LoadSir/blob/master/app/src/main/java/sample/kingja/loadsir/target/ViewTargetActivity.java)**|**in [Fragment](https://github.com/KingJA/LoadSir/blob/master/app/src/main/java/sample/kingja/loadsir/target/NormalFragment.java)**|
 |:---:|:----:|:----:|
@@ -41,14 +41,14 @@ Feature
 * add multi load pages
 * thread-safety
 
-How does LoadSir works?
+How does LoadSir work?
 ---
 <div align="center"><img src="imgs/LoadSir_flow.jpg"/></div>
 
 🚀 Getting started
 ---
 
-LoadSir only needs 3 steps to finish its task: **Config** -> **Register** -> **Display**
+LoadSir only needs 3 steps: **1. Config** -> **2. Register** -> **3. Display**
 
 ### Download
 
@@ -88,34 +88,37 @@ LoadSir loadSir = new LoadSir.Builder()
                 .addCallback(new EmptyCallback())
                 .addCallback(new ErrorCallback())
                 .build();
-        loadService = loadSir.register(this, new Callback.OnReloadListener() {
-            @Override
-            public void onReload(View v) {
-                // retry logic
-            }
-        });
+loadService = loadSir.register(this, new Callback.OnReloadListener() {
+    @Override
+    public void onReload(View v) {
+        // retry logic
+    }
+});
 ```
 ### Step 2: Register
 
-Tell LoadSir which "layout" you want be replaced with LoadLayout.
+Tell LoadSir which "layout" you want to be replaced with LoadLayout.
 
-* ###### Register in Activity
+* ###### Register an Activity
+The registered `Activity` will be handled by LoadSir.
 ```java
 @Override
 protected void onCreate(@Nullable Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_content);
-    // Your can change the callback on sub thread directly.
+    
+    // You can change the callback on sub thread directly.
     LoadService loadService = LoadSir.getDefault().register(this, new Callback.OnReloadListener() {
         @Override
         public void onReload(View v) {
-            // retry logic
+            // your retry logic 
         }
     });
-}}
+}
 ```
 
-* ###### Register in View
+* ###### Register a View
+The registered `ImageView` will be handled by LoadSir.
 ```java
 ImageView imageView = (ImageView) findViewById(R.id.iv_img);
 LoadSir loadSir = new LoadSir.Builder()
@@ -126,27 +129,29 @@ loadService = loadSir.register(imageView, new Callback.OnReloadListener() {
     @Override
     public void onReload(View v) {
         loadService.showCallback(LoadingCallback.class);
-        // retry logic
+        // your retry logic
     }
 });
 ```
 
-* ###### Register in Fragment
+* ###### Register a Fragment
+The registered `Fragment` will be handled by LoadSir.
 Use it in Fragment is a bit different from the other two, follow the template code.
 ```java
 @Nullable
 @Override
-public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle
-        savedInstanceState) {
+public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
     //step 1：obtain root view
     rootView = View.inflate(getActivity(), R.layout.fragment_a_content, null);
+    
     //step 2：obtain the LoadService
     LoadService loadService = LoadSir.getDefault().register(rootView, new Callback.OnReloadListener() {
         @Override
         public void onReload(View v) {
-            // retry logic
+            // your retry logic
         }
     });
+    
     //step 3：return the LoadLayout from LoadService
     return loadService.getLoadLayout();
 }
@@ -165,8 +170,7 @@ protected void loadFromNet() {
     loadService.showCallback(EmptyCallback.class); // do/show something else
 }
 ```
-Info:
-- `showSuccess()` calls the `SuccessCallback` to "hide" LoadSir and show the content.
+**Info:** `showSuccess()` calls the `SuccessCallback` to "hide" LoadSir and show the content.
 
 * ###### Convertor Display (recommended)
 If you want LoadSir to do callback automatically, you can pass a Convertor when you register.
@@ -228,14 +232,14 @@ public class CustomCallback extends Callback {
 ```
 
 ### Modify Callback Dynamically
-Access the view of a `Callback.
+Access the view of a `Callback`.
 ```java
 loadService = LoadSir.getDefault().register(...);
 loadService.setCallBack(EmptyCallback.class, new Transport() {
    @Override
    public void order(Context context, View view) {
        TextView mTvEmpty = (TextView) view.findViewById(R.id.tv_empty);
-       mTvEmpty.setText("fine, no data. You must fill it!");
+       mTvEmpty.setText("Fine, no data. You must fill it!");
    }
 });
 ```
