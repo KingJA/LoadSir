@@ -1,5 +1,8 @@
 Changelog
 ---
+**1.3.0**
+- [x] in default, addView(SuccessfulView). Hide SuccessfulView instead of removeView(SuccessfulView).
+- [x] add default Callback `ProgressCallback`, `HintCallback`.
 
 * **v1.2.2**
 - [x] change minSdkVersion 16 to 14 [issues #8](https://github.com/KingJA/LoadSir/issues/8)

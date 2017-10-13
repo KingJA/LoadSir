@@ -53,7 +53,7 @@ LoadSir only needs 3 steps to finish its task: **Config** -> **Register** -> **D
 ### Download
 
 ```groovy
-compile 'com.kingja.loadsir:loadsir:1.2.2'
+compile 'com.kingja.loadsir:loadsir:1.3.0'
 ```
 
 ### Step 1: Config
@@ -214,7 +214,7 @@ public class CustomCallback extends Callback {
     }
 
     @Override
-    protected boolean onRetry(final Context context, View view) {
+    protected boolean onReloadEvent(final Context context, View view) {
         Toast.makeText(context.getApplicationContext(), "Hello buddy! :p", Toast.LENGTH_SHORT).show();
         (view.findViewById(R.id.iv_gift)).setOnClickListener(new View.OnClickListener() {
             @Override

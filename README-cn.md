@@ -56,7 +56,7 @@ LoadSir的使用，只需要简单的三步
 ### 添加依赖
 
 ```groovy
-compile 'com.kingja.loadsir:loadsir:1.2.2'
+compile 'com.kingja.loadsir:loadsir:1.3.0'
 ```
 
 ### 第一步：配置
@@ -208,8 +208,8 @@ public class CustomCallback extends Callback {
     }
 
     @Override
-    protected boolean onRetry(final Context context, View view) {
-        Toast.makeText(context.getApplicationContext(), "Hello mother fuck! :p", Toast.LENGTH_SHORT).show();
+    protected boolean onReloadEvent(final Context context, View view) {
+        Toast.makeText(context.getApplicationContext(), "Hello buddy! :p", Toast.LENGTH_SHORT).show();
         (view.findViewById(R.id.iv_gift)).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
