@@ -29,9 +29,9 @@ Feature
 * :star: support for Activity, Fragment, Fragment(v4), View
 * :star: support for Multi-Fragment, Fragment+ViewPager
 * :star: convert http result structure into a Callback
-* :star: don't need to modify the layout
+* :star: no need to modify the layout
 * :star: only load one layout once
-* :star: don't need to set enum or constant for status code
+* :star: no need to set enum or constant for status code
 * :star: set your own onClick logic in custom Callback
 * :star: no preloaded load page
 * :star: support for keeping the toolbar, titleview
@@ -243,6 +243,27 @@ loadService.setCallBack(EmptyCallback.class, new Transport() {
    }
 });
 ```
+### Default Callback in LoadSir
+
+```java
+ProgressCallback loadingCallback = new ProgressCallback.Builder()
+        .setTitle("Loading", R.style.Hint_Title)
+        .build();
+
+HintCallback hintCallback = new HintCallback.Builder()
+        .setTitle("Error", R.style.Hint_Title)
+        .setSubTitle("Sorry, buddy, I will try it again.")
+        .setHintImg(R.drawable.error)
+        .build();
+
+LoadSir loadSir = new LoadSir.Builder()
+        .addCallback(loadingCallback)
+        .addCallback(hintCallback)
+        .setDefaultCallback(ProgressCallback.class)
+        .build();
+```
+
+
 
 
 

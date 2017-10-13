@@ -233,6 +233,26 @@ loadService.setCallBack(EmptyCallback.class, new Transport() {
 });
 ```
 
+### LoadSir自带便携式Callback
+
+```java
+ProgressCallback loadingCallback = new ProgressCallback.Builder()
+        .setTitle("Loading", R.style.Hint_Title)
+        .build();
+
+HintCallback hintCallback = new HintCallback.Builder()
+        .setTitle("Error", R.style.Hint_Title)
+        .setSubTitle("Sorry, buddy, I will try it again.")
+        .setHintImg(R.drawable.error)
+        .build();
+
+LoadSir loadSir = new LoadSir.Builder()
+        .addCallback(loadingCallback)
+        .addCallback(hintCallback)
+        .setDefaultCallback(ProgressCallback.class)
+        .build();
+```
+
 在使用过程中，遇到问题可以先去[FAQ](docs/FAQ.md)和Issues看看有没解决方案，如果没有的话，请给我提Issue吧。
 
 
