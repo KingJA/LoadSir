@@ -8,7 +8,7 @@ What's LoadSir?
 [![](https://img.shields.io/badge/%20%20Android%20Arsenal%20%20-%20%20LoadSir%20%20-blue.svg)](https://android-arsenal.com/details/1/6227)
 [![](https://img.shields.io/badge/%20%20aar%20size-26KB-green.svg)](https://bintray.com/kingja/maven/loadsir#files/com%2Fkingja%2Floadsir%2Floadsir%2F1.2.0)
 :point_right:[![](https://img.shields.io/github/release/KingJA/LoadSir.svg)](https://github.com/KingJA/LoadSir/releases):point_left:
-[![](https://img.shields.io/badge/preview-v1.2.2-orange.svg)](https://github.com/KingJA/LoadSir/tree/v1.2.2-pre)
+[![](https://img.shields.io/badge/preview-v1.2.2-orange.svg)](https://github.com/KingJA/LoadSir/tree/v1.3.2)
 
 ***LoadSir*** is a lightweight, good expandable Android library used for displaying different pages like **loading**,
 **error**, **empty**, **timeout** or even your **custom page** when you load data from database or a REST service. LoadSir is very different from
