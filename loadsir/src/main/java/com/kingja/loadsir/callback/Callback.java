@@ -70,14 +70,16 @@ public abstract class Callback implements Serializable {
         return null;
     }
 
+    /**
+     * if return true, the successView will be visible when the view of callback is attached.
+     */
     public boolean getSuccessVisible() {
         return successViewVisible;
     }
 
-    public void setSuccessVisible(boolean visible) {
+    void setSuccessVisible(boolean visible) {
         this.successViewVisible = visible;
     }
-
 
     /**
      * @deprecated Use {@link #onReloadEvent(Context context, View view)} instead.
