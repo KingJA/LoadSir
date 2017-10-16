@@ -33,6 +33,7 @@ public class DefaultCallbackActivity extends AppCompatActivity {
 
         ProgressCallback loadingCallback = new ProgressCallback.Builder()
                 .setTitle("Loading", R.style.Hint_Title)
+//                .setAboveSuccess(true)// attach loadingView above successView
                 .build();
 
         HintCallback hintCallback = new HintCallback.Builder()

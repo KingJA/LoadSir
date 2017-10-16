@@ -17,4 +17,9 @@ public class LoadingCallback extends Callback {
     protected int onCreateView() {
         return R.layout.layout_loading;
     }
+
+    @Override
+    public boolean getSuccessVisible() {
+        return super.getSuccessVisible();
+    }
 }

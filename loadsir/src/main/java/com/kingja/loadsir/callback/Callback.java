@@ -20,6 +20,7 @@ public abstract class Callback implements Serializable {
     private View rootView;
     private Context context;
     private OnReloadListener onReloadListener;
+    private boolean successViewVisible;
 
     public Callback() {
     }
@@ -68,6 +69,15 @@ public abstract class Callback implements Serializable {
     protected View onBuildView(Context context) {
         return null;
     }
+
+    public boolean getSuccessVisible() {
+        return successViewVisible;
+    }
+
+    public void setSuccessVisible(boolean visible) {
+        this.successViewVisible = visible;
+    }
+
 
     /**
      * @deprecated Use {@link #onReloadEvent(Context context, View view)} instead.

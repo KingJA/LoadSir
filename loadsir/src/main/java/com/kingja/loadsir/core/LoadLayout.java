@@ -90,7 +90,7 @@ public class LoadLayout extends FrameLayout {
                 if (key == SuccessCallback.class) {
                     successCallback.show();
                 } else {
-                    successCallback.hide();
+                    successCallback.showWithCallback(callbacks.get(key).getSuccessVisible());
                     View rootView = callbacks.get(key).getRootView();
                     addView(rootView);
                     callbacks.get(key).onAttach(context, rootView);

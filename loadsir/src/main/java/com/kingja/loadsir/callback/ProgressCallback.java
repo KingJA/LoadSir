@@ -29,6 +29,7 @@ public class ProgressCallback extends Callback {
         this.subTitle = builder.subTitle;
         this.subTitleStyleRes = builder.subTitleStyleRes;
         this.titleStyleRes = builder.titleStyleRes;
+        setSuccessVisible(builder.aboveable);
     }
 
     @Override
@@ -59,7 +60,7 @@ public class ProgressCallback extends Callback {
             if (titleStyleRes == -1) {
                 TextViewCompat.setTextAppearance(tvTitle, android.R.style.TextAppearance_Large);
             } else {
-                TextViewCompat.setTextAppearance(tvTitle, titleStyleRes);                
+                TextViewCompat.setTextAppearance(tvTitle, titleStyleRes);
             }
             ll.addView(tvTitle, lp);
         }
@@ -81,6 +82,7 @@ public class ProgressCallback extends Callback {
         private String subTitle;
         private int subTitleStyleRes = -1;
         private int titleStyleRes = -1;
+        private boolean aboveable;
 
         public Builder setTitle(String title) {
             return setTitle(title, -1);
@@ -99,6 +101,11 @@ public class ProgressCallback extends Callback {
         public Builder setSubTitle(String subTitle, @StyleRes int subTitleStyleRes) {
             this.subTitle = subTitle;
             this.subTitleStyleRes = subTitleStyleRes;
+            return this;
+        }
+
+        public Builder setAboveSuccess(boolean aboveable) {
+            this.aboveable = aboveable;
             return this;
         }
 
