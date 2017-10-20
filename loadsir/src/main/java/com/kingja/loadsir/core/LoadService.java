@@ -25,12 +25,12 @@ public class LoadService<T> {
         this.convertor = convertor;
         Context context = targetContext.getContext();
         View oldContent = targetContext.getOldContent();
+        ViewGroup.LayoutParams oldLayoutParams = oldContent.getLayoutParams();
         loadLayout = new LoadLayout(context, onReloadListener);
         loadLayout.setupSuccessLayout(new SuccessCallback(oldContent, context,
                 onReloadListener));
         if (targetContext.getParentView() != null) {
-            targetContext.getParentView().addView(loadLayout, targetContext.getChildIndex(), oldContent
-                    .getLayoutParams());
+            targetContext.getParentView().addView(loadLayout, targetContext.getChildIndex(), oldLayoutParams);
         }
         initCallback(builder);
     }

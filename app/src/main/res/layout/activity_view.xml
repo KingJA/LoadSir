@@ -9,9 +9,11 @@
     tools:ignore="ContentDescription">
 
     <TextView
+        android:padding="12dp"
         android:id="@+id/tv_text"
-        android:background="#fcf5d6"
-        android:text="Hey,What are you looking for!"
+        android:background="#ff7b00"
+        android:text="Hey guys, What are you looking for!"
+
         android:gravity="center"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
