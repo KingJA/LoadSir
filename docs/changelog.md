@@ -1,5 +1,9 @@
 Changelog
 ---
+**1.3.2**
+- [x] add API `public boolean getSuccessVisible()` used for displaying callback above successView.
+- [x] fix layout fault when register in View.
+
 **1.3.0**
 - [x] in default, addView(SuccessfulView). Hide SuccessfulView instead of removeView(SuccessfulView).
 - [x] add default Callback `ProgressCallback`, `HintCallback`.

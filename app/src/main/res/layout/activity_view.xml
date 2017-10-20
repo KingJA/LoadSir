@@ -15,7 +15,7 @@
         android:background="#ff7b00"
         android:gravity="center"
         android:padding="12dp"
-        android:text="Hey guys, What are you looking for!"/>
+        android:text="Hey guys, What are you looking for?"/>
 
     <ImageView
         android:id="@+id/iv_img"
