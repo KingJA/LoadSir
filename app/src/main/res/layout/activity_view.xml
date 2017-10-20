@@ -9,21 +9,21 @@
     tools:ignore="ContentDescription">
 
     <TextView
-        android:padding="12dp"
         android:id="@+id/tv_text"
-        android:background="#ff7b00"
-        android:text="Hey guys, What are you looking for!"
-
-        android:gravity="center"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        android:background="#ff7b00"
+        android:gravity="center"
+        android:padding="12dp"
+        android:text="Hey guys, What are you looking for!"/>
 
     <ImageView
-        android:layout_below="@id/tv_text"
         android:id="@+id/iv_img"
         android:layout_width="match_parent"
         android:layout_height="200dp"
+        android:layout_below="@id/tv_text"
+        android:layout_marginTop="4dp"
         android:scaleType="centerCrop"
-        android:src="@drawable/img" />
+        android:src="@drawable/img"/>
 
 </RelativeLayout>
