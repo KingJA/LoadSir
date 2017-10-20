@@ -1,4 +1,5 @@
 apply plugin: 'com.android.library'
+apply plugin: 'com.novoda.bintray-release'
 
 android {
     compileSdkVersion rootProject.ext.compileSdkVersion
@@ -19,5 +20,14 @@ android {
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     compile "com.android.support:appcompat-v7:$rootProject.ext.supportVersion"
+}
+
+publish {
+    artifactId = 'loadsir'
+    userOrg = 'kingja'
+    groupId = 'com.kingja.loadsir'
+    publishVersion = '1.3.2'
+    desc = 'Android library to show most common state templates like loading, empty, error etc.'
+    website = 'https://github.com/KingJA/LoadSir'
 }
 
