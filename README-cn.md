@@ -56,7 +56,7 @@ LoadSir的使用，只需要简单的三步
 ### 添加依赖
 
 ```groovy
-compile 'com.kingja.loadsir:loadsir:1.3.0'
+compile 'com.kingja.loadsir:loadsir:1.3.2'
 ```
 
 ### 第一步：配置
