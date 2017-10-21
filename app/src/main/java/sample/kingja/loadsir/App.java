@@ -22,7 +22,9 @@ public class App extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
-        if (setupLeakCanary()) return;
+        if (setupLeakCanary()) {
+            return;
+        }
 
         LoadSir.beginBuilder()
                 .addCallback(new ErrorCallback())

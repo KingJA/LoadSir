@@ -34,8 +34,8 @@ public class KeepTitleActivity extends BaseTitleActivity {
 
     @Override
     protected void initView() {
-        TextView tv_msg = (TextView) findViewById(R.id.tv_subTitle);
-        tv_msg.setText("Keep Title In Activity");
+        TextView mTvMsg = (TextView) findViewById(R.id.tv_subTitle);
+        mTvMsg.setText("Keep Title In Activity");
         mTvTitle.setText("Yes, Success");
     }
 

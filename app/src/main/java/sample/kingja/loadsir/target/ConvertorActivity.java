@@ -60,7 +60,8 @@ public class ConvertorActivity extends AppCompatActivity {
             public Class<? extends Callback> map(HttpResult httpResult) {
                 Class<? extends Callback> resultCode = SuccessCallback.class;
                 switch (httpResult.getResultCode()) {
-                    case SUCCESS_CODE://成功回调
+                    //成功回调
+                    case SUCCESS_CODE:
                         if (httpResult.getData().size() == 0) {
                             resultCode = EmptyCallback.class;
                         } else {
@@ -70,6 +71,8 @@ public class ConvertorActivity extends AppCompatActivity {
                     case ERROR_CODE:
                         resultCode = ErrorCallback.class;
                         break;
+                    default:
+                        resultCode = ErrorCallback.class;
                 }
                 return resultCode;
             }
