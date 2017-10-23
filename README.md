@@ -228,6 +228,25 @@ public class CustomCallback extends Callback {
         });
         return true;
     }
+
+    //set visibility of SuccessView when callback is attach to Layout,true:visible, false: invisible
+    @Override
+    public boolean getSuccessVisible() {
+        return super.getSuccessVisible();
+    }
+
+    //Called when the view of Callback is attached to LoadLayout.
+    @Override
+    public void onAttach(Context context, View view) {
+        super.onAttach(context, view);
+    }
+
+    //Called when the view of Callback was detached from LoadLayout.
+    @Override
+    public void onDetach() {
+        super.onDetach(context, view);
+    }
+
 }
 ```
 

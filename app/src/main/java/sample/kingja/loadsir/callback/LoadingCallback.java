@@ -1,5 +1,8 @@
 package sample.kingja.loadsir.callback;
 
+import android.content.Context;
+import android.view.View;
+
 import com.kingja.loadsir.callback.Callback;
 
 import sample.kingja.loadsir.R;
@@ -22,4 +25,5 @@ public class LoadingCallback extends Callback {
     public boolean getSuccessVisible() {
         return super.getSuccessVisible();
     }
+
 }
