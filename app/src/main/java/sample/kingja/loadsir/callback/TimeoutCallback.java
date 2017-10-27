@@ -27,4 +27,5 @@ public class TimeoutCallback extends Callback {
         Toast.makeText(context.getApplicationContext(),"Connecting to the network again!",Toast.LENGTH_SHORT).show();
         return false;
     }
+
 }
