@@ -10,11 +10,9 @@ import com.kingja.loadsir.callback.Callback;
 import com.kingja.loadsir.core.LoadService;
 import com.kingja.loadsir.core.LoadSir;
 
-import sample.kingja.loadsir.PostUtil;
 import sample.kingja.loadsir.R;
 import sample.kingja.loadsir.callback.AnimateCallback;
 import sample.kingja.loadsir.callback.EmptyCallback;
-import sample.kingja.loadsir.callback.LoadingCallback;
 
 
 /**
