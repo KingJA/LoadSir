@@ -1,5 +1,8 @@
 package sample.kingja.loadsir.callback;
 
+import android.content.Context;
+import android.view.View;
+
 import com.kingja.loadsir.callback.Callback;
 
 import sample.kingja.loadsir.R;
@@ -18,5 +21,8 @@ public class LottieLoadingCallback extends Callback {
         return R.layout.layout_lottie_loading;
     }
 
-    re
+    @Override
+    protected boolean onReloadEvent(Context context, View view) {
+        return true;
+    }
 }

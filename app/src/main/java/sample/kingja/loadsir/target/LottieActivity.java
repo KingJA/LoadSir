@@ -11,7 +11,7 @@ import com.kingja.loadsir.core.LoadSir;
 
 import sample.kingja.loadsir.PostUtil;
 import sample.kingja.loadsir.R;
-import sample.kingja.loadsir.callback.ErrorCallback;
+import sample.kingja.loadsir.callback.LottieEmptyCallback;
 import sample.kingja.loadsir.callback.LottieLoadingCallback;
 
 
@@ -32,7 +32,7 @@ public class LottieActivity extends AppCompatActivity {
         setContentView(R.layout.activity_content);
         LoadSir loadSir = new LoadSir.Builder()
                 .addCallback(new LottieLoadingCallback())
-                .addCallback(new ErrorCallback())
+                .addCallback(new LottieEmptyCallback())
                 .setDefaultCallback(LottieLoadingCallback.class)
                 .build();
         loadService = loadSir.register(this, new Callback.OnReloadListener() {
@@ -42,7 +42,7 @@ public class LottieActivity extends AppCompatActivity {
                 PostUtil.postSuccessDelayed(loadService, 1500);
             }
         });
-        PostUtil.postCallbackDelayed(loadService, ErrorCallback.class);
+        PostUtil.postCallbackDelayed(loadService, LottieEmptyCallback.class);
     }
 
 }
