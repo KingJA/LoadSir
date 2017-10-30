@@ -62,29 +62,24 @@ public class BufferKnifeActivity extends AppCompatActivity {
 
 ### #2 How to keep the toolbar in Fragment?
 ```java
-@Nullable
-    @Override
-    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle
-            savedInstanceState) {
-        ViewGroup rootView = (ViewGroup) inflater.inflate(R.layout.title_title_bar, container, false);
-        unBinder = ButterKnife.bind(this, rootView);
-        RelativeLayout titleBarView = (RelativeLayout) rootView.findViewById(R.id.rl_titleBar);
-        LinearLayout contentView = (LinearLayout) rootView.findViewById(R.id.ll_content);
-        rootView.removeView(contentView);
-        LoadSir loadSir = new LoadSir.Builder()
-                .addCallback(new EmptyCallback())
-                .addCallback(new LoadingCallback())
-                .setDefaultCallback(LoadingCallback.class)
-                .build();
-        loadService = loadSir.register(contentView, new Callback.OnReloadListener() {
-            @Override
-            public void onReload(View v) {
-                loadService.showSuccess();
-            }
-
-        });
-        return loadService.getTitleLoadLayout(getContext(), rootView, titleBarView);
-    }
+@Override
+public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
+    super.onViewCreated(view, savedInstanceState);
+    //fetch contentView View，the View except toolbar or titleView.
+    LinearLayout contentView = (LinearLayout) rootView.findViewById(R.id.ll_content);
+    LoadSir loadSir = new LoadSir.Builder()
+            .addCallback(new EmptyCallback())
+            .addCallback(new LoadingCallback())
+            .setDefaultCallback(LoadingCallback.class)
+            .build();
+    loadService = loadSir.register(contentView, new Callback.OnReloadListener() {
+        @Override
+        public void onReload(View v) {
+            loadService.showSuccess();
+        }
+    });
+    PostUtil.postCallbackDelayed(loadService, EmptyCallback.class, 1200);
+}
 ```
 
 If you have a better idea, please let me know. I'm very interested to improve LoadSir in any way. Thanks for your help.

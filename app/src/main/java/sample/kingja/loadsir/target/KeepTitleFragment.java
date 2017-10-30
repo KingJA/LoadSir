@@ -35,6 +35,7 @@ public class KeepTitleFragment extends Fragment {
     @BindView(R.id.iv_back)
     ImageView mIvBack;
     private Unbinder unBinder;
+    private ViewGroup rootView;
 
     @OnClick(R.id.iv_back)
     public void onBack() {
@@ -44,10 +45,16 @@ public class KeepTitleFragment extends Fragment {
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        mIvBack.setOnClickListener(new View.OnClickListener() {
+        LinearLayout contentView = (LinearLayout) rootView.findViewById(R.id.ll_content);
+        LoadSir loadSir = new LoadSir.Builder()
+                .addCallback(new EmptyCallback())
+                .addCallback(new LoadingCallback())
+                .setDefaultCallback(LoadingCallback.class)
+                .build();
+        loadService = loadSir.register(contentView, new Callback.OnReloadListener() {
             @Override
-            public void onClick(View v) {
-                getActivity().finish();
+            public void onReload(View v) {
+                loadService.showSuccess();
             }
         });
         PostUtil.postCallbackDelayed(loadService, EmptyCallback.class, 1200);
@@ -57,27 +64,9 @@ public class KeepTitleFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle
             savedInstanceState) {
-        ViewGroup rootView = (ViewGroup) inflater.inflate(R.layout.title_title_bar, container, false);
+        rootView = (ViewGroup) inflater.inflate(R.layout.title_title_bar, container, false);
         unBinder = ButterKnife.bind(this, rootView);
-        RelativeLayout titleBarView = (RelativeLayout) rootView.findViewById(R.id.rl_titleBar);
-        LinearLayout contentView = (LinearLayout) rootView.findViewById(R.id.ll_content);
-        rootView.removeView(contentView);
-        LoadSir loadSir = new LoadSir.Builder()
-                .addCallback(new EmptyCallback())
-                .addCallback(new LoadingCallback())
-                .setDefaultCallback(LoadingCallback.class)
-                .build();
-
-
-        loadService = loadSir.register(contentView, new Callback.OnReloadListener() {
-            @Override
-            public void onReload(View v) {
-                loadService.showSuccess();
-            }
-
-        });
-
-        return loadService.getTitleLoadLayout(getContext(), rootView, titleBarView);
+        return rootView;
     }
 
     @Override
