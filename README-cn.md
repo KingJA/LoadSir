@@ -24,6 +24,10 @@ LoadSir
 |:---:|:----:|:----:|
 |![](imgs/placeholder_activity.gif)|![](imgs/muitl_fragment.gif)|![](imgs/viewpage_fragment.gif)|
 
+下载 Demo
+---
+![](imgs/qcode_1.3.2.png)
+
 流程图
 ---
 <div align="center"><img src="imgs/LoadSir_flow.jpg"/></div>
