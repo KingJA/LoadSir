@@ -1,8 +1,11 @@
 package sample.kingja.loadsir.target;
 
 import android.view.View;
+import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
+import butterknife.BindView;
 import sample.kingja.loadsir.callback.ErrorCallback;
 import sample.kingja.loadsir.callback.LoadingCallback;
 
@@ -17,7 +20,8 @@ import sample.kingja.loadsir.base.BaseFragment;
  * Email:kingjavip@gmail.com
  */
 public  class FragmentA extends BaseFragment {
-
+    @BindView(R.id.tv_result_a)
+    TextView mTvResultA;
     @Override
     protected int onCreateFragmentView() {
         return R.layout.fragment_a_content;
@@ -32,6 +36,7 @@ public  class FragmentA extends BaseFragment {
 
     @Override
     protected void onNetReload(View v) {
+        mTvResultA.setText("Oh, Yes.");
         Toast.makeText(getContext(),"reload in Fragment A",Toast.LENGTH_SHORT).show();
         mBaseLoadService.showCallback(LoadingCallback.class);
         //do retry logic...
