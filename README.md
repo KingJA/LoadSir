@@ -24,6 +24,10 @@ Preview - samples
 |:---:|:----:|:----:|
 |![](imgs/placeholder_activity.gif)|![](imgs/muitl_fragment.gif)|![](imgs/viewpage_fragment.gif)|
 
+Download Demo
+---
+![](imgs/qcode_1.3.2.png)
+
 Feature
 ---
 * :star: support for Activity, Fragment, Fragment(v4), View
