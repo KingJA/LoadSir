@@ -67,10 +67,14 @@ public class LoadService<T> {
         return loadLayout;
     }
 
+    public Class<? extends Callback> getCurrentCallback() {
+        return loadLayout.getCurrentCallback();
+    }
+
     /**
      * obtain rootView if you want keep the toolbar in Fragment
-     *
      * @since 1.2.2
+     * @deprecated
      */
     public LinearLayout getTitleLoadLayout(Context context, ViewGroup rootView, View titleView) {
         LinearLayout newRootView = new LinearLayout(context);
