@@ -3,7 +3,6 @@ package com.kingja.loadsir.callback;
 import android.content.Context;
 import android.support.annotation.DrawableRes;
 import android.support.annotation.StyleRes;
-import android.support.v4.widget.TextViewCompat;
 import android.text.TextUtils;
 import android.view.Gravity;
 import android.view.View;
@@ -62,9 +61,9 @@ public class HintCallback extends Callback {
             TextView tvTitle = new TextView(context);
             tvTitle.setText(title);
             if (titleStyleRes == -1) {
-                TextViewCompat.setTextAppearance(tvTitle, android.R.style.TextAppearance_Large);
+                tvTitle.setTextAppearance(context, android.R.style.TextAppearance_Large);
             } else {
-                TextViewCompat.setTextAppearance(tvTitle, titleStyleRes);                
+                tvTitle.setTextAppearance(context, titleStyleRes);
             }
             ll.addView(tvTitle, lp);
         }
@@ -72,9 +71,9 @@ public class HintCallback extends Callback {
             TextView tvSubtitle = new TextView(context);
             tvSubtitle.setText(subTitle);
             if (subTitleStyleRes == -1) {
-                TextViewCompat.setTextAppearance(tvSubtitle, android.R.style.TextAppearance_Small);
+                tvSubtitle.setTextAppearance(context, android.R.style.TextAppearance_Small);
             } else {
-                TextViewCompat.setTextAppearance(tvSubtitle, subTitleStyleRes);                
+                tvSubtitle.setTextAppearance(context, subTitleStyleRes);
             }
             ll.addView(tvSubtitle, lp);
         }

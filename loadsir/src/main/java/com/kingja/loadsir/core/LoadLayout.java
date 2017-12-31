@@ -24,6 +24,7 @@ public class LoadLayout extends FrameLayout {
     private Context context;
     private Callback.OnReloadListener onReloadListener;
     private Class<? extends Callback> preCallback;
+    private Class<? extends Callback> curCallback;
     private static final int CALLBACK_CUSTOM_INDEX = 1;
 
     public LoadLayout(@NonNull Context context) {
@@ -41,6 +42,7 @@ public class LoadLayout extends FrameLayout {
         View successView = callback.getRootView();
         successView.setVisibility(View.GONE);
         addView(successView);
+        curCallback = SuccessCallback.class;
     }
 
     public void setupCallback(Callback callback) {
@@ -62,6 +64,10 @@ public class LoadLayout extends FrameLayout {
         } else {
             postToMainThread(callback);
         }
+    }
+
+    public Class<? extends Callback> getCurrentCallback() {
+        return curCallback;
     }
 
     private void postToMainThread(final Class<? extends Callback> status) {
@@ -98,6 +104,7 @@ public class LoadLayout extends FrameLayout {
                 preCallback = status;
             }
         }
+        curCallback = status;
     }
 
     public void setCallBack(Class<? extends Callback> callback, Transport transport) {
