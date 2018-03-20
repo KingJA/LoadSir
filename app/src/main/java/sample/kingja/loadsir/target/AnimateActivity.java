@@ -37,7 +37,7 @@ public class AnimateActivity extends AppCompatActivity {
         LoadSir loadSir = new LoadSir.Builder()
                 .addCallback(new EmptyCallback())
                 .addCallback(new AnimateCallback())
-                .setDefaultCallback(EmptyCallback.class)
+                .setDefaultCallback(AnimateCallback.class)
                 .build();
         loadService = loadSir.register(this, new Callback.OnReloadListener() {
             @Override
@@ -55,5 +55,6 @@ public class AnimateActivity extends AppCompatActivity {
                 }).start();
             }
         });
+        PostUtil.postCallbackDelayed(loadService, EmptyCallback.class, 1000);
     }
 }

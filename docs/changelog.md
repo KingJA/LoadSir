@@ -1,5 +1,9 @@
 Changelog
 ---
+
+**1.3.6**
+- [x] modify code in`showWithCallback(boolean successVisible)`, use INVISIBLE instead of GONE thanks @X
+
 **1.3.5**
 - [x] add API `public Class<? extends Callback> getCurrentCallback()`
 - [x] deprecated API `public LinearLayout getTitleLoadLayout(Context context, ViewGroup rootView, View titleView)`
