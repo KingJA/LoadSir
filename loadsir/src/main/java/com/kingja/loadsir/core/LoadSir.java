@@ -61,14 +61,14 @@ public class LoadSir {
 
     public static class Builder {
         private List<Callback> callbacks = new ArrayList<>();
-        private Class<? extends Callback> defaultCallback;
+        private Callback defaultCallback;
 
         public Builder addCallback(@NonNull Callback callback) {
             callbacks.add(callback);
             return this;
         }
 
-        public Builder setDefaultCallback(@NonNull Class<? extends Callback> defaultCallback) {
+        public Builder setDefaultCallback(@NonNull Callback defaultCallback) {
             this.defaultCallback = defaultCallback;
             return this;
         }
@@ -77,7 +77,7 @@ public class LoadSir {
             return callbacks;
         }
 
-        Class<? extends Callback> getDefaultCallback() {
+        Callback getDefaultCallback() {
             return defaultCallback;
         }
 
