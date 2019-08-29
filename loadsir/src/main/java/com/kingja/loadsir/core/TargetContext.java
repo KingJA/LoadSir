@@ -15,12 +15,14 @@ public class TargetContext {
     private ViewGroup parentView;
     private View oldContent;
     private int childIndex;
+    private ViewGroup.LayoutParams layoutParams;
 
-    public TargetContext(Context context, ViewGroup parentView, View oldContent, int childIndex) {
+    public TargetContext(Context context, ViewGroup parentView, View oldContent, int childIndex,ViewGroup.LayoutParams layoutParams) {
         this.context = context;
         this.parentView = parentView;
         this.oldContent = oldContent;
         this.childIndex = childIndex;
+        this.layoutParams = layoutParams;
     }
 
     public Context getContext() {
@@ -37,5 +39,9 @@ public class TargetContext {
 
     ViewGroup getParentView() {
         return parentView;
+    }
+
+    public ViewGroup.LayoutParams getLayoutParams() {
+        return layoutParams;
     }
 }

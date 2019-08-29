@@ -4,6 +4,10 @@ import android.support.annotation.NonNull;
 
 import com.kingja.loadsir.LoadSirUtil;
 import com.kingja.loadsir.callback.Callback;
+import com.kingja.loadsir.targetconvertor.ActivityTargetConvertor;
+import com.kingja.loadsir.targetconvertor.ConstraintLayoutTargetConvertor;
+import com.kingja.loadsir.targetconvertor.ITargetConvertor;
+import com.kingja.loadsir.targetconvertor.ViewTargetConvertor;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -51,7 +55,8 @@ public class LoadSir {
 
     public <T> LoadService register(Object target, Callback.OnReloadListener onReloadListener, Convertor<T>
             convertor) {
-        TargetContext targetContext = LoadSirUtil.getTargetContext(target);
+        TargetContext targetContext = LoadSirUtil.getTargetContext(target,builder.getTargetContextList());
+
         return new LoadService<>(convertor, targetContext, onReloadListener, builder);
     }
 
@@ -61,11 +66,26 @@ public class LoadSir {
 
     public static class Builder {
         private List<Callback> callbacks = new ArrayList<>();
+        private List<ITargetConvertor> targetContextList = new ArrayList<>();
         private Class<? extends Callback> defaultCallback;
+
+        {
+            targetContextList.add(new ActivityTargetConvertor());
+            targetContextList.add(new ConstraintLayoutTargetConvertor());
+            targetContextList.add(new ViewTargetConvertor());
+        }
 
         public Builder addCallback(@NonNull Callback callback) {
             callbacks.add(callback);
             return this;
+        }
+        public Builder addTargetContext(ITargetConvertor targetContext) {
+            targetContextList.add(targetContext);
+            return this;
+        }
+
+        public List<ITargetConvertor> getTargetContextList() {
+            return targetContextList;
         }
 
         public Builder setDefaultCallback(@NonNull Class<? extends Callback> defaultCallback) {

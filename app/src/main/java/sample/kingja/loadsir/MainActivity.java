@@ -7,6 +7,7 @@ import android.view.View;
 
 import sample.kingja.loadsir.target.AnimateActivity;
 import sample.kingja.loadsir.target.BestPracticesActivity;
+import sample.kingja.loadsir.target.ConstraintLayoutActivity;
 import sample.kingja.loadsir.target.DefaultCallbackActivity;
 import sample.kingja.loadsir.target.KeepTitleActivity;
 import sample.kingja.loadsir.target.KeepTitleFragmentActivity;
@@ -79,5 +80,9 @@ public class MainActivity extends AppCompatActivity {
 
     public void keepTitleInActivity(View view) {
         startActivity(new Intent(this, KeepTitleActivity.class));
+    }
+
+    public void inConstraintLayoutActivity(View view) {
+        startActivity(new Intent(this, ConstraintLayoutActivity.class));
     }
 }

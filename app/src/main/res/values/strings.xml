@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">LoadSir</string>
     <string name="activity_empty">Activity(empty)</string>
+    <string name="activity_constraintLayout">Activity(constraintLayout)</string>
     <string name="activity_placeholder">Activity(placeholder)</string>
     <string name="activity_with_convertor">Activity with Convertor</string>
     <string name="single_fragment_custom">single Fragment(custom)</string>

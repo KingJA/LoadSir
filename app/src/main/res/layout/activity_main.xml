@@ -12,12 +12,17 @@
         android:padding="12dp"
         tools:context="sample.kingja.loadsir.MainActivity">
 
-
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:onClick="inActivity"
             android:text="@string/activity_empty"
+            android:textAllCaps="false"/>
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="inConstraintLayoutActivity"
+            android:text="@string/activity_constraintLayout"
             android:textAllCaps="false"/>
 
         <Button

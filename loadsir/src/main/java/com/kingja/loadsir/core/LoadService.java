@@ -1,6 +1,7 @@
 package com.kingja.loadsir.core;
 
 import android.content.Context;
+import android.support.constraint.ConstraintLayout;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
@@ -25,12 +26,12 @@ public class LoadService<T> {
         this.convertor = convertor;
         Context context = targetContext.getContext();
         View oldContent = targetContext.getOldContent();
-        ViewGroup.LayoutParams oldLayoutParams = oldContent.getLayoutParams();
         loadLayout = new LoadLayout(context, onReloadListener);
         loadLayout.setupSuccessLayout(new SuccessCallback(oldContent, context,
                 onReloadListener));
         if (targetContext.getParentView() != null) {
-            targetContext.getParentView().addView(loadLayout, targetContext.getChildIndex(), oldLayoutParams);
+            //兼容1.3.8版本前的Fragmeng注册方式
+            targetContext.getParentView().addView(loadLayout, targetContext.getChildIndex(), targetContext.getLayoutParams());
         }
         initCallback(builder);
     }
