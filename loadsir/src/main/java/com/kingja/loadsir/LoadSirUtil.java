@@ -63,6 +63,7 @@ public class LoadSirUtil {
 
     public static TargetContext getTargetContext(Object target, List<ITargetConvertor> targetContextList) {
         for (ITargetConvertor targetContext : targetContextList) {
+            Log.e("getTargetContext", "待选: "+targetContext.getClass().getSimpleName() );
             if (targetContext.stanceof(target)) {
                 Log.e("getTargetContext", "选中: "+targetContext.getClass().getSimpleName() );
                 return targetContext.getTargetContext(target);
