@@ -1,17 +1,15 @@
 package sample.kingja.loadsir.target;
 
 import android.view.View;
-import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import butterknife.BindView;
-import sample.kingja.loadsir.callback.ErrorCallback;
-import sample.kingja.loadsir.callback.LoadingCallback;
-
 import sample.kingja.loadsir.PostUtil;
 import sample.kingja.loadsir.R;
 import sample.kingja.loadsir.base.BaseFragment;
+import sample.kingja.loadsir.callback.ErrorCallback;
+import sample.kingja.loadsir.callback.LoadingCallback;
 
 /**
  * Description:TODO

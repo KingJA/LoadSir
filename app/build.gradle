@@ -20,19 +20,27 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
 
 }
 
 dependencies {
-    implementation "com.android.support:design:${SUPPORT_VERSION}"
-    implementation "com.android.support:appcompat-v7:${SUPPORT_VERSION}"
-    implementation 'com.android.support.constraint:constraint-layout:1.1.3'
     implementation fileTree(include: ['*.jar'], dir: 'libs')
-    debugCompile 'com.squareup.leakcanary:leakcanary-android:1.5.4'
-    releaseCompile 'com.squareup.leakcanary:leakcanary-android-no-op:1.5.4'
-    implementation 'com.jakewharton:butterknife:8.8.1'
-    annotationProcessor 'com.jakewharton:butterknife-compiler:8.8.1'
-    implementation('com.airbnb.android:lottie:2.2.5') { exclude group: 'com.android.support' }
+    implementation 'com.google.android.material:material:1.2.0-alpha04'
+    implementation 'androidx.appcompat:appcompat:1.1.0'
+    implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
+
+    debugImplementation 'com.squareup.leakcanary:leakcanary-android:1.5.4'
+    releaseImplementation 'com.squareup.leakcanary:leakcanary-android-no-op:1.5.4'
+
+    implementation 'com.jakewharton:butterknife:10.2.1'
+    annotationProcessor 'com.jakewharton:butterknife-compiler:10.2.1'
+
+//    implementation('com.airbnb.android:lottie:3.3.0') { exclude group: 'com.android.support' }
+    implementation 'com.airbnb.android:lottie:2.8.0'
     implementation project(':loadsir')
-//    compile 'com.kingja.loadsir:loadsir:1.3.5'
+//    implementation 'com.kingja.loadsir:loadsir:1.3.5'
 }

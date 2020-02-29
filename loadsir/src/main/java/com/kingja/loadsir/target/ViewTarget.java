@@ -1,9 +1,11 @@
-package com.kingja.loadsir.targetconvertor;
+package com.kingja.loadsir.target;
 
 import android.view.View;
 import android.view.ViewGroup;
 
 import com.kingja.loadsir.core.TargetContext;
+
+import androidx.constraintlayout.widget.ConstraintLayout;
 
 /**
  * Description:TODO
@@ -11,10 +13,10 @@ import com.kingja.loadsir.core.TargetContext;
  * Author:KingJA
  * Email:kingjavip@gmail.com
  */
-public class ViewTargetConvertor implements ITargetConvertor {
+public class ViewTarget implements ITarget {
     @Override
     public TargetContext getTargetContext(Object target) {
-        View oldContent = (View) target;
+        View oldContent = (android.view.View) target;
         ViewGroup contentParent = (ViewGroup) (oldContent.getParent());
         int childIndex = 0;
         int childCount = contentParent == null ? 0 : contentParent.getChildCount();
@@ -33,6 +35,6 @@ public class ViewTargetConvertor implements ITargetConvertor {
 
     @Override
     public boolean stanceof(Object target) {
-        return target instanceof View;
+        return target instanceof View && !(((View) target).getParent() instanceof ConstraintLayout);
     }
 }

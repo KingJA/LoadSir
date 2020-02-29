@@ -1,4 +1,4 @@
-package com.kingja.loadsir.targetconvertor;
+package com.kingja.loadsir.target;
 
 import android.app.Activity;
 import android.view.View;
@@ -12,7 +12,7 @@ import com.kingja.loadsir.core.TargetContext;
  * Author:KingJA
  * Email:kingjavip@gmail.com
  */
-public class ActivityTargetConvertor implements ITargetConvertor {
+public class ActivityTarget implements ITarget {
     @Override
     public TargetContext getTargetContext(Object target) {
         Activity activity = (Activity) target;

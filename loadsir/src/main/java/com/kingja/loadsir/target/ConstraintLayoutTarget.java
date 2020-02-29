@@ -1,11 +1,12 @@
-package com.kingja.loadsir.targetconvertor;
+package com.kingja.loadsir.target;
 
-import android.app.Activity;
-import android.support.constraint.ConstraintLayout;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 
 import com.kingja.loadsir.core.TargetContext;
+
+import androidx.constraintlayout.widget.ConstraintLayout;
 
 /**
  * Description:TODO
@@ -13,7 +14,9 @@ import com.kingja.loadsir.core.TargetContext;
  * Author:KingJA
  * Email:kingjavip@gmail.com
  */
-public class ConstraintLayoutTargetConvertor implements ITargetConvertor {
+public class ConstraintLayoutTarget implements ITarget {
+    private  final String TAG =getClass().getSimpleName() ;
+
     @Override
     public TargetContext getTargetContext(Object target) {
         View oldContent = (View) target;
@@ -26,13 +29,14 @@ public class ConstraintLayoutTargetConvertor implements ITargetConvertor {
                 break;
             }
         }
-        contentParent.removeView(oldContent);
-        ConstraintLayout.LayoutParams oldLayoutParams = (ConstraintLayout.LayoutParams)oldContent.getLayoutParams();
-        return new TargetContext(oldContent.getContext(), contentParent, oldContent, childIndex,oldLayoutParams);
+        if (contentParent != null) {
+            contentParent.removeView(oldContent);
+        }
+        return new TargetContext(oldContent.getContext(), contentParent, oldContent, childIndex,oldContent.getLayoutParams());
     }
 
     @Override
     public boolean stanceof(Object target) {
-        return target instanceof ConstraintLayout;
+        return (((View) target).getParent() instanceof ConstraintLayout);
     }
 }

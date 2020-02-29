@@ -1,6 +1,11 @@
 Changelog
 ---
 
+**1.3.8**
+- [x] 支持Android X
+- [x] 适配所有宿主View(目前)
+
+
 **1.3.6**
 - [x] modify code in`showWithCallback(boolean successVisible)`, use INVISIBLE instead of GONE thanks @X
 

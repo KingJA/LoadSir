@@ -1,27 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/activity_main"
+    android:id="@+id/constraintLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#11ff0000">
 
 
     <TextView
-        android:id="@+id/tv1"
+        android:id="@+id/tv_img"
         android:layout_width="140dp"
         android:layout_height="86dp"
         android:layout_marginLeft="12dp"
         android:layout_marginTop="12dp"
         android:background="#fd3"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        app:layout_constraintDimensionRatio="16:6"
-        android:id="@+id/tv0"
+        android:textSize="20sp"
+        android:gravity="center"
+        android:text="successView"
+        android:id="@+id/tv_center"
         android:layout_width="227dp"
         android:layout_height="170dp"
         android:layout_marginStart="8dp"
@@ -30,14 +30,41 @@
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
         android:background="#7FA7CB"
+        app:layout_constraintDimensionRatio="16:6"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv1"/>
+        app:layout_constraintTop_toBottomOf="@id/tv_img" />
+
+
+    <LinearLayout
+        android:id="@+id/ll_child"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:background="#00BCD4"
+        android:gravity="center"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_center">
+
+        <TextView
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:background="#3F51B5" />
+
+        <TextView
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:background="#4CAF50" />
+    </LinearLayout>
+
 
     <TextView
-        android:id="@+id/tv2"
+        android:id="@+id/tv_title"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginLeft="8dp"
@@ -45,11 +72,12 @@
         android:text="马云:一年交税170多亿马云:一年交税170多亿马云:一年交税170多亿"
         android:textColor="#000000"
         android:textSize="16dp"
-        app:layout_constraintLeft_toRightOf="@id/tv1"
+        app:layout_constraintLeft_toRightOf="@id/tv_img"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="@id/tv1" />
+        app:layout_constraintTop_toTopOf="@id/tv_img" />
 
     <TextView
+        android:id="@+id/tv_time"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="8dp"
@@ -57,7 +85,8 @@
         android:text="8分钟前"
         android:textColor="#333"
         android:textSize="12dp"
-        app:layout_constraintLeft_toRightOf="@id/tv1"
-        app:layout_constraintBottom_toBottomOf="@id/tv1" />
+        app:layout_constraintBottom_toBottomOf="@id/tv_img"
+        app:layout_constraintLeft_toRightOf="@id/tv_img" />
 
-</android.support.constraint.ConstraintLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

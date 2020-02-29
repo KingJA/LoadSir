@@ -1,14 +1,10 @@
 package com.kingja.loadsir;
 
-import android.app.Activity;
-import android.content.Context;
 import android.os.Looper;
 import android.util.Log;
-import android.view.View;
-import android.view.ViewGroup;
 
 import com.kingja.loadsir.core.TargetContext;
-import com.kingja.loadsir.targetconvertor.ITargetConvertor;
+import com.kingja.loadsir.target.ITarget;
 
 import java.util.List;
 
@@ -26,18 +22,18 @@ public class LoadSirUtil {
 //            Activity activity = (Activity) target;
 //            context = activity;
 //            contentParent = (ViewGroup) activity.findViewById(android.R.id.content);
-//        } else if (target instanceof View) {
-//            View view = (View) target;
+//        } else if (target instanceof ViewTarget) {
+//            ViewTarget view = (ViewTarget) target;
 //            contentParent = (ViewGroup) (view.getParent());
 //            context = view.getContext();
 //        } else {
-//            throw new IllegalArgumentException("The target must be within Activity, Fragment, View.");
+//            throw new IllegalArgumentException("The target must be within Activity, Fragment, ViewTarget.");
 //        }
 //        int childIndex = 0;
 //        int childCount = contentParent == null ? 0 : contentParent.getChildCount();
-//        View oldContent;
-//        if (target instanceof View) {
-//            oldContent = (View) target;
+//        ViewTarget oldContent;
+//        if (target instanceof ViewTarget) {
+//            oldContent = (ViewTarget) target;
 //            for (int i = 0; i < childCount; i++) {
 //                if (contentParent.getChildAt(i) == oldContent) {
 //                    childIndex = i;
@@ -61,8 +57,9 @@ public class LoadSirUtil {
         return Looper.myLooper() == Looper.getMainLooper();
     }
 
-    public static TargetContext getTargetContext(Object target, List<ITargetConvertor> targetContextList) {
-        for (ITargetConvertor targetContext : targetContextList) {
+    public static TargetContext getTargetContext(Object target, List<ITarget> targetContextList) {
+        for (ITarget targetContext : targetContextList) {
+            Log.e("getTargetContext", "待选: "+targetContext.getClass().getSimpleName() );
             if (targetContext.stanceof(target)) {
                 Log.e("getTargetContext", "选中: "+targetContext.getClass().getSimpleName() );
                 return targetContext.getTargetContext(target);

@@ -2,19 +2,18 @@ package sample.kingja.loadsir.target;
 
 import android.os.Bundle;
 import android.os.SystemClock;
-import android.support.annotation.Nullable;
-import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
 import com.kingja.loadsir.callback.Callback;
 import com.kingja.loadsir.core.LoadService;
 import com.kingja.loadsir.core.LoadSir;
 
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
 import sample.kingja.loadsir.PostUtil;
 import sample.kingja.loadsir.R;
 import sample.kingja.loadsir.callback.AnimateCallback;
 import sample.kingja.loadsir.callback.EmptyCallback;
-import sample.kingja.loadsir.callback.LoadingCallback;
 
 
 /**

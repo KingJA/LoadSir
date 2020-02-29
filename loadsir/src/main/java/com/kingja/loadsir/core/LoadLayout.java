@@ -1,7 +1,7 @@
 package com.kingja.loadsir.core;
 
 import android.content.Context;
-import android.support.annotation.NonNull;
+import android.util.Log;
 import android.view.View;
 import android.widget.FrameLayout;
 
@@ -12,6 +12,8 @@ import com.kingja.loadsir.callback.SuccessCallback;
 import java.util.HashMap;
 import java.util.Map;
 
+import androidx.annotation.NonNull;
+
 /**
  * Description:TODO
  * Create Time:2017/9/2 17:02
@@ -20,6 +22,7 @@ import java.util.Map;
  */
 
 public class LoadLayout extends FrameLayout {
+    private final String TAG = getClass().getSimpleName();
     private Map<Class<? extends Callback>, Callback> callbacks = new HashMap<>();
     private Context context;
     private Callback.OnReloadListener onReloadListener;
@@ -40,7 +43,8 @@ public class LoadLayout extends FrameLayout {
     public void setupSuccessLayout(Callback callback) {
         addCallback(callback);
         View successView = callback.getRootView();
-        successView.setVisibility(View.GONE);
+        //修改GONE -> INVISIBLE
+        successView.setVisibility(View.VISIBLE);
         addView(successView);
         curCallback = SuccessCallback.class;
     }
@@ -80,6 +84,7 @@ public class LoadLayout extends FrameLayout {
     }
 
     private void showCallbackView(Class<? extends Callback> status) {
+        Log.e(TAG, "进来showCallbackView: "+status );
         if (preCallback != null) {
             if (preCallback == status) {
                 return;
@@ -87,15 +92,18 @@ public class LoadLayout extends FrameLayout {
             callbacks.get(preCallback).onDetach();
         }
         if (getChildCount() > 1) {
+            Log.e(TAG, "> 1: "+getChildCount());
             removeViewAt(CALLBACK_CUSTOM_INDEX);
         }
-
         for (Class key : callbacks.keySet()) {
             if (key == status) {
+                Log.e(TAG, "key == status: ");
                 SuccessCallback successCallback = (SuccessCallback) callbacks.get(SuccessCallback.class);
                 if (key == SuccessCallback.class) {
+                    Log.e(TAG, "key == SuccessCallback.class: ");
                     successCallback.show();
                 } else {
+                    Log.e(TAG, "else: ");
                     successCallback.showWithCallback(callbacks.get(key).getSuccessVisible());
                     View rootView = callbacks.get(key).getRootView();
                     addView(rootView);

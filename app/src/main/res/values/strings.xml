@@ -18,4 +18,5 @@
     <string name="best_practices">best practices</string>
     <string name="default_loadsir_callback">default LoadSir Callback</string>
     <string name="keep_title_bar_in_activity">keep title bar in Activity</string>
+    <string name="hey_guys_what_are_you_looking_for">Hey guys, What are you looking for?</string>
 </resources>

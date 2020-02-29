@@ -1,14 +1,13 @@
 package sample.kingja.loadsir.target;
 
 import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.support.v7.app.AppCompatActivity;
-import android.view.View;
 
 import com.kingja.loadsir.callback.Callback;
 import com.kingja.loadsir.core.LoadService;
 import com.kingja.loadsir.core.LoadSir;
 
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
 import sample.kingja.loadsir.PostUtil;
 import sample.kingja.loadsir.R;
 import sample.kingja.loadsir.callback.PlaceholderCallback;
@@ -23,8 +22,6 @@ import sample.kingja.loadsir.callback.PlaceholderCallback;
 
 public class PlaceholderActivity extends AppCompatActivity {
 
-    private LoadService loadService;
-
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -33,11 +30,9 @@ public class PlaceholderActivity extends AppCompatActivity {
                 .addCallback(new PlaceholderCallback())
                 .setDefaultCallback(PlaceholderCallback.class)
                 .build();
-        loadService = loadSir.register(this, new Callback.OnReloadListener() {
-            @Override
-            public void onReload(View v) {
-                //do retry logic...
-            }
+        //do retry logic...
+        LoadService loadService = loadSir.register(this, (Callback.OnReloadListener) v -> {
+            //do retry logic...
         });
         PostUtil.postSuccessDelayed(loadService, 1000);
     }

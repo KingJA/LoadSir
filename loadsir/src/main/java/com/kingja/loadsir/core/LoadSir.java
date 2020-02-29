@@ -1,16 +1,17 @@
 package com.kingja.loadsir.core;
 
-import android.support.annotation.NonNull;
 
 import com.kingja.loadsir.LoadSirUtil;
 import com.kingja.loadsir.callback.Callback;
-import com.kingja.loadsir.targetconvertor.ActivityTargetConvertor;
-import com.kingja.loadsir.targetconvertor.ConstraintLayoutTargetConvertor;
-import com.kingja.loadsir.targetconvertor.ITargetConvertor;
-import com.kingja.loadsir.targetconvertor.ViewTargetConvertor;
+import com.kingja.loadsir.target.ActivityTarget;
+import com.kingja.loadsir.target.ConstraintLayoutTarget;
+import com.kingja.loadsir.target.ITarget;
+import com.kingja.loadsir.target.ViewTarget;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import androidx.annotation.NonNull;
 
 /**
  * Description:TODO
@@ -66,25 +67,25 @@ public class LoadSir {
 
     public static class Builder {
         private List<Callback> callbacks = new ArrayList<>();
-        private List<ITargetConvertor> targetContextList = new ArrayList<>();
+        private List<ITarget> targetContextList = new ArrayList<>();
         private Class<? extends Callback> defaultCallback;
 
         {
-            targetContextList.add(new ActivityTargetConvertor());
-            targetContextList.add(new ConstraintLayoutTargetConvertor());
-            targetContextList.add(new ViewTargetConvertor());
+            targetContextList.add(new ActivityTarget());
+            targetContextList.add(new ViewTarget());
+            targetContextList.add(new ConstraintLayoutTarget());
         }
 
         public Builder addCallback(@NonNull Callback callback) {
             callbacks.add(callback);
             return this;
         }
-        public Builder addTargetContext(ITargetConvertor targetContext) {
+        public Builder addTargetContext(ITarget targetContext) {
             targetContextList.add(targetContext);
             return this;
         }
 
-        public List<ITargetConvertor> getTargetContextList() {
+        public List<ITarget> getTargetContextList() {
             return targetContextList;
         }
 

@@ -1,7 +1,8 @@
 package com.kingja.loadsir.core;
 
 import android.content.Context;
-import android.support.constraint.ConstraintLayout;
+import android.os.Handler;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
@@ -11,6 +12,8 @@ import com.kingja.loadsir.callback.SuccessCallback;
 
 import java.util.List;
 
+import androidx.constraintlayout.widget.ConstraintLayout;
+
 /**
  * Description:TODO
  * Create Time:2017/9/6 10:05
@@ -18,6 +21,7 @@ import java.util.List;
  * Email:kingjavip@gmail.com
  */
 public class LoadService<T> {
+    private final String TAG = getClass().getSimpleName();
     private LoadLayout loadLayout;
     private Convertor<T> convertor;
 
@@ -26,27 +30,41 @@ public class LoadService<T> {
         this.convertor = convertor;
         Context context = targetContext.getContext();
         View oldContent = targetContext.getOldContent();
+        ViewGroup.LayoutParams oldLayoutParams = oldContent.getLayoutParams();
         loadLayout = new LoadLayout(context, onReloadListener);
+        if (oldLayoutParams instanceof ConstraintLayout.LayoutParams) {
+
+            ConstraintLayout constraintLayout = new ConstraintLayout(targetContext.getContext());
+            constraintLayout.addView(oldContent, oldLayoutParams);
+            oldContent = constraintLayout;
+        }
+
         loadLayout.setupSuccessLayout(new SuccessCallback(oldContent, context,
                 onReloadListener));
         if (targetContext.getParentView() != null) {
-            //兼容1.3.8版本前的Fragmeng注册方式
-            targetContext.getParentView().addView(loadLayout, targetContext.getChildIndex(), targetContext.getLayoutParams());
+            targetContext.getParentView().addView(loadLayout, targetContext.getChildIndex(), oldLayoutParams);
         }
         initCallback(builder);
     }
 
     private void initCallback(LoadSir.Builder builder) {
         List<Callback> callbacks = builder.getCallbacks();
-        Class<? extends Callback> defalutCallback = builder.getDefaultCallback();
+        final Class<? extends Callback> defalutCallback = builder.getDefaultCallback();
         if (callbacks != null && callbacks.size() > 0) {
             for (Callback callback : callbacks) {
                 loadLayout.setupCallback(callback);
             }
         }
-        if (defalutCallback != null) {
-            loadLayout.showCallback(defalutCallback);
-        }
+        //放在hander里起到一个等待绘制的作用
+        new Handler().post(new Runnable() {
+            @Override
+            public void run() {
+                if (defalutCallback != null) {
+                    loadLayout.showCallback(defalutCallback);
+                }
+            }
+        });
+
     }
 
     public void showSuccess() {
@@ -74,6 +92,7 @@ public class LoadService<T> {
 
     /**
      * obtain rootView if you want keep the toolbar in Fragment
+     *
      * @since 1.2.2
      * @deprecated
      */

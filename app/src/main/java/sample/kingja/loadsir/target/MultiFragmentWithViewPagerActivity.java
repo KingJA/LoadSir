@@ -1,16 +1,18 @@
 package sample.kingja.loadsir.target;
 
 import android.os.Bundle;
-import android.support.design.widget.TabLayout;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentPagerAdapter;
-import android.support.v4.view.ViewPager;
-import android.support.v7.app.AppCompatActivity;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+import com.google.android.material.tabs.TabLayout;
 
 import java.util.ArrayList;
 import java.util.List;
 
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentPagerAdapter;
+import androidx.viewpager.widget.ViewPager;
 import sample.kingja.loadsir.R;
 
 /**
@@ -27,8 +29,8 @@ public class MultiFragmentWithViewPagerActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_fragment_viewpager);
-        ViewPager viewpager = (ViewPager) findViewById(R.id.viewpager);
-        TabLayout tablayout = (TabLayout) findViewById(R.id.tablayout);
+        ViewPager viewpager =  findViewById(R.id.viewpager);
+        TabLayout tablayout =  findViewById(R.id.tablayout);
 
         fragments.add(new FragmentA());
         fragments.add(new FragmentB());

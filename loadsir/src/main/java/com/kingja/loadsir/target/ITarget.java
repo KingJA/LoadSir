@@ -1,4 +1,4 @@
-package com.kingja.loadsir.targetconvertor;
+package com.kingja.loadsir.target;
 
 import com.kingja.loadsir.core.TargetContext;
 
@@ -8,7 +8,7 @@ import com.kingja.loadsir.core.TargetContext;
  * Author:KingJA
  * Email:kingjavip@gmail.com
  */
-public interface ITargetConvertor {
+public interface ITarget {
     /**
      *
      * @param target

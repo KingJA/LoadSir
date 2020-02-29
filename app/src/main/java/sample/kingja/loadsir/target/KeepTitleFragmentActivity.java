@@ -1,9 +1,9 @@
 package sample.kingja.loadsir.target;
 
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.view.Window;
 
+import androidx.appcompat.app.AppCompatActivity;
 import sample.kingja.loadsir.R;
 
 /**
