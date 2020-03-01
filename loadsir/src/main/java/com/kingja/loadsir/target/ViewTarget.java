@@ -3,7 +3,9 @@ package com.kingja.loadsir.target;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.kingja.loadsir.core.TargetContext;
+import com.kingja.loadsir.callback.Callback;
+import com.kingja.loadsir.callback.SuccessCallback;
+import com.kingja.loadsir.core.LoadLayout;
 
 import androidx.constraintlayout.widget.ConstraintLayout;
 
@@ -14,8 +16,14 @@ import androidx.constraintlayout.widget.ConstraintLayout;
  * Email:kingjavip@gmail.com
  */
 public class ViewTarget implements ITarget {
+
     @Override
-    public TargetContext getTargetContext(Object target) {
+    public boolean equals(Object target) {
+        return target instanceof View && !(((View) target).getParent() instanceof ConstraintLayout);
+    }
+
+    @Override
+    public LoadLayout replaceView(Object target, Callback.OnReloadListener onReloadListener) {
         View oldContent = (android.view.View) target;
         ViewGroup contentParent = (ViewGroup) (oldContent.getParent());
         int childIndex = 0;
@@ -30,11 +38,11 @@ public class ViewTarget implements ITarget {
             contentParent.removeView(oldContent);
         }
         ViewGroup.LayoutParams oldLayoutParams = oldContent.getLayoutParams();
-        return new TargetContext(oldContent.getContext(), contentParent, oldContent, childIndex, oldLayoutParams);
-    }
-
-    @Override
-    public boolean stanceof(Object target) {
-        return target instanceof View && !(((View) target).getParent() instanceof ConstraintLayout);
+        LoadLayout loadLayout = new LoadLayout(oldContent.getContext(), onReloadListener);
+        loadLayout.setupSuccessLayout(new SuccessCallback(oldContent, oldContent.getContext(),onReloadListener));
+        if (contentParent != null) {
+            contentParent.addView(loadLayout, childIndex, oldLayoutParams);
+        }
+        return loadLayout;
     }
 }

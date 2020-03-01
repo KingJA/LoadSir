@@ -14,7 +14,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import sample.kingja.loadsir.PostUtil;
 import sample.kingja.loadsir.R;
 import sample.kingja.loadsir.callback.EmptyCallback;
-import sample.kingja.loadsir.callback.ErrorCallback;
 import sample.kingja.loadsir.callback.LoadingCallback;
 
 
@@ -27,7 +26,6 @@ import sample.kingja.loadsir.callback.LoadingCallback;
 
 public class ConstraintLayoutActivity extends AppCompatActivity {
 
-    private final String TAG = getClass().getSimpleName();
     private LoadService loadService;
 
     @Override
@@ -39,14 +37,10 @@ public class ConstraintLayoutActivity extends AppCompatActivity {
 
     private void initLoadSir() {
         TextView tv_center = findViewById(R.id.tv_center);
-        // Your can change the callback on sub thread directly.
-        //如果ConstraintLayout的子控件tv_center被其它控件相对约束了，那么就会报错，因为会把tv_center的LP自动转为CL的LP，是
-//        此时tv_center的LP已经是FL的LP，需要研究怎么保证tv_center的LP还是保留为CL的LP
-        //LoadSir 加载第一个callback位置错误，第二个开始才正确
         loadService = LoadSir.getDefault().register(tv_center, new Callback.OnReloadListener() {
             @Override
             public void onReload(View v) {
-                // Your can change the status out of Mai删除后ConstraintLayoutTargetn thread.
+                // Your can change the status out of Main thread.
                 new Thread(new Runnable() {
                     @Override
                     public void run() {
@@ -59,15 +53,6 @@ public class ConstraintLayoutActivity extends AppCompatActivity {
                 }).start();
             }
         });
-//        PostUtil.postCallbackDelayed(loadService, LoadingCallback.class, 0 );
         PostUtil.postCallbackDelayed(loadService, EmptyCallback.class, 1000);
-//        PostUtil.postCallbackDelayed(loadService, ErrorCallback.class, 1000);
-//        PostUtil.postCallbackDelayed(loadService, LoadingCallback.class,9000);
-        // default  -> LoadingCallback  -> EmptyCallback 错误
-        // XCallback -> default  -> LoadingCallback  -> EmptyCallback 错误
-        // XCallback -> LoadingCallback  -> EmptyCallback 正确
-        //ErrorCallback 0 EmptyCallback 10 错误
-        //ErrorCallback 0 EmptyCallback 20 正确 可能要等重新测量requestLayout
-        //接上SuccessView丛GONE变为INVISIBLE需要重新绘制
     }
 }

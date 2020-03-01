@@ -1,6 +1,7 @@
 package com.kingja.loadsir.target;
 
-import com.kingja.loadsir.core.TargetContext;
+import com.kingja.loadsir.callback.Callback;
+import com.kingja.loadsir.core.LoadLayout;
 
 /**
  * Description:TODO
@@ -15,13 +16,13 @@ public interface ITarget {
      * @return
      * v1.3.8
      */
-    TargetContext getTargetContext(Object target);
-
+    boolean equals(Object target);
     /**
-     *
+     * 1.removeView 2.确定LP 3.addView
      * @param target
+     * @param onReloadListener
      * @return
      * v1.3.8
      */
-    boolean stanceof(Object target);
+    LoadLayout replaceView(Object target, Callback.OnReloadListener onReloadListener);
 }

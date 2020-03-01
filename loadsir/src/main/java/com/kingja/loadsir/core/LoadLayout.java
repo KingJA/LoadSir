@@ -43,15 +43,14 @@ public class LoadLayout extends FrameLayout {
     public void setupSuccessLayout(Callback callback) {
         addCallback(callback);
         View successView = callback.getRootView();
-        //修改GONE -> INVISIBLE
-        successView.setVisibility(View.VISIBLE);
+        successView.setVisibility(View.INVISIBLE);
         addView(successView);
         curCallback = SuccessCallback.class;
     }
 
     public void setupCallback(Callback callback) {
         Callback cloneCallback = callback.copy();
-        cloneCallback.setCallback(null, context, onReloadListener);
+        cloneCallback.setCallback(context, onReloadListener);
         addCallback(cloneCallback);
     }
 
@@ -84,7 +83,6 @@ public class LoadLayout extends FrameLayout {
     }
 
     private void showCallbackView(Class<? extends Callback> status) {
-        Log.e(TAG, "进来showCallbackView: "+status );
         if (preCallback != null) {
             if (preCallback == status) {
                 return;
@@ -92,15 +90,12 @@ public class LoadLayout extends FrameLayout {
             callbacks.get(preCallback).onDetach();
         }
         if (getChildCount() > 1) {
-            Log.e(TAG, "> 1: "+getChildCount());
             removeViewAt(CALLBACK_CUSTOM_INDEX);
         }
         for (Class key : callbacks.keySet()) {
             if (key == status) {
-                Log.e(TAG, "key == status: ");
                 SuccessCallback successCallback = (SuccessCallback) callbacks.get(SuccessCallback.class);
                 if (key == SuccessCallback.class) {
-                    Log.e(TAG, "key == SuccessCallback.class: ");
                     successCallback.show();
                 } else {
                     Log.e(TAG, "else: ");

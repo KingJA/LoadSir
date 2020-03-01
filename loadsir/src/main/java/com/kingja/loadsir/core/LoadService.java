@@ -2,7 +2,6 @@ package com.kingja.loadsir.core;
 
 import android.content.Context;
 import android.os.Handler;
-import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
@@ -11,8 +10,6 @@ import com.kingja.loadsir.callback.Callback;
 import com.kingja.loadsir.callback.SuccessCallback;
 
 import java.util.List;
-
-import androidx.constraintlayout.widget.ConstraintLayout;
 
 /**
  * Description:TODO
@@ -25,25 +22,9 @@ public class LoadService<T> {
     private LoadLayout loadLayout;
     private Convertor<T> convertor;
 
-    LoadService(Convertor<T> convertor, TargetContext targetContext, Callback.OnReloadListener onReloadListener,
-                LoadSir.Builder builder) {
+    LoadService(Convertor<T> convertor,LoadLayout loadLayout,LoadSir.Builder builder) {
         this.convertor = convertor;
-        Context context = targetContext.getContext();
-        View oldContent = targetContext.getOldContent();
-        ViewGroup.LayoutParams oldLayoutParams = oldContent.getLayoutParams();
-        loadLayout = new LoadLayout(context, onReloadListener);
-        if (oldLayoutParams instanceof ConstraintLayout.LayoutParams) {
-
-            ConstraintLayout constraintLayout = new ConstraintLayout(targetContext.getContext());
-            constraintLayout.addView(oldContent, oldLayoutParams);
-            oldContent = constraintLayout;
-        }
-
-        loadLayout.setupSuccessLayout(new SuccessCallback(oldContent, context,
-                onReloadListener));
-        if (targetContext.getParentView() != null) {
-            targetContext.getParentView().addView(loadLayout, targetContext.getChildIndex(), oldLayoutParams);
-        }
+        this.loadLayout = loadLayout;
         initCallback(builder);
     }
 
@@ -55,7 +36,6 @@ public class LoadService<T> {
                 loadLayout.setupCallback(callback);
             }
         }
-        //放在hander里起到一个等待绘制的作用
         new Handler().post(new Runnable() {
             @Override
             public void run() {

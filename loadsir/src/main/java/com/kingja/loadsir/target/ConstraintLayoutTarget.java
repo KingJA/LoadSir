@@ -1,10 +1,11 @@
 package com.kingja.loadsir.target;
 
-import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.kingja.loadsir.core.TargetContext;
+import com.kingja.loadsir.callback.Callback;
+import com.kingja.loadsir.callback.SuccessCallback;
+import com.kingja.loadsir.core.LoadLayout;
 
 import androidx.constraintlayout.widget.ConstraintLayout;
 
@@ -15,10 +16,14 @@ import androidx.constraintlayout.widget.ConstraintLayout;
  * Email:kingjavip@gmail.com
  */
 public class ConstraintLayoutTarget implements ITarget {
-    private  final String TAG =getClass().getSimpleName() ;
 
     @Override
-    public TargetContext getTargetContext(Object target) {
+    public boolean equals(Object target) {
+        return (((View) target).getParent() instanceof ConstraintLayout);
+    }
+
+    @Override
+    public LoadLayout replaceView(Object target, Callback.OnReloadListener onReloadListener) {
         View oldContent = (View) target;
         ViewGroup contentParent = (ViewGroup) (oldContent.getParent());
         int childIndex = 0;
@@ -32,11 +37,15 @@ public class ConstraintLayoutTarget implements ITarget {
         if (contentParent != null) {
             contentParent.removeView(oldContent);
         }
-        return new TargetContext(oldContent.getContext(), contentParent, oldContent, childIndex,oldContent.getLayoutParams());
-    }
-
-    @Override
-    public boolean stanceof(Object target) {
-        return (((View) target).getParent() instanceof ConstraintLayout);
+        ViewGroup.LayoutParams oldLayoutParams = oldContent.getLayoutParams();
+        LoadLayout loadLayout = new LoadLayout(oldContent.getContext(), onReloadListener);
+        if (oldLayoutParams instanceof ConstraintLayout.LayoutParams) {
+            ConstraintLayout constraintLayout = new ConstraintLayout(oldContent.getContext());
+            constraintLayout.addView(oldContent, oldLayoutParams);
+            oldContent = constraintLayout;
+        }
+        loadLayout.setupSuccessLayout(new SuccessCallback(oldContent, oldContent.getContext(),onReloadListener));
+        contentParent.addView(loadLayout, childIndex, oldLayoutParams);
+        return loadLayout;
     }
 }

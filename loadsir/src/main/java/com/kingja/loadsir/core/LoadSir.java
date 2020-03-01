@@ -56,9 +56,9 @@ public class LoadSir {
 
     public <T> LoadService register(Object target, Callback.OnReloadListener onReloadListener, Convertor<T>
             convertor) {
-        TargetContext targetContext = LoadSirUtil.getTargetContext(target,builder.getTargetContextList());
-
-        return new LoadService<>(convertor, targetContext, onReloadListener, builder);
+        ITarget targetContext = LoadSirUtil.getTargetContext(target, builder.getTargetContextList());
+        LoadLayout loadLayout = targetContext.replaceView(target, onReloadListener);
+        return new LoadService<>(convertor,loadLayout,  builder);
     }
 
     public static Builder beginBuilder() {
@@ -80,6 +80,12 @@ public class LoadSir {
             callbacks.add(callback);
             return this;
         }
+
+        /**
+         * @param targetContext
+         * @return Builder
+         * @since 1.3.8
+         */
         public Builder addTargetContext(ITarget targetContext) {
             targetContextList.add(targetContext);
             return this;

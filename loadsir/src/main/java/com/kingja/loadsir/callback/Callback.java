@@ -31,8 +31,7 @@ public abstract class Callback implements Serializable {
         this.onReloadListener = onReloadListener;
     }
 
-    public Callback setCallback(View view, Context context, OnReloadListener onReloadListener) {
-        this.rootView = view;
+    public Callback setCallback(Context context, OnReloadListener onReloadListener) {
         this.context = context;
         this.onReloadListener = onReloadListener;
         return this;

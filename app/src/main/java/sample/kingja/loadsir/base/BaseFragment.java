@@ -27,15 +27,16 @@ public abstract class BaseFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle
             savedInstanceState) {
-        View rootView = View.inflate(getActivity(), onCreateFragmentView(), null);
+        View rootView = inflater.inflate(onCreateFragmentView(), container, false);
         ButterKnife.bind(this, rootView);
-        mBaseLoadService = LoadSir.getDefault().register(rootView, new Callback.OnReloadListener() {
+        LoadService loadService = LoadSir.getDefault().register(rootView, new Callback.OnReloadListener() {
             @Override
             public void onReload(View v) {
                 onNetReload(v);
             }
         });
-        return mBaseLoadService.getLoadLayout();
+        mBaseLoadService = loadService;
+        return loadService.getLoadLayout();
     }
 
     protected abstract int onCreateFragmentView();
@@ -43,6 +44,7 @@ public abstract class BaseFragment extends Fragment {
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+
         loadNet();
     }
 
