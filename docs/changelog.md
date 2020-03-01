@@ -5,6 +5,7 @@ Changelog
 - [x] 支持Android X
 - [x] 适配所有宿主View(目前)
 - [x] GONE->INVISIBLE
+- [x] Fragment 的注册方式，还需要优化，最好统一单Fragment和多Fragment的注册
 
 
 **1.3.6**
