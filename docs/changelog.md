@@ -7,6 +7,10 @@ Changelog
 - [x] GONE->INVISIBLE
 - [x] Fragment 的注册方式，还需要优化，最好统一单Fragment和多Fragment的注册
 
+PS:一个Activity可能会存在多个Fragment，因此Fragment的onCreateView需要返回LoadLayout，这样避免两个Fragment的View同时存在，
+因为Fragment的show和hide会切换onCreateView为Visiable和GONE
+阅读Fragment，理清各个类的指责，重构代码
+
 
 **1.3.6**
 - [x] modify code in`showWithCallback(boolean successVisible)`, use INVISIBLE instead of GONE thanks @X
