@@ -6,6 +6,12 @@ Changelog
 - [x] 适配所有宿主View(目前)
 - [x] GONE->INVISIBLE
 - [x] Fragment 的注册方式，还需要优化，最好统一单Fragment和多Fragment的注册
+- [x] FrameLayout margin双倍问题
+
+TODO
+所有BUG修复并整理sample
+如果遇到rl或者constraint布局，在替换的View外层包括一层布局
+
 
 PS:一个Activity可能会存在多个Fragment，因此Fragment的onCreateView需要返回LoadLayout，这样避免两个Fragment的View同时存在，
 因为Fragment的show和hide会切换onCreateView为Visiable和GONE

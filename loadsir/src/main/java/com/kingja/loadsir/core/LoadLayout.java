@@ -3,6 +3,7 @@ package com.kingja.loadsir.core;
 import android.content.Context;
 import android.util.Log;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.FrameLayout;
 
 import com.kingja.loadsir.LoadSirUtil;
@@ -44,7 +45,10 @@ public class LoadLayout extends FrameLayout {
         addCallback(callback);
         View successView = callback.getRootView();
         successView.setVisibility(View.INVISIBLE);
-        addView(successView);
+        addView(successView, new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,
+                ViewGroup.LayoutParams.MATCH_PARENT));
+
+//        addView(successView);
         curCallback = SuccessCallback.class;
     }
 

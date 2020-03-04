@@ -4,7 +4,6 @@ package com.kingja.loadsir.core;
 import com.kingja.loadsir.LoadSirUtil;
 import com.kingja.loadsir.callback.Callback;
 import com.kingja.loadsir.target.ActivityTarget;
-import com.kingja.loadsir.target.ConstraintLayoutTarget;
 import com.kingja.loadsir.target.ITarget;
 import com.kingja.loadsir.target.ViewTarget;
 
@@ -73,7 +72,6 @@ public class LoadSir {
         {
             targetContextList.add(new ActivityTarget());
             targetContextList.add(new ViewTarget());
-            targetContextList.add(new ConstraintLayoutTarget());
         }
 
         public Builder addCallback(@NonNull Callback callback) {

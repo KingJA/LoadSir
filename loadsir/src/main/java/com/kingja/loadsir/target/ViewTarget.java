@@ -19,7 +19,7 @@ public class ViewTarget implements ITarget {
 
     @Override
     public boolean equals(Object target) {
-        return target instanceof View && !(((View) target).getParent() instanceof ConstraintLayout);
+        return target instanceof View;
     }
 
     @Override
