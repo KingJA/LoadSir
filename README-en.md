@@ -26,8 +26,8 @@ Preview - samples
 
 Download Demo
 ---
-password：9517
 ![](imgs/qcode_1.3.8.png)
+###### (password：9517)
 
 Feature
 ---
