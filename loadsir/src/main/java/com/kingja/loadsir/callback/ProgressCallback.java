@@ -1,7 +1,6 @@
 package com.kingja.loadsir.callback;
 
 import android.content.Context;
-import android.support.annotation.StyleRes;
 import android.text.TextUtils;
 import android.view.Gravity;
 import android.view.View;
@@ -9,6 +8,8 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+
+import androidx.annotation.StyleRes;
 
 /**
  * Description:TODO

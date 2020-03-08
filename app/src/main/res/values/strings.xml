@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">LoadSir</string>
     <string name="activity_empty">Activity(empty)</string>
+    <string name="activity_constraintLayout">Activity(constraintLayout)</string>
     <string name="activity_placeholder">Activity(placeholder)</string>
     <string name="activity_with_convertor">Activity with Convertor</string>
     <string name="single_fragment_custom">single Fragment(custom)</string>
@@ -17,4 +18,5 @@
     <string name="best_practices">best practices</string>
     <string name="default_loadsir_callback">default LoadSir Callback</string>
     <string name="keep_title_bar_in_activity">keep title bar in Activity</string>
+    <string name="hey_guys_what_are_you_looking_for">Hey guys, What are you looking for?</string>
 </resources>

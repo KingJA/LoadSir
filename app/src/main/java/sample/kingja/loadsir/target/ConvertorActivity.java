@@ -2,10 +2,10 @@ package sample.kingja.loadsir.target;
 
 import android.os.Bundle;
 import android.os.Handler;
-import android.support.annotation.Nullable;
-import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
 import sample.kingja.loadsir.callback.EmptyCallback;
 import sample.kingja.loadsir.callback.ErrorCallback;
 import sample.kingja.loadsir.callback.LoadingCallback;
@@ -60,7 +60,7 @@ public class ConvertorActivity extends AppCompatActivity {
             public Class<? extends Callback> map(HttpResult httpResult) {
                 Class<? extends Callback> resultCode = SuccessCallback.class;
                 switch (httpResult.getResultCode()) {
-                    //成功回调
+                    //success
                     case SUCCESS_CODE:
                         if (httpResult.getData().size() == 0) {
                             resultCode = EmptyCallback.class;

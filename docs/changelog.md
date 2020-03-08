@@ -1,11 +1,19 @@
 Changelog
 ---
+**1.3.8**
+- [x] 适配Android X
+- [x] 支持ConstraintLayout的子View注册(详见Ps[1])
+- [x] 修复子view有margin，注册后出现双倍margin问题
+
+Ps:
+[1]要注册RelativeLayout或ConstraintLayout的子View，如果该子View被其它子View约束，建议在子View外层再包一层布局，参考
+acitivy_view.xm和activity_constraintlayout.xml
 
 **1.3.6**
 - [x] modify code in`showWithCallback(boolean successVisible)`, use INVISIBLE instead of GONE thanks @X
 
 **1.3.5**
-- [x] add API `public Class<? extends Callback> getCurrentCallback()`
+- [x] add API `public Class<? extends Callback> getCurrentCallback()`X
 - [x] deprecated API `public LinearLayout getTitleLoadLayout(Context context, ViewGroup rootView, View titleView)`
 
 **1.3.2**

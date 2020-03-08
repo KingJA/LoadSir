@@ -1,6 +1,7 @@
 package com.kingja.loadsir.core;
 
 import android.content.Context;
+import android.os.Handler;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
@@ -17,35 +18,33 @@ import java.util.List;
  * Email:kingjavip@gmail.com
  */
 public class LoadService<T> {
+    private final String TAG = getClass().getSimpleName();
     private LoadLayout loadLayout;
     private Convertor<T> convertor;
 
-    LoadService(Convertor<T> convertor, TargetContext targetContext, Callback.OnReloadListener onReloadListener,
-                LoadSir.Builder builder) {
+    LoadService(Convertor<T> convertor,LoadLayout loadLayout,LoadSir.Builder builder) {
         this.convertor = convertor;
-        Context context = targetContext.getContext();
-        View oldContent = targetContext.getOldContent();
-        ViewGroup.LayoutParams oldLayoutParams = oldContent.getLayoutParams();
-        loadLayout = new LoadLayout(context, onReloadListener);
-        loadLayout.setupSuccessLayout(new SuccessCallback(oldContent, context,
-                onReloadListener));
-        if (targetContext.getParentView() != null) {
-            targetContext.getParentView().addView(loadLayout, targetContext.getChildIndex(), oldLayoutParams);
-        }
+        this.loadLayout = loadLayout;
         initCallback(builder);
     }
 
     private void initCallback(LoadSir.Builder builder) {
         List<Callback> callbacks = builder.getCallbacks();
-        Class<? extends Callback> defalutCallback = builder.getDefaultCallback();
+        final Class<? extends Callback> defalutCallback = builder.getDefaultCallback();
         if (callbacks != null && callbacks.size() > 0) {
             for (Callback callback : callbacks) {
                 loadLayout.setupCallback(callback);
             }
         }
-        if (defalutCallback != null) {
-            loadLayout.showCallback(defalutCallback);
-        }
+        new Handler().post(new Runnable() {
+            @Override
+            public void run() {
+                if (defalutCallback != null) {
+                    loadLayout.showCallback(defalutCallback);
+                }
+            }
+        });
+
     }
 
     public void showSuccess() {
@@ -73,6 +72,7 @@ public class LoadService<T> {
 
     /**
      * obtain rootView if you want keep the toolbar in Fragment
+     *
      * @since 1.2.2
      * @deprecated
      */

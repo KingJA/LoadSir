@@ -1,8 +1,9 @@
 package com.kingja.loadsir.core;
 
 import android.content.Context;
-import android.support.annotation.NonNull;
+import android.util.Log;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.FrameLayout;
 
 import com.kingja.loadsir.LoadSirUtil;
@@ -12,6 +13,8 @@ import com.kingja.loadsir.callback.SuccessCallback;
 import java.util.HashMap;
 import java.util.Map;
 
+import androidx.annotation.NonNull;
+
 /**
  * Description:TODO
  * Create Time:2017/9/2 17:02
@@ -20,6 +23,7 @@ import java.util.Map;
  */
 
 public class LoadLayout extends FrameLayout {
+    private final String TAG = getClass().getSimpleName();
     private Map<Class<? extends Callback>, Callback> callbacks = new HashMap<>();
     private Context context;
     private Callback.OnReloadListener onReloadListener;
@@ -40,14 +44,15 @@ public class LoadLayout extends FrameLayout {
     public void setupSuccessLayout(Callback callback) {
         addCallback(callback);
         View successView = callback.getRootView();
-        successView.setVisibility(View.GONE);
-        addView(successView);
+        successView.setVisibility(View.INVISIBLE);
+        addView(successView, new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,
+                ViewGroup.LayoutParams.MATCH_PARENT));
         curCallback = SuccessCallback.class;
     }
 
     public void setupCallback(Callback callback) {
         Callback cloneCallback = callback.copy();
-        cloneCallback.setCallback(null, context, onReloadListener);
+        cloneCallback.setCallback(context, onReloadListener);
         addCallback(cloneCallback);
     }
 
@@ -89,7 +94,6 @@ public class LoadLayout extends FrameLayout {
         if (getChildCount() > 1) {
             removeViewAt(CALLBACK_CUSTOM_INDEX);
         }
-
         for (Class key : callbacks.keySet()) {
             if (key == status) {
                 SuccessCallback successCallback = (SuccessCallback) callbacks.get(SuccessCallback.class);

@@ -1,12 +1,16 @@
 package com.kingja.loadsir.core;
 
-import android.support.annotation.NonNull;
 
 import com.kingja.loadsir.LoadSirUtil;
 import com.kingja.loadsir.callback.Callback;
+import com.kingja.loadsir.target.ActivityTarget;
+import com.kingja.loadsir.target.ITarget;
+import com.kingja.loadsir.target.ViewTarget;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import androidx.annotation.NonNull;
 
 /**
  * Description:TODO
@@ -51,8 +55,9 @@ public class LoadSir {
 
     public <T> LoadService register(Object target, Callback.OnReloadListener onReloadListener, Convertor<T>
             convertor) {
-        TargetContext targetContext = LoadSirUtil.getTargetContext(target);
-        return new LoadService<>(convertor, targetContext, onReloadListener, builder);
+        ITarget targetContext = LoadSirUtil.getTargetContext(target, builder.getTargetContextList());
+        LoadLayout loadLayout = targetContext.replaceView(target, onReloadListener);
+        return new LoadService<>(convertor,loadLayout,  builder);
     }
 
     public static Builder beginBuilder() {
@@ -61,11 +66,31 @@ public class LoadSir {
 
     public static class Builder {
         private List<Callback> callbacks = new ArrayList<>();
+        private List<ITarget> targetContextList = new ArrayList<>();
         private Class<? extends Callback> defaultCallback;
+
+        {
+            targetContextList.add(new ActivityTarget());
+            targetContextList.add(new ViewTarget());
+        }
 
         public Builder addCallback(@NonNull Callback callback) {
             callbacks.add(callback);
             return this;
+        }
+
+        /**
+         * @param targetContext
+         * @return Builder
+         * @since 1.3.8
+         */
+        public Builder addTargetContext(ITarget targetContext) {
+            targetContextList.add(targetContext);
+            return this;
+        }
+
+        public List<ITarget> getTargetContextList() {
+            return targetContextList;
         }
 
         public Builder setDefaultCallback(@NonNull Class<? extends Callback> defaultCallback) {

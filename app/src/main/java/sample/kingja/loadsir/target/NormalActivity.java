@@ -3,11 +3,11 @@ package sample.kingja.loadsir.target;
 import android.content.Context;
 import android.os.Bundle;
 import android.os.SystemClock;
-import android.support.annotation.Nullable;
-import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.TextView;
 
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
 import sample.kingja.loadsir.callback.EmptyCallback;
 import sample.kingja.loadsir.callback.LoadingCallback;
 
@@ -54,7 +54,7 @@ public class NormalActivity extends AppCompatActivity {
         }).setCallBack(EmptyCallback.class, new Transport() {
             @Override
             public void order(Context context, View view) {
-                TextView mTvEmpty = (TextView) view.findViewById(R.id.tv_empty);
+                TextView mTvEmpty =  view.findViewById(R.id.tv_empty);
                 mTvEmpty.setText("fine, no data. You must fill it!");
             }
         });

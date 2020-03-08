@@ -32,6 +32,7 @@
         <activity
             android:name=".target.KeepTitleActivity"
             android:theme="@style/NoTitle"/>
+        <activity android:name=".target.ConstraintLayoutActivity"/>
     </application>
 
 </manifest>

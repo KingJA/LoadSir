@@ -1,8 +1,6 @@
 package sample.kingja.loadsir.base;
 
 import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,6 +9,8 @@ import com.kingja.loadsir.callback.Callback;
 import com.kingja.loadsir.core.LoadService;
 import com.kingja.loadsir.core.LoadSir;
 
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
 import butterknife.ButterKnife;
 
 /**
@@ -27,7 +27,7 @@ public abstract class BaseFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle
             savedInstanceState) {
-        View rootView = View.inflate(getActivity(), onCreateFragmentView(), null);
+        View rootView = inflater.inflate(onCreateFragmentView(), container, false);
         ButterKnife.bind(this, rootView);
         mBaseLoadService = LoadSir.getDefault().register(rootView, new Callback.OnReloadListener() {
             @Override
@@ -43,6 +43,7 @@ public abstract class BaseFragment extends Fragment {
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+
         loadNet();
     }
 

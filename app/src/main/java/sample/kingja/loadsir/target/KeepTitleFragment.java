@@ -1,8 +1,6 @@
 package sample.kingja.loadsir.target;
 
 import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,6 +11,8 @@ import com.kingja.loadsir.callback.Callback;
 import com.kingja.loadsir.core.LoadService;
 import com.kingja.loadsir.core.LoadSir;
 
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
@@ -44,7 +44,7 @@ public class KeepTitleFragment extends Fragment {
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        LinearLayout contentView = (LinearLayout) rootView.findViewById(R.id.ll_content);
+        LinearLayout contentView = rootView.findViewById(R.id.ll_content);
         LoadSir loadSir = new LoadSir.Builder()
                 .addCallback(new EmptyCallback())
                 .addCallback(new LoadingCallback())

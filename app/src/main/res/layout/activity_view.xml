@@ -15,15 +15,27 @@
         android:background="#ff7b00"
         android:gravity="center"
         android:padding="12dp"
-        android:text="Hey guys, What are you looking for?"/>
+        android:text="@string/hey_guys_what_are_you_looking_for"/>
 
-    <ImageView
-        android:id="@+id/iv_img"
-        android:layout_width="match_parent"
-        android:layout_height="200dp"
+    <FrameLayout
         android:layout_below="@id/tv_text"
-        android:layout_marginTop="4dp"
-        android:scaleType="centerCrop"
-        android:src="@drawable/img"/>
+        android:layout_margin="20dp"
+        android:id="@+id/fl_wrap"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <ImageView
+            android:id="@+id/iv_img"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/img"/>
+
+    </FrameLayout>
+
+    <TextView
+        android:layout_below="@id/fl_wrap"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:background="#2196F3"/>
 
 </RelativeLayout>

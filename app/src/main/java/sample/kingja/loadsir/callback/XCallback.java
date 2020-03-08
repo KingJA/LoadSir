@@ -1,8 +1,5 @@
 package sample.kingja.loadsir.callback;
 
-import android.content.Context;
-import android.view.View;
-
 import com.kingja.loadsir.callback.Callback;
 
 import sample.kingja.loadsir.R;
@@ -14,16 +11,11 @@ import sample.kingja.loadsir.R;
  * Email:kingjavip@gmail.com
  */
 
-public class LoadingCallback extends Callback {
+public class XCallback extends Callback {
 
     @Override
     protected int onCreateView() {
-        return R.layout.layout_loading;
+        return R.layout.layout_empty;
     }
 
-
-    @Override
-    protected boolean onReloadEvent(Context context, View view) {
-        return true;
-    }
 }
