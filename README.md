@@ -60,7 +60,7 @@ LoadSir的使用，只需要简单的三步
 ### 添加依赖
 
 ```groovy
-compile 'com.kingja.loadsir:loadsir:1.3.6'
+compile 'com.kingja.loadsir:loadsir:1.3.8'
 ```
 
 ### 第一步：配置
@@ -133,6 +133,9 @@ loadService = loadSir.register(imageView, new Callback.OnReloadListener() {
         // 重新加载逻辑
     }
 });
+Ps:
+[1]要注册RelativeLayout或ConstraintLayout的子View，如果该子View被其它子View约束，建议在子View外层再包一层布局，参考
+acitivy_view.xm和activity_constraintlayout.xml
 ```
 ###### 在Fragment 中使用
 由于Fragment添加到Activitiy方式多样，比较特别，所以在Fragment注册方式不同于上面两种，大家先看模板代码：

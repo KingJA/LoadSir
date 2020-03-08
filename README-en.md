@@ -57,7 +57,7 @@ LoadSir only needs 3 steps: **1. Config** -> **2. Register** -> **3. Display**
 ### Download
 
 ```groovy
-compile 'com.kingja.loadsir:loadsir:1.3.6'
+compile 'com.kingja.loadsir:loadsir:1.3.8'
 ```
 
 ### Step 1: Config

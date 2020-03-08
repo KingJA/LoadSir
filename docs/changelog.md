@@ -1,28 +1,19 @@
 Changelog
 ---
-
 **1.3.8**
-- [x] 支持Android X
-- [x] 适配所有宿主View(目前)
-- [x] GONE->INVISIBLE
-- [x] Fragment 的注册方式，还需要优化，最好统一单Fragment和多Fragment的注册
-- [x] FrameLayout margin双倍问题
+- [x] 适配Android X
+- [x] 支持ConstraintLayout的子View注册(详见Ps[1])
+- [x] 修复子view有margin，注册后出现双倍margin问题
 
-TODO
-所有BUG修复并整理sample
-如果遇到rl或者constraint布局，在替换的View外层包括一层布局
-
-
-PS:一个Activity可能会存在多个Fragment，因此Fragment的onCreateView需要返回LoadLayout，这样避免两个Fragment的View同时存在，
-因为Fragment的show和hide会切换onCreateView为Visiable和GONE
-阅读Fragment，理清各个类的指责，重构代码
-
+Ps:
+[1]要注册RelativeLayout或ConstraintLayout的子View，如果该子View被其它子View约束，建议在子View外层再包一层布局，参考
+acitivy_view.xm和activity_constraintlayout.xml
 
 **1.3.6**
 - [x] modify code in`showWithCallback(boolean successVisible)`, use INVISIBLE instead of GONE thanks @X
 
 **1.3.5**
-- [x] add API `public Class<? extends Callback> getCurrentCallback()`
+- [x] add API `public Class<? extends Callback> getCurrentCallback()`X
 - [x] deprecated API `public LinearLayout getTitleLoadLayout(Context context, ViewGroup rootView, View titleView)`
 
 **1.3.2**

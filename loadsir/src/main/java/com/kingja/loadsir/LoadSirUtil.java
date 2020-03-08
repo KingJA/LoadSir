@@ -21,9 +21,7 @@ public class LoadSirUtil {
 
     public static ITarget getTargetContext(Object target, List<ITarget> targetContextList) {
         for (ITarget targetContext : targetContextList) {
-            Log.e("getTargetContext", "待选: "+targetContext.getClass().getSimpleName() );
             if (targetContext.equals(target)) {
-                Log.e("getTargetContext", "选中: "+targetContext.getClass().getSimpleName() );
                 return targetContext;
             }
 

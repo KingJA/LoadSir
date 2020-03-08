@@ -47,8 +47,6 @@ public class LoadLayout extends FrameLayout {
         successView.setVisibility(View.INVISIBLE);
         addView(successView, new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,
                 ViewGroup.LayoutParams.MATCH_PARENT));
-
-//        addView(successView);
         curCallback = SuccessCallback.class;
     }
 
@@ -102,7 +100,6 @@ public class LoadLayout extends FrameLayout {
                 if (key == SuccessCallback.class) {
                     successCallback.show();
                 } else {
-                    Log.e(TAG, "else: ");
                     successCallback.showWithCallback(callbacks.get(key).getSuccessVisible());
                     View rootView = callbacks.get(key).getRootView();
                     addView(rootView);
