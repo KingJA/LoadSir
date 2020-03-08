@@ -26,7 +26,7 @@ Preview - samples
 
 Download Demo
 ---
-![](imgs/qcode_1.3.2.png)
+![](imgs/qcode_1.3.8.png)
 
 Feature
 ---
