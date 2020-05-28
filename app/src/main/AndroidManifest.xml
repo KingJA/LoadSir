@@ -33,6 +33,7 @@
             android:name=".target.KeepTitleActivity"
             android:theme="@style/NoTitle"/>
         <activity android:name=".target.ConstraintLayoutActivity"/>
+        <activity android:name=".target.MultiFragmentWithViewPager2Activity" />
     </application>
 
 </manifest>

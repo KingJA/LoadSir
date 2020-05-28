@@ -7,6 +7,7 @@
     <string name="single_fragment_custom">single Fragment(custom)</string>
     <string name="multiple_fragment">multiple Fragment</string>
     <string name="multiple_fragment_viewpager">multiple Fragment+ViewPager</string>
+    <string name="multiple_fragment_viewpager2">multiple Fragment+ViewPager2</string>
     <string name="view_timeout">View(timeout)</string>
     <string name="animat_callback">Animat Callback</string>
     <string name="keep_title_bar_in_fragment">keep title bar in Fragment</string>

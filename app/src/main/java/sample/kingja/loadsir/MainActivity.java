@@ -13,6 +13,7 @@ import sample.kingja.loadsir.target.KeepTitleActivity;
 import sample.kingja.loadsir.target.KeepTitleFragmentActivity;
 import sample.kingja.loadsir.target.MultiFragmentActivity;
 import sample.kingja.loadsir.target.FragmentSingleActivity;
+import sample.kingja.loadsir.target.MultiFragmentWithViewPager2Activity;
 import sample.kingja.loadsir.target.NormalActivity;
 import sample.kingja.loadsir.target.ConvertorActivity;
 import sample.kingja.loadsir.target.MultiFragmentWithViewPagerActivity;
@@ -56,6 +57,9 @@ public class MainActivity extends AppCompatActivity {
 
     public void inFragmentViewSirPager(View view) {
         startActivity(new Intent(this, MultiFragmentWithViewPagerActivity.class));
+    }
+    public void inFragmentViewSirPager2(View view) {
+        startActivity(new Intent(this, MultiFragmentWithViewPager2Activity.class));
     }
 
     public void inView(View view) {

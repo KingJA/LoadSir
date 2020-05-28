@@ -60,6 +60,14 @@
             android:text="@string/multiple_fragment_viewpager"
             android:textAllCaps="false"/>
 
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="inFragmentViewSirPager2"
+            android:text="@string/multiple_fragment_viewpager2"
+            android:textAllCaps="false"/>
+
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
