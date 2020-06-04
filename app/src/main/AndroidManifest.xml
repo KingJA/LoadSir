@@ -17,7 +17,8 @@
             </intent-filter>
 
         </activity>
-        <activity android:name=".target.NormalActivity"/>
+        <activity android:name=".target.NormalActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"/>
         <activity android:name=".target.ConvertorActivity"/>
         <activity android:name=".target.FragmentSingleActivity"/>
         <activity android:name=".target.ViewTargetActivity"/>
