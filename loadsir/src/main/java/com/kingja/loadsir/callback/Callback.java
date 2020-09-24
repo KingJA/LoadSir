@@ -17,8 +17,8 @@ import java.io.Serializable;
  * Email:kingjavip@gmail.com
  */
 public abstract class Callback implements Serializable {
-    private View rootView;
-    private Context context;
+    private transient View rootView;
+    private transient Context context;
     private OnReloadListener onReloadListener;
     private boolean successViewVisible;
 
