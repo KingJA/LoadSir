@@ -27,14 +27,8 @@ public class ViewTarget implements ITarget {
         View oldContent = (android.view.View) target;
         ViewGroup contentParent = (ViewGroup) (oldContent.getParent());
         int childIndex = 0;
-        int childCount = contentParent == null ? 0 : contentParent.getChildCount();
-        for (int i = 0; i < childCount; i++) {
-            if (contentParent.getChildAt(i) == oldContent) {
-                childIndex = i;
-                break;
-            }
-        }
         if (contentParent != null) {
+            childIndex = contentParent.indexOfChild(oldContent);
             contentParent.removeView(oldContent);
         }
         ViewGroup.LayoutParams oldLayoutParams = oldContent.getLayoutParams();
